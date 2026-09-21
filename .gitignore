@@ -68,3 +68,6 @@ qdrant_data/
 .supabase
 supabase/.branches
 supabase/.temp
+
+# tempority folder
+tmp/
