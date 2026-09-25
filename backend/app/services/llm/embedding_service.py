@@ -1,9 +1,10 @@
 from abc import ABC, abstractmethod
-from typing import List
-import openai
-import numpy as np
-from pydantic import BaseModel
 from functools import lru_cache
+from typing import List
+
+import numpy as np
+import openai
+from pydantic import BaseModel
 
 from app.core.config import settings
 from app.models.llm import LLMUsage

@@ -1,0 +1,1218 @@
+openapi: 3.1.0
+info:
+  title: AI Precision Fit API Specification
+  description: |
+    OpenAPI 3.1 specification cho hệ thống **AI Precision Fit & Virtual Try-On** (On-Premise MVP).
+    Thiết kế phục vụ kiến trúc Multi-Profile No-Auth (Demo Shopper) và Full-pipeline AI:
+    - **Garment Catalog & Size Charts** (50 sản phẩm mẫu từ Zara, Uniqlo, H&M, Pull&Bear, Stradivarius)
+    - **Fit Profile Management** (Đa hồ sơ cho 1 người dùng / thiết bị)
+    - **Quality Check Service** (MediaPipe Pose + Laplacian Blur Detection)
+    - **Anthropometric Measurement** (MediaPipe Pose 33 landmarks + công thức nhân trắc học)
+    - **Size & Fit Engine** (Rule-based Scoring & Hotspot Visual Breakdown)
+    - **Virtual Try-On Queue** (CatVTON Microservice async worker)
+
+    Tuân thủ quy ước:
+    - Resource URL dạng danh từ số nhiều (Plural nouns), không dùng động từ.
+    - Chuẩn hóa cấu trúc Error Response `{ error: { code, message, details } }`.
+    - Phân trang chuẩn cho các danh sách (Pagination).
+    - Hỗ trợ Zero-Auth qua header `X-Session-ID` kết hợp Supabase RLS.
+  version: 1.0.0
+  contact:
+    name: AI Precision Fit Engineering Team
+servers:
+  - url: http://localhost:8000/api/v1
+    description: Local Development Server (FastAPI)
+  - url: http://192.168.1.100:8000/api/v1
+    description: LAN Internal On-Premise Server
+
+tags:
+  - name: Profiles
+    description: Quản lý hồ sơ đo (Multi-Profile cho 1 User/Session)
+  - name: Garments
+    description: Danh mục sản phẩm thời trang & Bảng thông số kích thước (Size Charts)
+  - name: AI Pipeline
+    description: Pipeline xử lý AI (Kiểm tra ảnh, Trích xuất số đo, Khuyến nghị size)
+  - name: Virtual Try-On
+    description: Hàng đợi và trạng thái thử đồ ảo với mô hình CatVTON
+
+paths:
+  # ============================================================================
+  # 1. FIT PROFILES API
+  # ============================================================================
+  /fit-profiles:
+    get:
+      tags:
+        - Profiles
+      summary: Lấy danh sách Fit Profiles của session / người dùng
+      description: |
+        Trả về tất cả profiles thuộc về session hiện tại (Zero-Auth demo) hoặc user_id đã đăng nhập.
+      parameters:
+        - $ref: '#/components/parameters/SessionIdHeader'
+        - name: is_default_only
+          in: query
+          required: false
+          schema:
+            type: boolean
+          description: Chỉ lấy profile mặc định nếu true
+      responses:
+        '200':
+          description: Danh sách profiles thành công
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - data
+                  - total
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/FitProfile'
+                  total:
+                    type: integer
+                    example: 2
+        '400':
+          $ref: '#/components/responses/BadRequestError'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+
+    post:
+      tags:
+        - Profiles
+      summary: Tạo mới Fit Profile
+      description: Thêm mới một hồ sơ vóc dáng cho bản thân hoặc người thân.
+      parameters:
+        - $ref: '#/components/parameters/SessionIdHeader'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateFitProfileRequest'
+      responses:
+        '201':
+          description: Profile được tạo thành công
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FitProfile'
+        '422':
+          $ref: '#/components/responses/ValidationError'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+
+  /fit-profiles/{id}:
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+        description: UUID của Fit Profile
+    get:
+      tags:
+        - Profiles
+      summary: Xem chi tiết một Fit Profile
+      responses:
+        '200':
+          description: Chi tiết Profile
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FitProfile'
+        '404':
+          $ref: '#/components/responses/NotFoundError'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+
+    patch:
+      tags:
+        - Profiles
+      summary: Cập nhật thông tin / số đo của Fit Profile
+      description: Hỗ trợ cập nhật một phần (partial update) thông tin profile hoặc kết quả đo mới.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateFitProfileRequest'
+      responses:
+        '200':
+          description: Cập nhật profile thành công
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FitProfile'
+        '404':
+          $ref: '#/components/responses/NotFoundError'
+        '422':
+          $ref: '#/components/responses/ValidationError'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+
+    delete:
+      tags:
+        - Profiles
+      summary: Xóa một Fit Profile
+      description: Thao tác xóa an toàn (Idempotent).
+      responses:
+        '204':
+          description: Xóa profile thành công (No Content)
+        '404':
+          $ref: '#/components/responses/NotFoundError'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+
+  # ============================================================================
+  # 2. GARMENTS & SIZE CHARTS API
+  # ============================================================================
+  /garments:
+    get:
+      tags:
+        - Garments
+      summary: Lấy danh sách sản phẩm thời trang (Product Catalog)
+      description: |
+        Hỗ trợ phân trang, lọc theo thương hiệu (Zara, Uniqlo, H&M, Pull&Bear, Stradivarius),
+        danh mục (jacket, coat, blazer, puffer, dress, shirt, pants) và giới tính.
+      parameters:
+        - name: page
+          in: query
+          required: false
+          schema:
+            type: integer
+            default: 1
+            minimum: 1
+          description: Số trang hiện tại
+        - name: page_size
+          in: query
+          required: false
+          schema:
+            type: integer
+            default: 20
+            minimum: 1
+            maximum: 100
+          description: Số lượng item trên một trang
+        - name: brand
+          in: query
+          required: false
+          schema:
+            type: string
+            enum: [all, zara, uniqlo, hm, pullandbear, stradivarius]
+            default: all
+        - name: category
+          in: query
+          required: false
+          schema:
+            type: string
+            enum: [all, jacket, coat, blazer, puffer, dress, shirt, pants]
+            default: all
+        - name: gender
+          in: query
+          required: false
+          schema:
+            type: string
+            enum: [all, female, male, unisex]
+            default: all
+        - name: search
+          in: query
+          required: false
+          schema:
+            type: string
+          description: Tìm kiếm theo tên hoặc SKU
+      responses:
+        '200':
+          description: Danh sách sản phẩm kèm thông tin phân trang
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - data
+                  - pagination
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Garment'
+                  pagination:
+                    $ref: '#/components/schemas/PaginationMetadata'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+
+  /garments/{id}:
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+        description: UUID của Garment
+    get:
+      tags:
+        - Garments
+      summary: Lấy chi tiết sản phẩm kèm Bảng thông số kích thước (Size Charts)
+      responses:
+        '200':
+          description: Chi tiết sản phẩm kèm danh sách size charts
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GarmentDetail'
+        '404':
+          $ref: '#/components/responses/NotFoundError'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+
+  /garments/{id}/size-charts:
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+        description: UUID của Garment
+    get:
+      tags:
+        - Garments
+      summary: Lấy riêng danh sách Size Charts chi tiết của sản phẩm
+      responses:
+        '200':
+          description: Danh sách size charts (XS, S, M, L, XL, XXL)
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/GarmentSizeChart'
+        '404':
+          $ref: '#/components/responses/NotFoundError'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+
+  # ============================================================================
+  # 3. AI PIPELINE ENDPOINTS
+  # ============================================================================
+  /pipeline/quality-check:
+    post:
+      tags:
+        - AI Pipeline
+      summary: Bước 1 - Kiểm tra chất lượng ảnh toàn thân (Quality Gate)
+      description: |
+        Sử dụng MediaPipe Pose/Face Landmarker kết hợp thuật toán Laplacian Blur:
+        - Kiểm tra có đủ 1 người duy nhất trong khung hình không.
+        - Kiểm tra chân hoặc đầu có bị cắt mép ảnh không (feet_cut_off, head_cut_off).
+        - Đánh giá độ sắc nét (blur_score).
+        - Kiểm tra tư thế đứng chuẩn (bad_pose).
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              required:
+                - image
+              properties:
+                image:
+                  type: string
+                  format: binary
+                  description: File ảnh chụp hoặc upload từ thiết bị
+                image_type:
+                  type: string
+                  enum: [front, side]
+                  default: front
+                  description: Góc chụp ảnh (chính diện hoặc góc nghiêng)
+          application/json:
+            schema:
+              type: object
+              properties:
+                image_url:
+                  type: string
+                  format: uri
+                  example: "https://demo.local/uploads/photo1.jpg"
+                image_base64:
+                  type: string
+                  description: Base64 string của file ảnh
+                image_type:
+                  type: string
+                  enum: [front, side]
+                  default: front
+      responses:
+        '200':
+          description: Kết quả thẩm định ảnh
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QualityCheckResponse'
+        '400':
+          $ref: '#/components/responses/BadRequestError'
+        '422':
+          $ref: '#/components/responses/ValidationError'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+
+  /pipeline/measure:
+    post:
+      tags:
+        - AI Pipeline
+      summary: Bước 2 - Ước lượng số đo cơ thể từ ảnh hoặc nhân trắc học
+      description: |
+        Phân tích 33 MediaPipe Pose Landmarks kết hợp chiều cao đã biết và bảng công thức tỷ lệ anthropometric
+        để tính toán số đo các vòng: Ngực, Eo, Hông, Rộng vai.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MeasurementRequest'
+      responses:
+        '200':
+          description: Bộ số đo ước lượng thành công
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MeasurementResponse'
+        '422':
+          $ref: '#/components/responses/ValidationError'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+
+  /pipeline/size-recommend:
+    post:
+      tags:
+        - AI Pipeline
+      summary: Bước 3 - Tính toán độ vừa vặn & Gợi ý kích thước (Rule-based Fit Engine)
+      description: |
+        So khớp số đo của profile với bảng thông số size chart của sản phẩm garment cụ thể.
+        Tính điểm fit score theo từng vị trí (vai, ngực, eo, hông, dài áo) có xét đến:
+        - Giới tính (Nam / Nữ)
+        - Độ co giãn vải (fabric_stretch)
+        - Gu mặc cá nhân (Ôm / Vừa vặn / Rộng rãi)
+        - Phân tích so sánh hotspot giữa các size (S vs M vs L)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SizeRecommendRequest'
+      responses:
+        '200':
+          description: Đề xuất kích thước và lý giải chi tiết
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SizeRecommendResponse'
+        '404':
+          $ref: '#/components/responses/NotFoundError'
+        '422':
+          $ref: '#/components/responses/ValidationError'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+
+  # ============================================================================
+  # 4. VIRTUAL TRY-ON (CatVTON Microservice Queue)
+  # ============================================================================
+  /tryon/jobs:
+    post:
+      tags:
+        - Virtual Try-On
+      summary: Tạo tác vụ thử đồ ảo Virtual Try-On (Async Job)
+      description: |
+        Gửi yêu cầu mặc thử áo/váy lên ảnh người tới microservice CatVTON.
+        Tác vụ được xử lý bất đồng bộ (202 Accepted) để tránh giữ kết nối HTTP quá lâu trên GPU.
+        Hỗ trợ header `Idempotency-Key` để tránh chạy lặp lại cùng một lần click.
+      parameters:
+        - $ref: '#/components/parameters/IdempotencyKeyHeader'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateTryOnJobRequest'
+      responses:
+        '202':
+          description: Tác vụ đã được tiếp nhận vào hàng đợi
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TryOnJob'
+        '404':
+          $ref: '#/components/responses/NotFoundError'
+        '409':
+          description: Idempotency conflict (request đang chạy)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          $ref: '#/components/responses/ValidationError'
+        '503':
+          description: GPU Microservice (vto-service) tạm thời offline
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+
+  /tryon/jobs/{job_id}:
+    parameters:
+      - name: job_id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+        description: UUID của TryOn Job
+    get:
+      tags:
+        - Virtual Try-On
+      summary: Kiểm tra trạng thái & Lấy kết quả ảnh mặc thử
+      description: |
+        Client polling endpoint này mỗi 2-3s cho đến khi `status` chuyển thành `completed` hoặc `failed`.
+      responses:
+        '200':
+          description: Trạng thái hiện tại của Job
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TryOnJob'
+        '404':
+          $ref: '#/components/responses/NotFoundError'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+
+# ==============================================================================
+# COMPONENTS (SCHEMAS, PARAMETERS, RESPONSES)
+# ==============================================================================
+components:
+  parameters:
+    SessionIdHeader:
+      name: X-Session-ID
+      in: header
+      required: false
+      schema:
+        type: string
+        default: demo-shopper
+      description: Session identifier cho chế độ No-Auth demo (lưu trong LocalStorage)
+    IdempotencyKeyHeader:
+      name: Idempotency-Key
+      in: header
+      required: false
+      schema:
+        type: string
+        format: uuid
+      description: Khóa định danh chống trùng lặp request khi retry
+
+  responses:
+    BadRequestError:
+      description: Request không hợp lệ
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+          example:
+            error:
+              code: BAD_REQUEST
+              message: File upload không đúng định dạng ảnh hoặc vượt quá dung lượng cho phép.
+
+    NotFoundError:
+      description: Không tìm thấy tài nguyên yêu cầu
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+          example:
+            error:
+              code: RESOURCE_NOT_FOUND
+              message: Không tìm thấy profile hoặc garment với ID đã cung cấp.
+
+    ValidationError:
+      description: Dữ liệu gửi lên không vượt qua schema validation
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+          example:
+            error:
+              code: VALIDATION_ERROR
+              message: Dữ liệu đầu vào không hợp lệ.
+              details:
+                - loc: ["body", "height_cm"]
+                  msg: "ensure this value is greater than or equal to 100"
+                  type: "value_error.number.not_ge"
+
+    InternalServerError:
+      description: Lỗi máy chủ nội bộ
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+          example:
+            error:
+              code: INTERNAL_SERVER_ERROR
+              message: Đã xảy ra sự cố trong quá trình xử lý AI. Vui lòng thử lại sau.
+
+  schemas:
+    # --- Universal Error Schema ---
+    ErrorResponse:
+      type: object
+      required:
+        - error
+      properties:
+        error:
+          type: object
+          required:
+            - code
+            - message
+          properties:
+            code:
+              type: string
+              example: "VALIDATION_ERROR"
+            message:
+              type: string
+              example: "Chiều cao phải nằm trong khoảng từ 100cm đến 250cm."
+            details:
+              description: Thông tin chi tiết về lỗi (nếu có)
+              nullable: true
+
+    # --- Pagination Metadata ---
+    PaginationMetadata:
+      type: object
+      required:
+        - page
+        - page_size
+        - total_items
+        - total_pages
+      properties:
+        page:
+          type: integer
+          example: 1
+        page_size:
+          type: integer
+          example: 20
+        total_items:
+          type: integer
+          example: 50
+        total_pages:
+          type: integer
+          example: 3
+
+    # --- Common Types ---
+    Gender:
+      type: string
+      enum: [female, male]
+      example: female
+
+    FitPreference:
+      type: string
+      enum: [slim, regular, relaxed]
+      example: regular
+      description: Gu mặc ôm sát (slim), vừa vặn (regular), rộng thoải mái (relaxed)
+
+    SizeLabel:
+      type: string
+      enum: [XS, S, M, L, XL, XXL]
+      example: M
+
+    FabricStretch:
+      type: string
+      enum: [none, low, medium, high]
+      example: low
+
+    # --- Fit Profile Models ---
+    FitProfile:
+      type: object
+      required:
+        - id
+        - name
+        - gender
+        - fit_preference
+        - height_cm
+        - weight_kg
+        - is_verified
+        - is_default
+        - created_at
+      properties:
+        id:
+          type: string
+          format: uuid
+          example: "b1111111-1111-4111-8111-111111111111"
+        session_id:
+          type: string
+          example: "demo-shopper"
+        user_id:
+          type: string
+          format: uuid
+          nullable: true
+        name:
+          type: string
+          example: "Trang"
+        gender:
+          $ref: '#/components/schemas/Gender'
+        fit_preference:
+          $ref: '#/components/schemas/FitPreference'
+        height_cm:
+          type: number
+          minimum: 100
+          maximum: 250
+          example: 162.0
+        weight_kg:
+          type: number
+          minimum: 30
+          maximum: 200
+          example: 50.0
+        chest_cm:
+          type: number
+          nullable: true
+          example: 84.0
+        waist_cm:
+          type: number
+          nullable: true
+          example: 66.0
+        hips_cm:
+          type: number
+          nullable: true
+          example: 90.0
+        shoulder_cm:
+          type: number
+          nullable: true
+          example: 37.0
+        front_image_url:
+          type: string
+          format: uri
+          nullable: true
+          example: "https://demo.local/storage/profiles/trang_front.jpg"
+        side_image_url:
+          type: string
+          format: uri
+          nullable: true
+          example: "https://demo.local/storage/profiles/trang_side.jpg"
+        is_verified:
+          type: boolean
+          example: true
+          description: Đã qua bước kiểm định ảnh thành công hay chưa
+        is_default:
+          type: boolean
+          example: true
+        created_at:
+          type: string
+          format: date-time
+          example: "2026-09-23T10:00:00Z"
+        updated_at:
+          type: string
+          format: date-time
+          nullable: true
+
+    CreateFitProfileRequest:
+      type: object
+      required:
+        - name
+        - gender
+        - fit_preference
+        - height_cm
+        - weight_kg
+      properties:
+        name:
+          type: string
+          minLength: 1
+          maxLength: 50
+          example: "Trang"
+        gender:
+          $ref: '#/components/schemas/Gender'
+        fit_preference:
+          $ref: '#/components/schemas/FitPreference'
+        height_cm:
+          type: number
+          minimum: 100
+          maximum: 250
+          example: 162.0
+        weight_kg:
+          type: number
+          minimum: 30
+          maximum: 200
+          example: 50.0
+        chest_cm:
+          type: number
+          nullable: true
+          example: 84.0
+        waist_cm:
+          type: number
+          nullable: true
+          example: 66.0
+        hips_cm:
+          type: number
+          nullable: true
+          example: 90.0
+        shoulder_cm:
+          type: number
+          nullable: true
+          example: 37.0
+        front_image_url:
+          type: string
+          nullable: true
+        side_image_url:
+          type: string
+          nullable: true
+        is_default:
+          type: boolean
+          default: false
+
+    UpdateFitProfileRequest:
+      type: object
+      properties:
+        name:
+          type: string
+        fit_preference:
+          $ref: '#/components/schemas/FitPreference'
+        height_cm:
+          type: number
+          minimum: 100
+          maximum: 250
+        weight_kg:
+          type: number
+          minimum: 30
+          maximum: 200
+        chest_cm:
+          type: number
+          nullable: true
+        waist_cm:
+          type: number
+          nullable: true
+        hips_cm:
+          type: number
+          nullable: true
+        shoulder_cm:
+          type: number
+          nullable: true
+        front_image_url:
+          type: string
+          nullable: true
+        side_image_url:
+          type: string
+          nullable: true
+        is_verified:
+          type: boolean
+        is_default:
+          type: boolean
+
+    # --- Garment & Size Chart Models ---
+    Garment:
+      type: object
+      required:
+        - id
+        - sku
+        - name
+        - brand
+        - category
+        - gender
+        - image_url
+        - fabric_stretch
+      properties:
+        id:
+          type: string
+          format: uuid
+          example: "c1111111-1111-4111-8111-111111111111"
+        sku:
+          type: string
+          example: "HM-JACKET-01"
+        name:
+          type: string
+          example: "Áo Khoác Dạ Pha Len Dáng Rộng"
+        brand:
+          type: string
+          enum: [zara, uniqlo, hm, pullandbear, stradivarius]
+          example: "hm"
+        category:
+          type: string
+          enum: [jacket, coat, blazer, puffer, dress, shirt, pants]
+          example: "coat"
+        gender:
+          type: string
+          enum: [female, male, unisex]
+          example: "female"
+        image_url:
+          type: string
+          format: uri
+          example: "/products/hm/hm_01.webp"
+        fabric_stretch:
+          $ref: '#/components/schemas/FabricStretch'
+        price:
+          type: number
+          example: 1499000
+        description:
+          type: string
+          example: "Áo khoác dài vải dạ ấm áp, phom suông thanh lịch."
+        available_sizes:
+          type: array
+          items:
+            $ref: '#/components/schemas/SizeLabel'
+          example: ["S", "M", "L", "XL"]
+
+    GarmentSizeChart:
+      type: object
+      required:
+        - id
+        - garment_id
+        - size
+      properties:
+        id:
+          type: string
+          format: uuid
+        garment_id:
+          type: string
+          format: uuid
+        size:
+          $ref: '#/components/schemas/SizeLabel'
+        chest_min:
+          type: number
+          nullable: true
+          example: 84.0
+        chest_max:
+          type: number
+          nullable: true
+          example: 88.0
+        waist_min:
+          type: number
+          nullable: true
+          example: 66.0
+        waist_max:
+          type: number
+          nullable: true
+          example: 70.0
+        hips_min:
+          type: number
+          nullable: true
+          example: 90.0
+        hips_max:
+          type: number
+          nullable: true
+          example: 94.0
+        shoulder_width:
+          type: number
+          nullable: true
+          example: 38.5
+        garment_length:
+          type: number
+          nullable: true
+          example: 72.0
+
+    GarmentDetail:
+      allOf:
+        - $ref: '#/components/schemas/Garment'
+        - type: object
+          required:
+            - size_charts
+          properties:
+            size_charts:
+              type: array
+              items:
+                $ref: '#/components/schemas/GarmentSizeChart'
+
+    # --- AI Pipeline Schemas ---
+    QualityIssue:
+      type: object
+      required:
+        - code
+        - severity
+        - message
+      properties:
+        code:
+          type: string
+          enum: [feet_cut_off, head_cut_off, blurry, bad_lighting, multi_person, no_person, bad_pose]
+          example: "feet_cut_off"
+        severity:
+          type: string
+          enum: [error, warning]
+          example: "error"
+        message:
+          type: string
+          example: "Bàn chân bị cắt khỏi khung hình. Vui lòng lùi xa camera khoảng 2-3 bước."
+        box:
+          type: array
+          items:
+            type: number
+          minItems: 4
+          maxItems: 4
+          description: Vùng bounding box của lỗi [ymin, xmin, ymax, xmax] (tỷ lệ 0.0 - 1.0)
+          example: [0.85, 0.2, 1.0, 0.8]
+
+    QualityCheckResponse:
+      type: object
+      required:
+        - is_valid
+        - confidence_score
+        - issues
+        - blur_score
+        - landmarks_detected
+      properties:
+        is_valid:
+          type: boolean
+          example: true
+          description: True nếu không có lỗi nghiêm trọng (severity = error)
+        confidence_score:
+          type: number
+          minimum: 0.0
+          maximum: 1.0
+          example: 0.94
+        issues:
+          type: array
+          items:
+            $ref: '#/components/schemas/QualityIssue'
+        blur_score:
+          type: number
+          example: 185.4
+          description: Điểm phương sai Laplacian (>100 là ảnh nét đạt chuẩn)
+        landmarks_detected:
+          type: integer
+          minimum: 0
+          maximum: 33
+          example: 33
+          description: Số mốc giải phẫu nhận diện được từ MediaPipe
+
+    MeasurementRequest:
+      type: object
+      required:
+        - height_cm
+        - weight_kg
+        - gender
+      properties:
+        height_cm:
+          type: number
+          minimum: 100
+          maximum: 250
+          example: 162.0
+        weight_kg:
+          type: number
+          minimum: 30
+          maximum: 200
+          example: 50.0
+        gender:
+          $ref: '#/components/schemas/Gender'
+        front_image_url:
+          type: string
+          format: uri
+          nullable: true
+        side_image_url:
+          type: string
+          format: uri
+          nullable: true
+
+    MeasurementResponse:
+      type: object
+      required:
+        - measurements
+        - confidence_percent
+        - method
+      properties:
+        measurements:
+          type: object
+          required:
+            - height_cm
+            - weight_kg
+          properties:
+            height_cm:
+              type: number
+              example: 162.0
+            weight_kg:
+              type: number
+              example: 50.0
+            shoulder_cm:
+              type: number
+              example: 37.5
+            chest_cm:
+              type: number
+              example: 84.0
+            waist_cm:
+              type: number
+              example: 66.5
+            hips_cm:
+              type: number
+              example: 90.0
+        confidence_percent:
+          type: integer
+          minimum: 0
+          maximum: 100
+          example: 92
+        method:
+          type: string
+          enum: [ai_vision, anthropometric_hybrid]
+          example: "ai_vision"
+
+    PartFitEvaluation:
+      type: object
+      required:
+        - part
+        - part_label
+        - status
+        - status_label
+        - diff_cm
+      properties:
+        part:
+          type: string
+          enum: [shoulder, chest, waist, hips, length]
+          example: "chest"
+        part_label:
+          type: string
+          example: "Vòng ngực"
+        status:
+          type: string
+          enum: [perfect, slightly_tight, slightly_loose, too_tight, too_loose]
+          example: "perfect"
+        status_label:
+          type: string
+          example: "Vừa vặn chuẩn"
+        diff_cm:
+          type: number
+          example: 1.5
+          description: Chênh lệch độ dư vải so với cơ thể (cm)
+
+    SizeComparisonItem:
+      type: object
+      required:
+        - fit_score
+        - badge_label
+        - description
+      properties:
+        fit_score:
+          type: number
+          minimum: 0.0
+          maximum: 1.0
+          example: 0.95
+        badge_label:
+          type: string
+          example: "Phù hợp nhất"
+        description:
+          type: string
+          example: "Ôm nhẹ bờ vai và vừa vặn vòng eo theo đúng gu thường ngày."
+
+    SizeRecommendRequest:
+      type: object
+      required:
+        - garment_id
+        - profile_id
+      properties:
+        garment_id:
+          type: string
+          format: uuid
+          example: "c1111111-1111-4111-8111-111111111111"
+        profile_id:
+          type: string
+          format: uuid
+          example: "b1111111-1111-4111-8111-111111111111"
+        fit_preference_override:
+          $ref: '#/components/schemas/FitPreference'
+          description: Cho phép người dùng thử đổi gu (Ôm / Rộng) nhanh mà không sửa profile
+
+    SizeRecommendResponse:
+      type: object
+      required:
+        - recommended_size
+        - confidence_percent
+        - fit_preference_label
+        - summary_explanation
+        - breakdown
+        - size_comparisons
+      properties:
+        recommended_size:
+          $ref: '#/components/schemas/SizeLabel'
+          example: "M"
+        confidence_percent:
+          type: integer
+          minimum: 0
+          maximum: 100
+          example: 95
+        fit_preference_label:
+          type: string
+          example: "Vừa vặn (Regular Fit)"
+        summary_explanation:
+          type: string
+          example: "Dựa trên chiều cao 162cm và vòng ngực 84cm, Size M cho tỷ lệ vai 38.5cm chuẩn xác và thoải mái khi khoác ngoài."
+        breakdown:
+          type: array
+          items:
+            $ref: '#/components/schemas/PartFitEvaluation'
+        size_comparisons:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/SizeComparisonItem'
+          example:
+            S:
+              fit_score: 0.78
+              badge_label: "Hơi ôm"
+              description: "Hơi kích vòng ngực nếu mặc thêm áo len bên trong."
+            M:
+              fit_score: 0.95
+              badge_label: "Phù hợp nhất"
+              description: "Vừa vặn chuẩn xác theo số đo vai và ngực."
+            L:
+              fit_score: 0.70
+              badge_label: "Rộng rãi"
+              description: "Dài tay thừa 3cm và thân áo thụng."
+
+    # --- Try-On Job Models ---
+    CreateTryOnJobRequest:
+      type: object
+      required:
+        - profile_id
+        - garment_id
+      properties:
+        profile_id:
+          type: string
+          format: uuid
+          example: "b1111111-1111-4111-8111-111111111111"
+        garment_id:
+          type: string
+          format: uuid
+          example: "c1111111-1111-4111-8111-111111111111"
+        person_image_url:
+          type: string
+          format: uri
+          nullable: true
+          description: URL ảnh toàn thân (nếu bỏ trống sẽ lấy từ profile)
+        garment_image_url:
+          type: string
+          format: uri
+          nullable: true
+          description: URL ảnh phẳng áo (nếu bỏ trống sẽ lấy từ garment)
+
+    TryOnJob:
+      type: object
+      required:
+        - job_id
+        - status
+        - estimated_seconds
+        - created_at
+      properties:
+        job_id:
+          type: string
+          format: uuid
+          example: "e1111111-1111-4111-8111-111111111111"
+        profile_id:
+          type: string
+          format: uuid
+        garment_id:
+          type: string
+          format: uuid
+        status:
+          type: string
+          enum: [queued, processing, completed, failed]
+          example: "completed"
+        result_image_url:
+          type: string
+          format: uri
+          nullable: true
+          example: "https://demo.local/storage/tryon/result_e111.webp"
+        error_message:
+          type: string
+          nullable: true
+        estimated_seconds:
+          type: integer
+          example: 12
+        created_at:
+          type: string
+          format: date-time
+          example: "2026-09-23T10:15:30Z"

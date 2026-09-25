@@ -71,3 +71,4 @@ supabase/.temp
 
 # tempority folder
 tmp/
+samples/*

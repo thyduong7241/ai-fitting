@@ -1,5 +1,6 @@
-from supabase import create_client, Client
-from typing import Dict, List, Any, Optional, TypeVar, Generic, Type
+from typing import Any, Dict, Generic, List, Optional, Type, TypeVar
+
+from supabase import Client, create_client
 
 from app.core.config import settings
 

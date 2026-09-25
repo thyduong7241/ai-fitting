@@ -1,11 +1,18 @@
-from fastapi import APIRouter, Depends, HTTPException, status
-from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 from typing import List
 
-from app.services.vectordb import QdrantService, get_vector_db_service
+from fastapi import APIRouter, Depends, HTTPException, status
+from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
+
+from app.models.vectordb import (
+    DeleteDocumentsRequest,
+    DocumentInput,
+    DocumentUploadResponse,
+    SearchQuery,
+    SearchResult,
+)
 from app.services.llm.embedding_service import EmbeddingService, get_embedding_service
 from app.services.supabase.auth import SupabaseAuthService, get_auth_service
-from app.models.vectordb import DocumentInput, SearchQuery, SearchResult, DocumentUploadResponse, DeleteDocumentsRequest
+from app.services.vectordb import QdrantService, get_vector_db_service
 
 router = APIRouter()
 security = HTTPBearer()

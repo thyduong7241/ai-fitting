@@ -1,12 +1,18 @@
-from fastapi import APIRouter, Depends, HTTPException, status
-from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 import logging
 
-from app.services.llm.llm_service import LLMService, get_llm_service
-from app.services.llm.embedding_service import EmbeddingService, get_embedding_service
-from app.models.llm import TextGenerationRequest, TextGenerationResponse, EmbeddingRequest, EmbeddingResponse
-from app.services.supabase.auth import SupabaseAuthService, get_auth_service
+from fastapi import APIRouter, Depends, HTTPException, status
+from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
+
 from app.core.config import settings
+from app.models.llm import (
+    EmbeddingRequest,
+    EmbeddingResponse,
+    TextGenerationRequest,
+    TextGenerationResponse,
+)
+from app.services.llm.embedding_service import EmbeddingService, get_embedding_service
+from app.services.llm.llm_service import LLMService, get_llm_service
+from app.services.supabase.auth import SupabaseAuthService, get_auth_service
 
 router = APIRouter()
 security = HTTPBearer()  # Make authentication required

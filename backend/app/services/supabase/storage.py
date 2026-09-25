@@ -1,7 +1,8 @@
-from supabase import create_client, Client
-from fastapi import UploadFile
-from typing import List, Optional
 import uuid
+from typing import List, Optional
+
+from fastapi import UploadFile
+from supabase import Client, create_client
 
 from app.core.config import settings
 

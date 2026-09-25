@@ -8,23 +8,22 @@ GREEN=\033[0;32m
 YELLOW=\033[0;33m
 NC=\033[0m # No Color
 
-install: ## Install dependencies
-	@echo "${GREEN}Installing dependencies...${NC}"
-	pip install -r requirements.txt
+install: ## Install dependencies using venv and pyproject.toml
+	@echo "${GREEN}Setting up venv and installing dependencies...${NC}"
+	python3 -m venv .venv
+	./.venv/bin/pip install -e ".[dev]"
 
 dev: ## Run development server
 	@echo "${GREEN}Starting development server...${NC}"
-	uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
+	./.venv/bin/uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
 
 lint: ## Run linting
-	@echo "${GREEN}Running linters...${NC}"
-	flake8 app
-	isort app
-	black app
+	@echo "${GREEN}Running ruff linter...${NC}"
+	./.venv/bin/ruff check app
 
 test: ## Run tests
 	@echo "${GREEN}Running tests...${NC}"
-	pytest
+	./.venv/bin/pytest
 
 clean: ## Clean up cache files
 	@echo "${YELLOW}Cleaning up cache files...${NC}"

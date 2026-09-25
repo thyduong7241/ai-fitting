@@ -10,19 +10,20 @@ This is a modern, modular full-stack application starter template with Next.js f
 
 ## Architecture Overview
 
-- **Backend**: Python FastAPI with Supabase integration (auth, database, storage)
-- **Frontend**: Next.js with Tailwind CSS and TypeScript
-- **Database**: Supabase PostgreSQL with migrations
-- **Vector DB**: Qdrant for semantic search
-- **LLM Integration**: OpenAI and Anthropic support
+- **Backend**: Python FastAPI with modular pipeline routers (/quality-check, /measure, /size-recommend, /tryon)
+- **Frontend**: Next.js with Tailwind CSS and TypeScript (mobile-first widget)
+- **Database & Storage**: Supabase Self-Hosted (PostgreSQL via Docker Compose)
+- **Vision & Fit Pipeline**: MediaPipe Pose Landmarker + OpenCV Laplacian blur + Anthropometric engine
+- **Virtual Try-On**: CatVTON microservice (Docker GPU container)
+- **Core Principle**: 100% self-hosted & on-premise, rule-based sizing, no external LLM API dependency
 
 ## Core Principles
 
-1. **Type Safety First**: Use TypeScript for frontend, Pydantic models for backend
-2. **Service Layer Pattern**: Abstract external services (Supabase, LLM, Vector DB)
-3. **Environment-based Configuration**: Use .env files for all configuration
-4. **Docker-first Development**: All services containerized
-5. **Migration-driven Database**: All schema changes through Supabase migrations
+1. **Type Safety First**: Use TypeScript for frontend, Pydantic models for backend matching `docs/api/ai_precision_fit_api.yaml`
+2. **Modular Pipeline**: Decouple pipeline steps (quality check -> measure -> size recommend -> tryon)
+3. **Strict Workspace Hygiene**: Store all temporary scripts, test fixtures, and intermediate outputs in `tmp/`
+4. **Mobile-First Design**: Design tokens and layouts aligned with Figma (Node 8:10)
+5. **On-Premise Docker**: All services containerized for local server execution
 
 ## File Organization Standards
 

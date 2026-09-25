@@ -1,223 +1,196 @@
-# Full Stack Vibe Coding Template
+# AI Precision Fit 👗📏
 
-A modern, modular full-stack application starter template with NextJS frontend and Python FastAPI backend, supabase backend for Vibe coding.
+> **Virtual Fitting Room & AI Precision Size Recommendation Widget for Fashion E-Commerce**  
+> Giải pháp phòng thử đồ ảo và gợi ý size thông minh, tích hợp liền mạch vào các sàn thương mại điện tử thời trang. Tự động đề xuất kích cỡ tối ưu, phân tích độ vừa vặn đa vùng cơ thể và mô phỏng mặc thử trang phục thực tế (Virtual Try-On).
 
-Contains all the common boilerplate features. Just add the README.md and CONTEXT.md files to AI coding agent's context.
+[![Next.js](https://img.shields.io/badge/Frontend-Next.js%2014-black?logo=next.js)](https://nextjs.org/)
+[![FastAPI](https://img.shields.io/badge/Backend-FastAPI-009688?logo=fastapi)](https://fastapi.tiangolo.com/)
+[![Supabase](https://img.shields.io/badge/Database-Supabase%20Self--Hosted-3ECF8E?logo=supabase)](https://supabase.com/)
+[![TypeScript](https://img.shields.io/badge/Language-TypeScript%20Strict-3178C6?logo=typescript)](https://www.typescriptlang.org/)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
-Dont waste your time and tokens on boilerplate code. Use it to build your app
+---
 
-## 🤖 AI-Powered Development
+## 🌟 Điểm Nổi Bật (Key Features)
 
-This template includes comprehensive **Cursor Rules** and **Agent Instructions** to supercharge your AI-assisted development:
+- 📱 **Mobile-First Fitting Widget:** Thiết kế chuẩn viewport di động (390px x 844px) căn giữa trên desktop, tối ưu hóa trải nghiệm vuốt chạm, tuân thủ chặt chẽ Figma Design System (Node 8:10 & 8:12).
+- 👥 **Zero-Auth Multi-Profile:** Lưu trữ và quản lý đa hồ sơ vóc dáng (người dùng, người thân, bạn bè) trực tiếp trên Client (`localStorage` + Supabase sync) mà không bắt buộc tạo tài khoản rườm rà.
+- 🛍️ **50 Sản Phẩm Thực Tế & Size Charts:** Sàn diễn thời trang tích hợp sẵn 50 sản phẩm outerwear thực tế kèm size chart chi tiết từ 5 thương hiệu hàng đầu: **Zara, Uniqlo, H&M, Pull&Bear, Stradivarius**.
+- 📐 **Dual Measurement Inputs:**
+  - **AI Chụp ảnh:** Hướng dẫn tạo dáng đứng chuẩn, kiểm định chất lượng ảnh (Quality Gate kiểm tra cắt chân, độ mờ) và trích xuất số đo nhân trắc học 33 landmarks.
+  - **Nhập tay thủ công:** Form nhập linh hoạt 6 số đo (Chiều cao, Cân nặng, Vòng 1, Vòng 2, Vòng 3, Rộng vai) hỗ trợ chuyển đổi cm / inch.
+- 🎯 **Multi-Zone Fit Engine:** Thuật toán tính điểm vừa vặn đa chiều (ngực, eo, hông, vai, dài áo) so với bảng size thực tế của từng sản phẩm; tự động điều chỉnh theo gu mặc (Ôm sát / Vừa vặn / Rộng rãi).
+- 🪞 **CatVTON Virtual Try-On:** Mô phỏng mặc thử đồ ảo với 8 trạng thái tương tác trực quan, cho phép nhấn giữ để so sánh ảnh gốc và ảnh mặc thử.
+- 🛡️ **100% Self-Hosted & Bảo mật:** Triển khai On-Premise, toàn bộ mô hình AI (MediaPipe, CatVTON) tự chạy nội bộ, cam kết bảo mật quyền riêng tư ảnh vóc dáng của khách hàng.
 
-### Cursor Rules (`.cursor/rules/`)
-- **Context-aware guidance** that automatically applies based on the files you're editing
-- **Template system** with production-ready code patterns (`@api-endpoint-template`, `@react-component-template`)
-- **Best practices enforcement** for FastAPI, Next.js, Supabase, and LLM integration
-- **Automatic rule application** - no manual setup required
+---
 
-### AGENTS.md
-- **Simplified instructions** for AI coding assistants
-- **Project patterns** and common code examples
-- **Architecture overview** and development standards
-- **Quick reference** for established patterns
-
-### Benefits
-- ⚡ **Faster Development** - Templates and patterns accelerate coding
-- 🎯 **Consistency** - All code follows established patterns
-- 🛡️ **Quality** - Built-in best practices and error handling
-- 📚 **Learning** - New developers quickly understand project structure
-- 🤖 **AI-Optimized** - Designed specifically for AI coding assistants
-
-## Features
-
-### Backend (Python FastAPI)
-- **FastAPI REST API** - Fast, type-checked API development
-- **Supabase Integration**
-  - Authentication (Google, LinkedIn, Email/Password)
-  - Database connectivity
-  - Realtime subscriptions
-  - Storage management
-  - Database migrations
-- **LLM Integration**
-  - OpenAI and Claude support
-  - Abstracted LLM service
-  - Vector embeddings service
-- **Vector Database**
-  - Qdrant integration
-  - Document storage and semantic search
-  - Automatic fallback to local in-memory database
-
-### Frontend (Next.js)
-- **Next.js** - React framework with routing, SSR, and more
-- **Tailwind CSS** - Utility-first CSS framework
-- **Responsive design** - Mobile-first approach
-- **Supabase client** - For auth and data access
-- **Complete auth flows** - Login, signup, password reset
-
-## Getting Started
-
-### Prerequisites
-- Docker and Docker Compose
-- Make
-- Node.js 18+ (for local frontend development)
-- Python 3.10+ (for local backend development)
-- Supabase CLI (for database migrations, install with `brew install supabase/tap/supabase` or see [Supabase CLI docs](https://supabase.com/docs/guides/cli))
-
-### Quick Start
-
-1. Clone this repository:
-   ```bash
-   git clone https://github.com/humanstack/vibe-coding-boilerplate
-   cd vibe-coding-boilerplate
-   ```
-
-2. Run the first-time setup script to configure your environment:
-   ```bash
-   ./first-time.sh
-   ```
-   This will:
-   - Check for required tools
-   - Guide you through setting up API keys
-   - Generate the necessary .env files
-
-3. Start the development environment:
-   ```bash
-   make dev
-   ```
-
-4. Access the applications:
-   - Frontend: http://localhost:3000
-   - Backend API: http://localhost:8000
-   - API Documentation: http://localhost:8000/docs
-
-## Setup Without Script
-
-If you prefer to set up manually:
-
-1. Copy the `.env.example` file to `.env`:
-   ```bash
-   cp .env.example .env
-   ```
-
-2. Create a frontend environment file:
-   ```bash
-   cp .env.example frontend/.env.local
-   ```
-
-3. Edit both files to add your API keys for:
-   - Supabase (required for auth)
-   - OpenAI and/or Anthropic (for LLM features)
-   - Qdrant (for vector database features, optional)
-
-4. Start the development environment:
-   ```bash
-   make dev
-   ```
-
-## Authentication Setup
-
-For detailed instructions on setting up authentication providers (Google, LinkedIn, GitHub, etc.), see the [Authentication Setup Guide](./AuthSetup.md).
-
-## Structure
+## 🏗️ Kiến Trúc Hệ Thống (Tech Stack & Architecture)
 
 ```
-/
-├── .cursor/                  # Cursor AI configuration
-│   └── rules/                # Cursor rules for AI assistance
-│       ├── backend/          # Backend-specific rules
-│       ├── frontend/         # Frontend-specific rules
-│       └── templates/        # Code templates
-├── AGENTS.md                 # AI agent instructions
-│
-├── backend/                  # Python FastAPI application
-│   ├── app/                  # Application code
-│   │   ├── api/              # API endpoints
-│   │   ├── core/             # Core functionality
-│   │   ├── models/           # Data models
-│   │   └── services/         # Service layer
-│   │       ├── llm/          # LLM services
-│   │       ├── supabase/     # Supabase services
-│   │       └── vectordb/     # Vector DB services
-│
-├── frontend/                 # Next.js application
-│   ├── app/                  # Next.js app directory
-│   ├── components/           # UI components
-│   ├── services/             # API services
-│
-├── supabase/                 # Supabase configuration
-│   ├── migrations/           # Database migrations
-│   ├── seed.sql              # Database seed data
-│   └── README.md             # Migrations documentation
-│
-├── llm-context/              # Legacy context files (now replaced by Cursor rules)
-├── docker-compose.yml        # Docker configuration
-├── Makefile                  # Project commands
-├── first-time.sh             # Setup script
-├── .gitignore                # Git ignore patterns
-├── .env.example              # Example environment variables
-├── CHANGELOG.md              # Project changelog
-└── FutureImprovements.md     # Future feature roadmap
+[ Khách hàng / Shopper ]
+          │
+          ▼
+┌────────────────────────────────────────────────────────┐
+│  Next.js 14 Frontend (Mobile-First Widget)             │
+│  - React, Tailwind CSS, TypeScript (Strict)           │
+│  - State Machine 10 Màn hình (useFittingFlow)         │
+│  - Multi-Profile Management (useProfiles)              │
+│  - Realtime Fit Engine Client-Side Calculation        │
+└──────────────────────────┬─────────────────────────────┘
+                           │ (HTTP REST API / JSON)
+                           ▼
+┌────────────────────────────────────────────────────────┐
+│  Python FastAPI Backend (/api/v1)                      │
+│  - MediaPipe Pose 33-Landmarks + OpenCV Blur Check    │
+│  - Anthropometric Measurement Extraction               │
+│  - Rule-Based Size Recommendation & Explanation       │
+└──────────────┬───────────────────────────┬─────────────┘
+               │                           │
+               ▼                           ▼
+┌──────────────────────────────┐ ┌──────────────────────┐
+│  CatVTON Microservice        │ │  Supabase On-Prem    │
+│  (Isolated GPU Inference)    │ │  (PostgreSQL + S3)   │
+└──────────────────────────────┘ └──────────────────────┘
 ```
 
-## Common Tasks
+| Tầng | Công nghệ sử dụng | Vai trò |
+|---|---|---|
+| **Frontend** | Next.js 14 (App Router), React, Tailwind CSS, TypeScript | Giao diện Catalog & Widget thử đồ 10 bước |
+| **Backend API** | Python 3.10+, FastAPI, Pydantic v2 | Xử lý nghiệp vụ, API định dạng OpenAPI 3.1 |
+| **Quality Gate & Pose** | MediaPipe Pose Landmarker, OpenCV (Laplacian) | Kiểm tra độ nét, toàn thân và trích xuất landmarks |
+| **Fit Engine** | Rule-Based Scoring Service (Client & Backend sync) | Đánh giá độ vừa vặn từng vùng cơ thể theo size chart |
+| **Virtual Try-On** | CatVTON (GPU Microservice riêng biệt) | Ghép đồ ảo lên ảnh người dùng |
+| **Database & Storage** | Supabase Self-Hosted (Docker Compose) | Lưu trữ profiles, garments, size charts và ảnh |
 
-### Development
+---
 
-- Start all services: `make dev`
-- Frontend only: `make dev-frontend`
-- Backend only: `make dev-backend`
+## 📁 Cấu Trúc Thư Mục (Repository Structure)
 
-### Production
+```
+ai-fitting/
+├── frontend/                     # Ứng dụng Next.js (Widget & Catalog Demo)
+│   ├── app/                      # App router: page.tsx (Catalog 50 sản phẩm), layout.tsx
+│   ├── components/
+│   │   ├── ui/                   # Atomic primitives: Button, Badge, StepHeader, StepperInput...
+│   │   └── fitting/              # 10 Screen components của luồng Fitting & WidgetContainer
+│   ├── data/                     # mockFittingData.ts (50 Garments, Size Charts, Default Profiles)
+│   ├── hooks/                    # useProfiles.ts (Multi-profile), useFittingFlow.ts (State machine)
+│   ├── services/                 # fitEngine.ts (Tính fit score), apiClient.ts (HTTP client)
+│   ├── types/                    # fitting.ts (Type definitions khớp OpenAPI spec)
+│   └── public/products/          # 50 ảnh sản phẩm thực tế theo 5 thương hiệu
+├── backend/                      # Python FastAPI Backend
+│   ├── app/
+│   │   ├── api/v1/               # Routers: /quality-check, /measure, /size-recommend, /tryon
+│   │   ├── models/               # fitting.py (Pydantic models đồng bộ với frontend)
+│   │   └── services/             # MediaPipe, Anthropometric, Size scoring services
+├── vto-service/                  # Microservice suy luận CatVTON tách biệt (hỗ trợ GPU)
+├── supabase/                     # Config Supabase On-Premise, migrations SQL và seed data
+├── docs/                         # Tài liệu kỹ thuật, API specs, bản đồ dự án
+│   ├── api/ai_precision_fit_api.yaml  # OpenAPI 3.1 Specification
+│   ├── plans/                    # Kế hoạch phát triển chi tiết từng giai đoạn
+│   └── PROJECT_MAP.md            # Bản đồ context & module
+├── CONSTRAINTS.md                # Bản cam kết chất lượng kỹ thuật bắt buộc
+├── AGENTS.md                     # Hướng dẫn quy chuẩn cho AI coding agents
+└── docker-compose.yml            # Khởi động toàn bộ stack On-Premise
+```
 
-- Start production services: `make prod`
-- Frontend only: `make prod-frontend`
-- Backend only: `make prod-backend`
+---
 
-### Cleanup
+## 🚀 Hướng Dẫn Khởi Chạy (Getting Started)
 
-- Clean up containers: `make clean`
+### 1. Yêu cầu hệ thống (Prerequisites)
+- **Node.js**: phiên bản `>= 18.17.0` (khuyên dùng Node 20 LTS)
+- **Python**: phiên bản `>= 3.10`
+- **Docker & Docker Compose**: dùng cho Supabase On-Premise và VTO Service
 
-### Database Migrations
+---
 
-- Create a migration: `make db-migration-new name=create_table`
-- Apply migrations to remote: `make db-apply`
-- List applied migrations: `make db-list`
-- Check pending migrations: `make db-status`
-- Push migrations (same as apply): `make db-push`
+### 2. Chạy Frontend Widget & Demo Catalog
 
-See `supabase/README.md` for more details on database migrations.
+```bash
+# 1. Đi tới thư mục frontend
+cd frontend
 
-## AI Development Support
+# 2. Cài đặt các gói phụ thuộc
+npm install
 
-### Using Cursor Rules
-The project includes comprehensive Cursor rules that automatically provide context-aware guidance:
+# 3. Khởi động máy chủ phát triển
+npm run dev
+```
 
-- **Automatic Application**: Rules apply automatically based on the files you're editing
-- **Template Usage**: Reference templates with `@api-endpoint-template`, `@react-component-template`, `@service-class-template`
-- **Best Practices**: Built-in patterns for FastAPI, Next.js, Supabase, and LLM integration
+Mở trình duyệt tại [http://localhost:3000](http://localhost:3000) để trải nghiệm:
+- **Catalog 50 sản phẩm** với bộ lọc thương hiệu (`Zara`, `Uniqlo`, `H&M`, `Pull&Bear`, `Stradivarius`).
+- Nhấn **"Thử Đồ & Chọn Size AI"** trên bất kỳ sản phẩm nào để mở Fitting Widget.
+- Sử dụng **ProfileSwitcher** trên thanh Header để chuyển nhanh giữa các hồ sơ (Trang, Minh).
 
-### Using AGENTS.md
-For simpler AI assistance, use the consolidated `AGENTS.md` file that provides:
-- Project overview and architecture
-- Common patterns and examples
-- Development standards and workflows
+---
 
-## Documentation
+### 3. Chạy Backend API (FastAPI)
 
-- [Cursor Rules Guide](./.cursor/rules/README.md)
-- [AI Agent Instructions](./AGENTS.md)
-- [Authentication Setup Guide](./AuthSetup.md)
-- [Database Migrations](./supabase/README.md)
-- [Project Changelog](./CHANGELOG.md)
-- [Future Improvements](./FutureImprovements.md)
+```bash
+# 1. Đi tới thư mục backend
+cd backend
 
-### Legacy Documentation (replaced by Cursor rules)
-- [Backend Context](./llm-context/BACKEND-CONTEXT.md)
-- [Frontend Context](./llm-context/FRONTEND-CONTEXT.md)
-- [Database Migrations Context](./llm-context/DB-MIGRATIONS.md)
-- [Supabase SDK Reference](./llm-context/SUPABASE-CLIENT-SDK.md)
+# 2. Tạo và kích hoạt môi trường ảo (venv)
+python3 -m venv .venv
+source .venv/bin/activate
 
-## License
+# 3. Cài đặt dependencies từ pyproject.toml
+pip install -e ".[dev]"
 
-MIT
+# Hoặc cài đặt nhanh qua Makefile:
+# make install
+
+# 4. Khởi động API server
+./.venv/bin/uvicorn app.main:app --reload --port 8000
+# hoặc: make dev
+```
+
+- Swagger UI tương tác trực tiếp: [http://localhost:8000/docs](http://localhost:8000/docs)
+- OpenAPI Specification JSON: [http://localhost:8000/openapi.json](http://localhost:8000/openapi.json)
+
+---
+
+### 4. Khởi chạy toàn bộ hạ tầng On-Premise (Docker)
+
+```bash
+# Khởi động Supabase, Backend API và VTO Microservice
+docker compose up -d
+```
+
+---
+
+## 🧪 Kiểm Chuẩn Chất Lượng (Quality Gate & Constraints)
+
+Dự án áp dụng tiêu chuẩn phát triển khắt khe theo tài liệu [CONSTRAINTS.md](file:///home/nttduong1/projects/ai-fitting/CONSTRAINTS.md):
+
+```bash
+cd frontend
+
+# 1. Kiểm tra Typecheck và Linter nghiêm ngặt (0 lỗi, 0 cảnh báo)
+npm run check:task
+
+# 2. Kiểm tra đóng gói toàn diện Production Bundle
+npm run build
+```
+
+- **Zero Suppression Comments:** Tuyệt đối không dùng `@ts-ignore`, `eslint-disable`, `# noqa`.
+- **Zero Secrets in Source:** Mọi khóa truy cập và cấu hình dịch vụ quản lý qua biến môi trường.
+- **Contract Synchronization:** Định nghĩa Type TypeScript và Pydantic Model luôn đồng bộ 100% với file thiết kế `docs/api/ai_precision_fit_api.yaml`.
+
+---
+
+## 📚 Tài Liệu Tham Khảo (Documentation Links)
+
+- 📋 [Task Tracking & Checklist](docs/plans/tasks/todo.md): Theo dõi tiến độ từng tính năng.
+- 📐 [OpenAPI 3.1 Contract](docs/api/ai_precision_fit_api.yaml): Chi tiết thông số các endpoints API.
+- 🗺️ [Project Map & Context Index](docs/PROJECT_MAP.md): Hướng dẫn kiến trúc và bản đồ gói ngữ cảnh.
+- 🎨 [Figma Design System Spec (Node 8:10 & 8:12)](https://www.figma.com/design/DOGArspqs5nAybRQh5k7OL/AI-Precision-Fit---Mobile-Design-System?node-id=8-10): Quy chuẩn giao diện gốc.
+- ⚙️ [Deferred Backend & AI Integration Plan](docs/plans/DEFERRED_BACKEND_AND_AI_INTEGRATION.md): Lộ trình chi tiết tích hợp Backend và AI Service.
+
+---
+
+## 📄 Bản Quyền (License)
+
+Dự án được phân phối dưới giấy phép mã nguồn mở **MIT License**.

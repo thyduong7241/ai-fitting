@@ -6,9 +6,9 @@ from app.api.router import api_router
 from app.core.config import settings
 
 app = FastAPI(
-    title="Full Stack App Backend",
-    description="API for the Full Stack Application",
-    version="0.1.0",
+    title="AI Precision Fit API",
+    description="API for AI Precision Fit & Virtual Try-On",
+    version="1.0.0",
 )
 
 
@@ -29,8 +29,17 @@ app.add_middleware(
     allow_origins=["http://localhost:3000", "http://127.0.0.1:3000", *settings.CORS_ORIGINS],
     allow_credentials=True,
     allow_methods=["GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"],
-    allow_headers=["Content-Type", "Authorization", "Accept", "Origin", "X-Requested-With", "X-CSRF-Token"],
-    expose_headers=["Content-Type", "Authorization"],
+    allow_headers=[
+        "Content-Type",
+        "Authorization",
+        "Accept",
+        "Origin",
+        "X-Requested-With",
+        "X-CSRF-Token",
+        "X-Session-ID",
+        "Idempotency-Key",
+    ],
+    expose_headers=["Content-Type", "Authorization", "X-Session-ID"],
     max_age=600,  # 10 minutes cache for preflight requests
 )
 

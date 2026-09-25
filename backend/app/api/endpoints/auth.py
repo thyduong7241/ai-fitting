@@ -1,8 +1,8 @@
 from fastapi import APIRouter, Depends, HTTPException, status
-from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
+from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
 
+from app.models.auth import TokenResponse, UserProfile
 from app.services.supabase.auth import SupabaseAuthService, get_auth_service
-from app.models.auth import UserProfile, TokenResponse
 
 router = APIRouter()
 security = HTTPBearer()

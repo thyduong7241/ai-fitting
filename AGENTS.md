@@ -1,5 +1,7 @@
 # AGENTS.md — AI Precision Fit
 
+> **BẮT BUỘC:** Đọc `CONSTRAINTS.md` trước khi viết code. Không bao giờ nới lỏng hoặc sửa giảm các ràng buộc trong file đó để code chạy qua.
+
 Hướng dẫn cho AI coding agent khi làm việc trong repo này.
 
 ## Project overview
@@ -72,128 +74,56 @@ CLAUDE.md / AGENTS.md
 - Branch: `main` + feature branches, không cần quy trình phức tạp cho giai đoạn 21 ngày.
 
 
-## Architecture Overview
+## Architecture Details
 
-- **Backend**: Python FastAPI with Supabase integration
-- **Frontend**: Next.js with Tailwind CSS and TypeScript
-- **Database**: Supabase PostgreSQL with migrations
-- **Vector DB**: Qdrant for semantic search
-- **LLM Integration**: OpenAI and Anthropic support
+- **Frontend**: Next.js 14/15 with Tailwind CSS and TypeScript
+  - Mobile-first widget design (viewport 390px x 844px centered on desktop, full-width on mobile)
+  - Zero-Auth Multi-Profile support (`useProfiles` via `localStorage` + Supabase sync)
+  - Fit Engine (`frontend/services/fitEngine.ts`) evaluates user measurements against garment size charts
+- **Backend API**: Python FastAPI (`backend/app/`)
+  - Modular routers: `/api/v1/quality-check`, `/api/v1/measure`, `/api/v1/size-recommend`, `/api/v1/tryon`
+  - Pipeline services: MediaPipe Pose Landmarker, OpenCV blur check, Anthropometric calculation, Rule-based fit scoring
+- **VTO Service**: CatVTON inference container (`vto-service/`) running on local GPU
+- **Database & Storage**: Supabase Self-Hosted via Docker Compose (`supabase/`)
 
-## Development Standards
+## Design System Tokens (Figma Node 8:10)
 
-### Code Style
-- Use TypeScript for all frontend files
-- Use Python type hints for all backend functions
-- Follow async/await patterns consistently
-- Use snake_case for Python, camelCase for TypeScript
-- Include proper error handling in all functions
+- **Primary Brand**: Teal `#0F766E` (Dark teal: `#115E59`, Light teal: `#CCFBF1`, Glow/Focus: `#14B8A6`)
+- **Neutral Dark / Navy**: Canvas/Background `#0B0F19`, Dark Surface `#111827`, Dark Card `#1E293B`
+- **Text & Accents**: Text Primary `#F8FAFC`, Text Muted `#94A3B8`, Border `#334155`
+- **Fit Status Colors**:
+  - Perfect / Vừa vặn: Emerald/Teal (`#10B981` / `#0F766E`)
+  - Tight / Hơi ôm: Amber/Orange (`#F59E0B`)
+  - Loose / Hơi rộng: Sky Blue (`#0EA5E9`)
+  - Extreme (Quá chật / Quá rộng): Rose/Red (`#EF4444`)
 
-### Architecture Patterns
-- Follow the service layer pattern for external integrations
-- Use Pydantic models for API request/response validation
-- Implement proper authentication on all protected endpoints
-- Use the generic SupabaseDatabaseService for database operations
-- Abstract LLM providers through service classes
+## Development Commands
 
-### File Organization
-- Backend: `backend/app/` with api/, models/, services/ subdirectories
-- Frontend: `frontend/` with app/, components/, services/ subdirectories
-- Database: `supabase/migrations/` for all schema changes
-- Rules: `.cursor/rules/` for detailed development guidelines
-
-## Common Patterns
-
-### FastAPI Endpoints
-```python
-@router.post("/items", response_model=ItemResponse)
-async def create_item(
-    request: CreateItemRequest,
-    current_user: User = Depends(get_current_user)
-) -> ItemResponse:
-    try:
-        # Use service layer
-        service = SupabaseDatabaseService("items", ItemResponse)
-        result = await service.create({**request.dict(), "user_id": current_user.id})
-        return result
-    except Exception as e:
-        raise HTTPException(status_code=400, detail=str(e))
+### Frontend (`frontend/`)
+```bash
+cd frontend
+npm install              # Initial setup
+npm run dev              # Dev server on http://localhost:3000
+npm run build            # Production build check
+npm run lint             # ESLint check
+npx tsc --noEmit         # TypeScript type check (strict)
 ```
 
-### React Components
-```tsx
-'use client'
-export default function ComponentName({ title, onAction }: Props) {
-  const [loading, setLoading] = useState(false)
-
-  const handleAction = async () => {
-    try {
-      setLoading(true)
-      await onAction?.()
-    } catch (error) {
-      console.error('Action failed:', error)
-    } finally {
-      setLoading(false)
-    }
-  }
-
-  return (
-    <div className="p-4 rounded-lg border">
-      {/* Component content */}
-    </div>
-  )
-}
+### Backend (`backend/`)
+```bash
+cd backend
+uvicorn app.main:app --reload --port 8000   # Run API server
+# Swagger docs: http://localhost:8000/docs
 ```
 
-### Database Migrations
-```sql
--- Create table with RLS
-CREATE TABLE public.items (
-  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-  user_id UUID NOT NULL REFERENCES auth.users(id) ON DELETE CASCADE,
-  name TEXT NOT NULL,
-  created_at TIMESTAMPTZ NOT NULL DEFAULT now()
-);
-
-ALTER TABLE public.items ENABLE ROW LEVEL SECURITY;
-
-CREATE POLICY "Users can manage own items"
-  ON public.items
-  USING (auth.uid() = user_id);
+### Docker Services
+```bash
+docker compose up -d                        # Start all on-prem services
 ```
 
-## Development Workflow
+## Key Workflows & Boundary Rules
 
-1. **Setup**: Run `./first-time.sh` for initial configuration
-2. **Development**: Use `make dev` to start all services
-3. **Database**: Use `make db-migration-new name=description` for schema changes
-4. **Testing**: Visit http://localhost:8000/docs for API testing
-5. **Frontend**: Visit http://localhost:3000 for the application
-
-## Key Services
-
-- **SupabaseDatabaseService**: Generic CRUD operations
-- **SupabaseAuthService**: User authentication and token management
-- **SupabaseStorageService**: File upload and management
-- **LLMService**: Text generation with OpenAI/Anthropic
-- **EmbeddingService**: Vector embeddings for semantic search
-- **QdrantService**: Vector database operations
-
-## Environment Configuration
-
-Required environment variables:
-- `SUPABASE_URL` and `SUPABASE_SERVICE_KEY` (required)
-- `OPENAI_API_KEY` and/or `ANTHROPIC_API_KEY` (for LLM features)
-- `QDRANT_URL` and `QDRANT_API_KEY` (for vector database)
-
-## Best Practices
-
-- Always use the service layer for external API calls
-- Implement proper error handling with descriptive messages
-- Use authentication dependencies on protected endpoints
-- Follow the established patterns for consistency
-- Test API endpoints using the FastAPI docs interface
-- Use database migrations for all schema changes
-- Implement proper RLS policies for data security
-
-When adding new features, follow the established patterns and maintain consistency with the existing codebase structure.
+1. **Keep context lean**: Do not load entire monolithic plans when implementing individual tasks. Refer to `docs/PROJECT_MAP.md` for task-focused context slices.
+2. **Strict temporary file hygiene**: Any scratch script, test run, or intermediate artifact MUST go into `tmp/` (git-ignored).
+3. **Pydantic & TypeScript Sync**: Always sync changes between `frontend/types/fitting.ts` and `backend/app/models/fitting.py` to match `docs/api/ai_precision_fit_api.yaml`.
+4. **No External LLM / Cloud Dependencies**: Do not introduce OpenAI, Claude API, Anthropic, or external vector DB calls into the core fitting flow.
