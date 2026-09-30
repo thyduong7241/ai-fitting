@@ -103,7 +103,7 @@ CLAUDE.md / AGENTS.md
 ```bash
 cd frontend
 npm install              # Initial setup
-npm run dev              # Dev server on http://localhost:3000
+npm run dev              # Dev server on http://localhost:2000
 npm run build            # Production build check
 npm run lint             # ESLint check
 npx tsc --noEmit         # TypeScript type check (strict)
@@ -127,3 +127,4 @@ docker compose up -d                        # Start all on-prem services
 2. **Strict temporary file hygiene**: Any scratch script, test run, or intermediate artifact MUST go into `tmp/` (git-ignored).
 3. **Pydantic & TypeScript Sync**: Always sync changes between `frontend/types/fitting.ts` and `backend/app/models/fitting.py` to match `docs/api/ai_precision_fit_api.yaml`.
 4. **No External LLM / Cloud Dependencies**: Do not introduce OpenAI, Claude API, Anthropic, or external vector DB calls into the core fitting flow.
+5. **Workflow Documentation Sync (Quality Gate & Body Measurements)**: BẮT BUỘC cập nhật lại các tài liệu kiến trúc tương ứng trong thư mục `docs/workflows/` (`docs/workflows/quality_gate.md` và `docs/workflows/body_measurements.md`) ngay khi có bất kỳ thay đổi nào liên quan đến thuật toán, logic kiểm định (thresholds, layers), công thức nhân trắc học, hoặc mô hình tính toán số đo. Luôn đồng bộ biểu đồ Mermaid và bảng thông số kỹ thuật để phản ánh chính xác code đang chạy.

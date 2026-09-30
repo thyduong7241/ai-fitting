@@ -134,13 +134,77 @@
 
 ---
 
-## Deferred Phase 4: Backend & AI Pipeline (`[BE]`)
-*(Sẽ kích hoạt ngay sau khi hoàn thành Phase 0-3. Xem chi tiết tại `docs/plans/DEFERRED_BACKEND_AND_AI_INTEGRATION.md`)*
+## Phase 4: Backend & Real AI Pipeline Integration (`[BE]` & `[FE]`)
+*(Kế hoạch kiến trúc chi tiết tại `docs/plans/DEFERRED_BACKEND_AND_AI_INTEGRATION.md`)*
+
+### Phase 4A: Hạ Tầng Dữ Liệu & REST API Cốt Lõi
 
 - [ ] **Task BE-4.1 [BE]:** Supabase Migrations & 50 Products Seed Script (`seed_50_garments.py`)
+  - *Files:* `supabase/migrations/20240924000000_ai_fitting_schema.sql`, `backend/scripts/seed_50_garments.py`
+  - *DoD:* Cập nhật enum `brand` ('zara', 'uniqlo', 'hm', 'pullandbear', 'stradivarius'), mở rộng `category` ('jacket', 'coat', 'blazer', 'puffer'...), thêm cột `price`, `available_sizes`, index tìm kiếm. Script `seed_50_garments.py` kết nối Supabase client nạp đủ 50 garments và size charts chuẩn từ dữ liệu mẫu vào PostgreSQL.
+  - *Verification:* `cd backend && ./.venv/bin/python scripts/seed_50_garments.py` chạy thành công không lỗi; query database trả về đúng 50 sản phẩm.
+
 - [ ] **Task BE-4.2 [BE]:** FastAPI Garments & Profiles REST Endpoints
-- [ ] **Task BE-4.3 [BE]:** MediaPipe Pose & Laplacian Blur Quality Gate Service (`/quality-check`)
-- [ ] **Task BE-4.4 [BE]:** Anthropometric 33-Landmark Measurement Service (`/measure`)
-- [ ] **Task BE-4.5 [BE]:** Backend Rule-Based Fit Engine & Template Explanation (`/size-recommend`)
-- [ ] **Task BE-4.6 [BE]:** CatVTON GPU Microservice Queue & TryOn Job Manager (`/tryon/jobs`)
-- [ ] **Task BE-4.7 [FE]:** Frontend API Client Bridge (`USE_REAL_BACKEND_API` Feature Flag)
+  - *Files:* `backend/app/api/endpoints/garments.py`, `backend/app/api/endpoints/profiles.py`, `backend/app/services/garment_service.py`, `backend/app/services/profile_service.py`, `backend/app/main.py`
+  - *DoD:* Triển khai `GET /api/v1/garments` (hỗ trợ phân trang `page`, `page_size`, lọc `brand`, `category`), `GET /api/v1/garments/{id}` (kèm size charts); CRUD `/api/v1/fit-profiles` lưu trữ theo header `X-Session-ID` (hỗ trợ Zero-Auth multi-profile). Khớp 100% Pydantic models `backend/app/models/fitting.py`.
+  - *Verification:* `curl -s http://localhost:8000/api/v1/garments?brand=zara | grep -q "zara"` trả về status 200; Swagger UI tại `http://localhost:8000/docs` hiển thị đầy đủ schema và test thành công.
+
+#### Checkpoint 4A: Database & Core REST Services
+- [ ] Schema database đồng bộ 100% với OpenAPI contract (`docs/api/ai_precision_fit_api.yaml`).
+- [ ] 50 sản phẩm thực tế và size charts được lưu trữ đầy đủ trong Supabase PostgreSQL.
+- [ ] REST API Garments và Profiles hoạt động ổn định trên FastAPI (port 8000).
+
+---
+
+### Phase 4B: AI Vision Microservice (`vision-service`), Benchmark & Fit Scoring Pipeline
+*(Chi tiết đặc tả kỹ thuật & Khung Benchmark: `docs/plans/VISION_SERVICE_MICROSERVICE_AND_BENCHMARK_PLAN.md`)*  
+*(Chi tiết 16 granular tasks cho agent implement: [`tasks/plan.md`](file:///home/aiuser4/nttduong/ai-fitting/tasks/plan.md) & [`tasks/todo.md`](file:///home/aiuser4/nttduong/ai-fitting/tasks/todo.md))*
+
+- [ ] **Task BE-4.3 [AI/BE]:** Vision Microservice Architecture & Ground Truth Benchmark Harness (`vision-service`)
+  - *Files:* `vision-service/Dockerfile`, `vision-service/app/main.py`, `vision-service/benchmark/run_benchmark.py`, `vision-service/benchmark/datasets/ground_truth.json`, `docker-compose.yml`
+  - *DoD:* Tách riêng microservice `vision-service` chạy trên port 8002 (CPU isolated). Xây dựng bộ test harness tự động `run_benchmark.py` đối chiếu với tập dữ liệu ground truth đo thước dây thực tế, xuất báo cáo F1-Score, MAE, MAPE và chặn suy giảm chỉ số (Ratchet Guard). Cập nhật `docker-compose.yml`.
+  - *Verification:* `cd vision-service && pytest tests/ -v` pass; `python benchmark/run_benchmark.py --check-ratchet` thực thi thành công.
+
+- [ ] **Task BE-4.4 [AI/BE]:** Chuyên sâu 5-Layer Quality Gate Engine (`/api/v1/quality-check`)
+  - *Files:* `vision-service/app/services/quality_gate_engine.py`, `vision-service/app/api/v1/quality_check.py`, `backend/app/services/quality_check_service.py`
+  - *DoD:* Xử lý 5 lớp: Tenengrad + Laplacian blur trên Body ROI, phát hiện đúng 1 người (MediaPipe Pose + Face), ước tính đỉnh đầu và mốc ngón chân phát hiện cắt mép ảnh (kèm normalized bounding box lỗi), phân loại tư thế Front vs Side, kiểm tra ánh sáng HSV histogram. Backend gọi sang `vision-service:8002` qua HTTP client.
+  - *Verification:* Chạy benchmark Quality Gate đạt **F1-Score $\ge 96\%$** trên lỗi cắt đầu/chân, **Blur Accuracy $\ge 92\%$**, False Rejection $\le 3\%$.
+
+- [ ] **Task BE-4.5 [AI/BE]:** Hybrid 2-View Stereometry & Smart Fit Notes Engine (`/api/v1/measure`)
+  - *Files:* `vision-service/app/services/measurement/`, `vision-service/app/engines/hybrid_stereometry.py`, `vision-service/app/api/v1/measure.py`, `backend/app/services/anthropometric_service.py`
+  - *DoD:* Input nhận `known_height_cm`, `weight_kg`, `age`, `gender` và 2 ảnh (front + side 90°). Trích xuất P2M scale (Crown to Heel), tính Bi-acromial shoulder width, chu vi ngực/eo/hông theo công thức Ramanujan elip 2 góc chụp tích hợp tiền nghiệm Tuổi (Age Drift sau 25) và BMI, tự động phân loại vóc dáng (Quả lê, Đồng hồ cát, Quả táo, Chữ nhật, Tam giác ngược) và sinh Smart Fit Notes may mặc. Backend gọi sang `vision-service:8002` qua HTTP client.
+  - *Verification:* Chạy benchmark đối chiếu ground truth đạt **MAE Vai $\le 1.5\text{cm}$**, **Eo $\le 2.0\text{cm}$**, **Ngực/Hông $\le 2.5\text{cm}$**, Tolerance Pass Rate $\ge 90\%$, Latency P95 $\le 45\text{ms}$.
+
+- [ ] **Task BE-4.6 [BE]:** Backend Rule-Based Fit Engine & Template Explanation (`/size-recommend`)
+  - *Files:* `backend/app/api/endpoints/size_recommend.py`, `backend/app/services/fit_engine_service.py`, `backend/tests/test_fit_engine.py`
+  - *DoD:* Porting logic từ `frontend/services/fitEngine.ts` lên FastAPI: tính sai phân delta = Garment Spec - Body Measurement cho 5 vùng (Vai 35%, Ngực 35%, Eo 15%, Hông 10%, Dài 5%), bù trừ độ co giãn vải (`fabric_stretch`), điều chỉnh theo gu mặc (`slim`, `regular`, `relaxed`), xếp hạng size tốt nhất (Fit Score 0-100) và tự động sinh câu giải thích tiếng Việt theo template quy chuẩn.
+  - *Verification:* `cd backend && ./.venv/bin/pytest tests/test_fit_engine.py` pass; đối chiếu kết quả trả về khớp 100% với `frontend/services/fitEngine.ts`.
+
+#### Checkpoint 4B: AI Vision Microservice, Benchmark & Fit Pipeline Complete
+- [ ] `vision-service` chạy độc lập trong Docker container (port 8002), tách biệt hoàn toàn với Web API.
+- [ ] Bộ công cụ `run_benchmark.py` tự động kiểm chuẩn toàn bộ pipeline dựa trên Ground Truth thực tế.
+- [ ] Quality Gate đạt F1-Score $\ge 96\%$, Measurement đạt MAE $\le 2.0\text{cm}$ và Tolerance Pass Rate $\ge 90\%$.
+- [ ] Backend Fit Engine chấm điểm và giải thích size chuẩn xác theo quy tắc nhân trắc học.
+
+---
+
+### Phase 4C: Virtual Try-On (CatVTON) & Tích Hợp Toàn Diện
+
+- [ ] **Task BE-4.7 [BE]:** CatVTON GPU Microservice Queue & TryOn Job Manager (`/tryon/jobs`)
+  - *Files:* `vto-service/Dockerfile`, `vto-service/app/main.py`, `backend/app/api/endpoints/tryon.py`, `backend/app/services/tryon_service.py`
+  - *DoD:* Xây dựng container `vto-service` độc lập chạy mô hình CatVTON (GPU CUDA); FastAPI router `/api/v1/tryon/jobs` tiếp nhận request, sinh `job_id`, hỗ trợ `Idempotency-Key`, đẩy tác vụ sang `vto-service` nền và trả về HTTP 202; endpoint polling `GET /api/v1/tryon/jobs/{id}` trả về tiến độ và link ảnh kết quả 1024x1024 trong Supabase Storage.
+  - *Verification:* Gọi `POST /api/v1/tryon/jobs` trả về `status: queued` (202); polling trả về `status: completed` kèm URL ảnh mặc thử hợp lệ; xử lý lỗi `503 Service Unavailable` khi GPU bận.
+
+- [ ] **Task BE-4.8 [FE]:** Frontend API Client Bridge (`USE_REAL_BACKEND_API` Feature Flag)
+  - *Files:* `frontend/services/apiClient.ts`, `frontend/hooks/useFittingFlow.ts`, `frontend/components/fitting/WidgetContainer.tsx`, `frontend/components/fitting/VTOPreviewModal.tsx`
+  - *DoD:* Bật cờ `NEXT_PUBLIC_USE_REAL_BACKEND=true` trong `frontend/.env.local`; thay thế toàn bộ mock timer/data ở các bước Quality Check, Analyzing (gọi `/measure`), Recommendation (gọi `/size-recommend`), và VTO Preview Modal (gọi polling `/tryon/jobs`) bằng `apiClient.ts`. Hỗ trợ fallback mượt mà nếu Backend offline.
+  - *Verification:* `cd frontend && npm run check:task` (0 type errors, 0 lint warnings); thực hiện thử đồ trên trình duyệt, kiểm tra tab Network gọi API thật thành công 100%.
+
+- [ ] **Task BE-4.9 [SHARED]:** E2E Smoke Test Toàn Hệ Thống Live Pipeline
+  - *Files:* Toàn bộ dự án
+  - *DoD:* Thực hiện trọn vẹn luồng từ Upload ảnh thật -> AI quét trích xuất số đo thật -> Backend gợi ý size -> Mặc thử ảo CatVTON -> Hiển thị kết quả. Không còn bất kỳ bước giả lập nào trong widget.
+  - *Verification:* Kiểm tra toàn bộ luồng hoạt động mượt mà không lỗi console hoặc network error (`cd frontend && npm run build` pass).
+
+#### Checkpoint 4C: Full Pipeline Live & Virtual Fitting Hoàn Chỉnh
+- [ ] Toàn bộ luồng từ Upload ảnh thật -> Quét số đo AI -> Gợi ý size -> Thử đồ ảo CatVTON chạy live end-to-end.
+- [ ] Không còn bất kỳ bước giả lập nào trong widget khi bật Live Mode.

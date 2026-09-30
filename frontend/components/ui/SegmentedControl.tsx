@@ -33,7 +33,7 @@ export function SegmentedControl<T extends string | number>({
     <div
       role="radiogroup"
       aria-label={name}
-      className={`relative flex items-center w-full rounded-16 bg-[#EEF4F6] border border-brand-border/60 ${containerPadding} ${className}`}
+      className={`relative flex items-center w-full rounded-16 bg-[#F2D7E8]/40 border border-[#EBD6E7] ${containerPadding} ${className}`}
     >
       {options.map((option) => {
         const isSelected = option.value === value;

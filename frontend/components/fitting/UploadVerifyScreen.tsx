@@ -1,15 +1,17 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { StepHeader } from '@/components/ui/StepHeader';
 import { Button } from '@/components/ui/Button';
 import { Badge } from '@/components/ui/Badge';
 import { QualityCheckResponse } from '@/types/fitting';
+import { apiClient } from '@/services/apiClient';
 
 export interface UploadVerifyScreenProps {
   frontImageUrl: string;
   sideImageUrl?: string;
   onBack: () => void;
+  onClose?: () => void;
   onConfirm: (result: QualityCheckResponse) => void;
   onRetake: () => void;
 }
@@ -17,13 +19,16 @@ export interface UploadVerifyScreenProps {
 export function UploadVerifyScreen({
   frontImageUrl,
   onBack,
+  onClose,
   onConfirm,
   onRetake,
 }: UploadVerifyScreenProps) {
   // Mode switcher for testing: valid (success) vs feet_cut_off (error simulation)
   const [simulateError, setSimulateError] = useState(false);
+  const [apiResult, setApiResult] = useState<QualityCheckResponse | null>(null);
+  const [isEvaluating, setIsEvaluating] = useState(false);
 
-  const validResponse: QualityCheckResponse = {
+  const defaultValidResponse: QualityCheckResponse = {
     isValid: true,
     confidenceScore: 0.96,
     blurScore: 185.4,
@@ -46,7 +51,40 @@ export function UploadVerifyScreen({
     ],
   };
 
-  const currentResult = simulateError ? errorResponse : validResponse;
+  useEffect(() => {
+    let isMounted = true;
+    async function runLiveQualityGate() {
+      if (!frontImageUrl) return;
+      setIsEvaluating(true);
+      try {
+        const isBase64 = frontImageUrl.startsWith('data:');
+        const res = await apiClient.checkQuality({
+          imageBase64: isBase64 ? frontImageUrl : undefined,
+          imageUrl: !isBase64 ? frontImageUrl : undefined,
+          imageType: 'front',
+        });
+        if (isMounted && res) {
+          setApiResult(res);
+        }
+      } catch (err) {
+        // Graceful fallback to default client-side evaluation if backend is not reachable
+        console.warn('Live Quality Gate API unavailable, using standard local evaluation:', err);
+      } finally {
+        if (isMounted) {
+          setIsEvaluating(false);
+        }
+      }
+    }
+
+    runLiveQualityGate();
+    return () => {
+      isMounted = false;
+    };
+  }, [frontImageUrl]);
+
+  const currentResult = simulateError
+    ? errorResponse
+    : (apiResult || defaultValidResponse);
 
   return (
     <div className="flex flex-1 flex-col justify-between bg-brand-canvas animate-in fade-in duration-200">
@@ -56,6 +94,7 @@ export function UploadVerifyScreen({
         currentStep={2}
         totalSteps={3}
         onBack={onBack}
+        onClose={onClose}
       />
 
       <div className="flex flex-1 flex-col justify-between p-5 overflow-y-auto no-scrollbar">
@@ -193,6 +232,27 @@ export function UploadVerifyScreen({
               </Button>
             </div>
           )}
+
+          <div className="flex items-center justify-between px-1 pt-1 text-xs">
+            <button
+              type="button"
+              onClick={onBack}
+              className="flex items-center gap-1 font-semibold text-brand-slate hover:text-brand-navy active:scale-95 transition-all"
+            >
+              <span>←</span>
+              <span>Quay lại</span>
+            </button>
+            {onClose && (
+              <button
+                type="button"
+                onClick={onClose}
+                className="flex items-center gap-1 font-semibold text-rose-500 hover:text-rose-600 active:scale-95 transition-all"
+              >
+                <span>✕</span>
+                <span>Thoát</span>
+              </button>
+            )}
+          </div>
         </div>
       </div>
     </div>

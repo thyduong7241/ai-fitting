@@ -155,7 +155,17 @@ class ErrorResponse(CamelModel):
 # 1. Quality Check API (/api/v1/quality-check)
 # ==============================================================================
 class QualityIssue(CamelModel):
-    code: Literal["feet_cut_off", "head_cut_off", "blurry", "bad_lighting", "multi_person", "no_person", "bad_pose"]
+    code: Literal[
+        "feet_cut_off",
+        "head_cut_off",
+        "blurry",
+        "bad_lighting",
+        "multi_person",
+        "no_person",
+        "bad_pose",
+        "body_occluded",
+        "low_resolution",
+    ]
     severity: Literal["error", "warning"]
     message: str = Field(..., description="Mô tả lỗi hiển thị cho người dùng (tiếng Việt)")
     box: Optional[List[float]] = Field(None, description="Bounding box vùng lỗi [ymin, xmin, ymax, xmax] normalized")
@@ -164,6 +174,7 @@ class QualityIssue(CamelModel):
 class QualityCheckRequest(CamelModel):
     image_base64: Optional[str] = None
     image_url: Optional[str] = None
+    image_type: Optional[Literal["front", "side"]] = "front"
 
 
 class QualityCheckResponse(CamelModel):
@@ -184,19 +195,30 @@ class BodyMeasurements(CamelModel):
     chest_cm: Optional[float] = Field(None, ge=50.0, le=160.0)
     waist_cm: Optional[float] = Field(None, ge=40.0, le=150.0)
     hips_cm: Optional[float] = Field(None, ge=50.0, le=160.0)
+    arm_length_cm: Optional[float] = Field(None, ge=30.0, le=100.0)
+    inseam_cm: Optional[float] = Field(None, ge=40.0, le=120.0)
 
 
 class MeasurementRequest(CamelModel):
     front_image_url: Optional[str] = None
+    front_image_base64: Optional[str] = None
     side_image_url: Optional[str] = None
+    side_image_base64: Optional[str] = None
     known_height_cm: Optional[float] = None
+    weight_kg: Optional[float] = None
+    age: Optional[int] = None
     gender: GenderType
 
 
 class MeasurementResponse(CamelModel):
     measurements: BodyMeasurements
     confidence_percent: float = Field(..., ge=0.0, le=100.0)
-    method: Literal["ai_vision", "anthropometric_hybrid"]
+    method: Literal["ai_vision", "anthropometric_hybrid", "hybrid_stereometry_2d"] = "hybrid_stereometry_2d"
+    body_shape: Optional[str] = None
+    smart_fit_notes: List[str] = []
+    engine_id: Optional[str] = "hybrid_stereometry_2d"
+    metrics: Optional[Dict[str, Any]] = None
+    latency_ms: Optional[float] = None
 
 
 # ==============================================================================

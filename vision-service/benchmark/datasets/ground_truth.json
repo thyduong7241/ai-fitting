@@ -1,0 +1,452 @@
+{
+  "version": "1.0.0",
+  "measurement_subjects": [
+    {
+      "id": "sub_01_m_regular",
+      "gender": "male",
+      "age": 28,
+      "height_cm": 175.0,
+      "weight_kg": 68.0,
+      "body_shape": "chu_nhat",
+      "measurements": {
+        "shoulder": 43.5,
+        "chest": 93.0,
+        "waist": 78.5,
+        "hips": 94.0,
+        "arm_length": 59.5,
+        "inseam": 76.5
+      },
+      "front_image_path": "images/valid/sub_01_front.jpg",
+      "side_image_path": "images/valid/sub_01_side.jpg"
+    },
+    {
+      "id": "sub_02_f_hourglass",
+      "gender": "female",
+      "age": 25,
+      "height_cm": 162.0,
+      "weight_kg": 50.0,
+      "body_shape": "dong_ho_cat",
+      "measurements": {
+        "shoulder": 37.0,
+        "chest": 84.0,
+        "waist": 63.0,
+        "hips": 89.0,
+        "arm_length": 54.0,
+        "inseam": 71.0
+      },
+      "front_image_path": "images/valid/sub_02_front.jpg",
+      "side_image_path": "images/valid/sub_02_side.jpg"
+    },
+    {
+      "id": "sub_03_m_athletic",
+      "gender": "male",
+      "age": 26,
+      "height_cm": 180.0,
+      "weight_kg": 76.0,
+      "body_shape": "tam_giac_nguoc",
+      "measurements": {
+        "shoulder": 46.5,
+        "chest": 100.0,
+        "waist": 81.0,
+        "hips": 97.0,
+        "arm_length": 62.0,
+        "inseam": 79.5
+      },
+      "front_image_path": "images/valid/sub_03_front.jpg",
+      "side_image_path": "images/valid/sub_03_side.jpg"
+    },
+    {
+      "id": "sub_04_f_pear",
+      "gender": "female",
+      "age": 30,
+      "height_cm": 158.0,
+      "weight_kg": 54.0,
+      "body_shape": "qua_le",
+      "measurements": {
+        "shoulder": 36.0,
+        "chest": 81.0,
+        "waist": 67.0,
+        "hips": 94.5,
+        "arm_length": 52.5,
+        "inseam": 69.0
+      },
+      "front_image_path": "images/valid/sub_04_front.jpg",
+      "side_image_path": "images/valid/sub_04_side.jpg"
+    },
+    {
+      "id": "sub_05_m_slim",
+      "gender": "male",
+      "age": 22,
+      "height_cm": 172.0,
+      "weight_kg": 58.0,
+      "body_shape": "chu_nhat",
+      "measurements": {
+        "shoulder": 41.5,
+        "chest": 87.0,
+        "waist": 72.0,
+        "hips": 88.0,
+        "arm_length": 58.0,
+        "inseam": 75.0
+      },
+      "front_image_path": "images/valid/sub_05_front.jpg",
+      "side_image_path": "images/valid/sub_05_side.jpg"
+    },
+    {
+      "id": "sub_06_f_apple",
+      "gender": "female",
+      "age": 35,
+      "height_cm": 160.0,
+      "weight_kg": 62.0,
+      "body_shape": "qua_tao",
+      "measurements": {
+        "shoulder": 38.0,
+        "chest": 91.0,
+        "waist": 82.0,
+        "hips": 92.0,
+        "arm_length": 53.5,
+        "inseam": 70.0
+      },
+      "front_image_path": "images/valid/sub_06_front.jpg",
+      "side_image_path": "images/valid/sub_06_side.jpg"
+    },
+    {
+      "id": "sub_07_m_heavy",
+      "gender": "male",
+      "age": 38,
+      "height_cm": 170.0,
+      "weight_kg": 85.0,
+      "body_shape": "qua_tao",
+      "measurements": {
+        "shoulder": 44.5,
+        "chest": 105.0,
+        "waist": 96.0,
+        "hips": 104.0,
+        "arm_length": 57.5,
+        "inseam": 73.0
+      },
+      "front_image_path": "images/valid/sub_07_front.jpg",
+      "side_image_path": "images/valid/sub_07_side.jpg"
+    },
+    {
+      "id": "sub_08_f_petite",
+      "gender": "female",
+      "age": 21,
+      "height_cm": 152.0,
+      "weight_kg": 42.0,
+      "body_shape": "chu_nhat",
+      "measurements": {
+        "shoulder": 34.5,
+        "chest": 76.0,
+        "waist": 58.0,
+        "hips": 82.0,
+        "arm_length": 50.0,
+        "inseam": 66.0
+      },
+      "front_image_path": "images/valid/sub_08_front.jpg",
+      "side_image_path": "images/valid/sub_08_side.jpg"
+    },
+    {
+      "id": "sub_09_m_tall",
+      "gender": "male",
+      "age": 27,
+      "height_cm": 186.0,
+      "weight_kg": 78.0,
+      "body_shape": "chu_nhat",
+      "measurements": {
+        "shoulder": 45.0,
+        "chest": 96.0,
+        "waist": 80.0,
+        "hips": 96.0,
+        "arm_length": 65.0,
+        "inseam": 84.0
+      },
+      "front_image_path": "images/valid/sub_09_front.jpg",
+      "side_image_path": "images/valid/sub_09_side.jpg"
+    },
+    {
+      "id": "sub_10_f_tall",
+      "gender": "female",
+      "age": 26,
+      "height_cm": 172.0,
+      "weight_kg": 57.0,
+      "body_shape": "dong_ho_cat",
+      "measurements": {
+        "shoulder": 39.0,
+        "chest": 86.0,
+        "waist": 66.0,
+        "hips": 93.0,
+        "arm_length": 57.0,
+        "inseam": 77.0
+      },
+      "front_image_path": "images/valid/sub_10_front.jpg",
+      "side_image_path": "images/valid/sub_10_side.jpg"
+    },
+    {
+      "id": "sub_11_m_medium",
+      "gender": "male",
+      "age": 31,
+      "height_cm": 168.0,
+      "weight_kg": 64.0,
+      "body_shape": "chu_nhat",
+      "measurements": {
+        "shoulder": 42.0,
+        "chest": 90.0,
+        "waist": 77.0,
+        "hips": 91.0,
+        "arm_length": 56.5,
+        "inseam": 73.5
+      },
+      "front_image_path": "images/valid/sub_11_front.jpg",
+      "side_image_path": "images/valid/sub_11_side.jpg"
+    },
+    {
+      "id": "sub_12_f_athletic",
+      "gender": "female",
+      "age": 24,
+      "height_cm": 166.0,
+      "weight_kg": 55.0,
+      "body_shape": "tam_giac_nguoc",
+      "measurements": {
+        "shoulder": 40.0,
+        "chest": 87.0,
+        "waist": 68.0,
+        "hips": 90.0,
+        "arm_length": 55.5,
+        "inseam": 73.0
+      },
+      "front_image_path": "images/valid/sub_12_front.jpg",
+      "side_image_path": "images/valid/sub_12_side.jpg"
+    },
+    {
+      "id": "sub_13_m_broad",
+      "gender": "male",
+      "age": 33,
+      "height_cm": 178.0,
+      "weight_kg": 80.0,
+      "body_shape": "tam_giac_nguoc",
+      "measurements": {
+        "shoulder": 47.0,
+        "chest": 102.0,
+        "waist": 85.0,
+        "hips": 99.0,
+        "arm_length": 61.0,
+        "inseam": 78.0
+      },
+      "front_image_path": "images/valid/sub_13_front.jpg",
+      "side_image_path": "images/valid/sub_13_side.jpg"
+    },
+    {
+      "id": "sub_14_f_curvy",
+      "gender": "female",
+      "age": 29,
+      "height_cm": 164.0,
+      "weight_kg": 59.0,
+      "body_shape": "dong_ho_cat",
+      "measurements": {
+        "shoulder": 38.5,
+        "chest": 90.0,
+        "waist": 69.0,
+        "hips": 97.0,
+        "arm_length": 54.5,
+        "inseam": 72.0
+      },
+      "front_image_path": "images/valid/sub_14_front.jpg",
+      "side_image_path": "images/valid/sub_14_side.jpg"
+    },
+    {
+      "id": "sub_15_m_mature",
+      "gender": "male",
+      "age": 45,
+      "height_cm": 171.0,
+      "weight_kg": 72.0,
+      "body_shape": "chu_nhat",
+      "measurements": {
+        "shoulder": 43.0,
+        "chest": 95.0,
+        "waist": 84.0,
+        "hips": 95.0,
+        "arm_length": 58.0,
+        "inseam": 74.5
+      },
+      "front_image_path": "images/valid/sub_15_front.jpg",
+      "side_image_path": "images/valid/sub_15_side.jpg"
+    }
+  ],
+  "quality_cases": [
+    {
+      "id": "qc_01_valid_front",
+      "image_path": "images/valid/qc_01.jpg",
+      "expected_valid": true,
+      "expected_issues": [],
+      "description": "Ảnh đứng thẳng toàn thân rõ nét, ánh sáng tốt"
+    },
+    {
+      "id": "qc_02_valid_side",
+      "image_path": "images/valid/qc_02.jpg",
+      "expected_valid": true,
+      "expected_issues": [],
+      "description": "Ảnh chụp góc nghiêng 90 độ toàn thân rõ ràng"
+    },
+    {
+      "id": "qc_03_cut_head_01",
+      "image_path": "images/cut_head/qc_03.jpg",
+      "expected_valid": false,
+      "expected_issues": ["head_cut_off"],
+      "description": "Đỉnh đầu chạm sát viền trên ảnh (< 2.5% padding)"
+    },
+    {
+      "id": "qc_04_cut_head_02",
+      "image_path": "images/cut_head/qc_04.jpg",
+      "expected_valid": false,
+      "expected_issues": ["head_cut_off"],
+      "description": "Mất nửa đỉnh đầu ngoài khung hình"
+    },
+    {
+      "id": "qc_05_cut_feet_01",
+      "image_path": "images/cut_feet/qc_05.jpg",
+      "expected_valid": false,
+      "expected_issues": ["feet_cut_off"],
+      "description": "Gót chân chạm sát viền dưới ảnh"
+    },
+    {
+      "id": "qc_06_cut_feet_02",
+      "image_path": "images/cut_feet/qc_06.jpg",
+      "expected_valid": false,
+      "expected_issues": ["feet_cut_off"],
+      "description": "Cắt ngang cẳng chân dưới"
+    },
+    {
+      "id": "qc_07_cut_feet_03",
+      "image_path": "images/cut_feet/qc_07.jpg",
+      "expected_valid": false,
+      "expected_issues": ["feet_cut_off"],
+      "description": "Cắt ngang đầu gối"
+    },
+    {
+      "id": "qc_08_blurry_motion",
+      "image_path": "images/blurry/qc_08.jpg",
+      "expected_valid": false,
+      "expected_issues": ["blurry"],
+      "description": "Rung tay nặng, Laplacian variance < 80"
+    },
+    {
+      "id": "qc_09_blurry_focus",
+      "image_path": "images/blurry/qc_09.jpg",
+      "expected_valid": false,
+      "expected_issues": ["blurry"],
+      "description": "Mất nét toàn phần, Laplacian variance ~40"
+    },
+    {
+      "id": "qc_10_bad_lighting_dark",
+      "image_path": "images/bad_lighting/qc_10.jpg",
+      "expected_valid": false,
+      "expected_issues": ["bad_lighting"],
+      "description": "Thiếu sáng nghiêm trọng, mean intensity < 45"
+    },
+    {
+      "id": "qc_11_bad_lighting_overexposed",
+      "image_path": "images/bad_lighting/qc_11.jpg",
+      "expected_valid": false,
+      "expected_issues": ["bad_lighting"],
+      "description": "Cháy sáng nặng, mean intensity > 225"
+    },
+    {
+      "id": "qc_12_bad_pose_twisted",
+      "image_path": "images/bad_pose/qc_12.jpg",
+      "expected_valid": false,
+      "expected_issues": ["bad_pose"],
+      "description": "Tư thế xoay chéo 45 độ, delta Z vai > 0.20"
+    },
+    {
+      "id": "qc_13_bad_pose_sitting",
+      "image_path": "images/bad_pose/qc_13.jpg",
+      "expected_valid": false,
+      "expected_issues": ["bad_pose"],
+      "description": "Người ngồi gập chân, không đo được inseam"
+    },
+    {
+      "id": "qc_14_no_person",
+      "image_path": "images/bad_pose/qc_14.jpg",
+      "expected_valid": false,
+      "expected_issues": ["no_person"],
+      "description": "Ảnh phòng trống không có người"
+    },
+    {
+      "id": "qc_15_multi_person",
+      "image_path": "images/bad_pose/qc_15.jpg",
+      "expected_valid": false,
+      "expected_issues": ["multi_person"],
+      "description": "Hai người đứng trong cùng một bức ảnh"
+    },
+    {
+      "id": "qc_16_occluded_bag",
+      "image_path": "images/bad_pose/qc_16.jpg",
+      "expected_valid": false,
+      "expected_issues": ["body_occluded"],
+      "description": "Đeo túi xách to che khuất hông và eo"
+    },
+    {
+      "id": "qc_17_low_resolution",
+      "image_path": "images/blurry/qc_17.jpg",
+      "expected_valid": false,
+      "expected_issues": ["low_resolution"],
+      "description": "Ảnh thumbnail kích thước 400x300 pixel"
+    },
+    {
+      "id": "qc_18_valid_female_01",
+      "image_path": "images/valid/qc_18.jpg",
+      "expected_valid": true,
+      "expected_issues": [],
+      "description": "Nữ đứng thẳng chuẩn, trang phục gọn gàng"
+    },
+    {
+      "id": "qc_19_valid_male_02",
+      "image_path": "images/valid/qc_19.jpg",
+      "expected_valid": true,
+      "expected_issues": [],
+      "description": "Nam đứng thẳng chân mở hẹp chuẩn mực"
+    },
+    {
+      "id": "qc_20_cut_both_ends",
+      "image_path": "images/cut_feet/qc_20.jpg",
+      "expected_valid": false,
+      "expected_issues": ["head_cut_off", "feet_cut_off"],
+      "description": "Cắt cả đỉnh đầu lẫn bàn chân do đứng quá gần"
+    },
+    {
+      "id": "qc_21_valid_side_02",
+      "image_path": "images/valid/qc_21.jpg",
+      "expected_valid": true,
+      "expected_issues": [],
+      "description": "Góc nghiêng 90 độ chuẩn, tay xuôi thân"
+    },
+    {
+      "id": "qc_22_valid_tall_03",
+      "image_path": "images/valid/qc_22.jpg",
+      "expected_valid": true,
+      "expected_issues": [],
+      "description": "Người cao 1m85 căn vừa vặn trong khung hình"
+    },
+    {
+      "id": "qc_23_blurry_slight",
+      "image_path": "images/blurry/qc_23.jpg",
+      "expected_valid": false,
+      "expected_issues": ["blurry"],
+      "description": "Ảnh out nét nhẹ tại thân mình"
+    },
+    {
+      "id": "qc_24_valid_evening_good_light",
+      "image_path": "images/valid/qc_24.jpg",
+      "expected_valid": true,
+      "expected_issues": [],
+      "description": "Chụp trong nhà đèn LED đủ sáng (mean 120)"
+    },
+    {
+      "id": "qc_25_cut_head_slight",
+      "image_path": "images/cut_head/qc_25.jpg",
+      "expected_valid": false,
+      "expected_issues": ["head_cut_off"],
+      "description": "Tóc và đỉnh đầu chạm sát mép trên ảnh"
+    }
+  ]
+}

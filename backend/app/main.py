@@ -26,7 +26,13 @@ app.add_middleware(OptionsMiddleware)
 # Set up CORS - Expanded configuration
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000", "http://127.0.0.1:3000", *settings.CORS_ORIGINS],
+    allow_origins=[
+        "http://localhost:2000",
+        "http://127.0.0.1:2000",
+        "http://localhost:3000",
+        "http://127.0.0.1:3000",
+        *settings.CORS_ORIGINS,
+    ],
     allow_credentials=True,
     allow_methods=["GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"],
     allow_headers=[

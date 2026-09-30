@@ -1,0 +1,18 @@
+INFO:     Started server process [2017728]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:60340 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60384 - "HEAD /docs HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40498 - "GET /?id=d93afacb-ad83-4f3d-a32f-ff774f0003c0&vscodeBrowserReqId=1790469918415 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40504 - "GET /?id=d93afacb-ad83-4f3d-a32f-ff774f0003c0&vscodeBrowserReqId=1790469925154 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50838 - "HEAD / HTTP/1.1" 405 Method Not Allowed
+INFO:     127.0.0.1:50838 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50844 - "HEAD /docs HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50844 - "GET /docs HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37726 - "HEAD /openapi.json HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37726 - "GET /openapi.json HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [2017728]

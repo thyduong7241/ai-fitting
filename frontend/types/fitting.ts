@@ -19,10 +19,12 @@ export type FlowStep =
   | 'welcome'
   | 'profile_setup'
   | 'method_select'
+  | 'body_metrics_input'
   | 'upload_guide'
   | 'upload_verify'
   | 'manual_input'
   | 'analyzing'
+  | 'measurement_result'
   | 'recommendation'
   | 'profile_list'
   | 'profile_detail';
@@ -36,6 +38,7 @@ export interface UserProfile {
   sessionId?: string;
   name: string;
   gender: Gender;
+  age?: number;
   fitPreference: FitPreference;
   heightCm: number;
   weightKg: number;
@@ -43,6 +46,10 @@ export interface UserProfile {
   waistCm?: number;
   hipsCm?: number;
   shoulderCm?: number;
+  armLengthCm?: number;
+  inseamCm?: number;
+  bodyShape?: string;
+  smartFitNotes?: string[];
   frontImageUrl?: string;
   sideImageUrl?: string;
   isVerified: boolean;
@@ -56,6 +63,7 @@ export type FitProfile = UserProfile;
 export interface CreateFitProfileRequest {
   name: string;
   gender: Gender;
+  age?: number;
   fitPreference: FitPreference;
   heightCm: number;
   weightKg: number;
@@ -166,7 +174,16 @@ export interface APIErrorResponse {
 
 // --- /api/v1/quality-check ---
 export interface QualityIssue {
-  code: 'feet_cut_off' | 'head_cut_off' | 'blurry' | 'bad_lighting' | 'multi_person' | 'no_person' | 'bad_pose';
+  code:
+    | 'feet_cut_off'
+    | 'head_cut_off'
+    | 'blurry'
+    | 'bad_lighting'
+    | 'multi_person'
+    | 'no_person'
+    | 'bad_pose'
+    | 'body_occluded'
+    | 'low_resolution';
   severity: 'error' | 'warning';
   message: string;
   box?: [number, number, number, number]; // [ymin, xmin, ymax, xmax]
@@ -175,6 +192,7 @@ export interface QualityIssue {
 export interface QualityCheckRequest {
   imageBase64?: string;
   imageUrl?: string;
+  imageType?: 'front' | 'side';
 }
 
 export interface QualityCheckResponse {
@@ -193,19 +211,30 @@ export interface BodyMeasurements {
   chestCm?: number;
   waistCm?: number;
   hipsCm?: number;
+  armLengthCm?: number;
+  inseamCm?: number;
 }
 
 export interface MeasurementRequest {
   frontImageUrl?: string;
+  frontImageBase64?: string;
   sideImageUrl?: string;
+  sideImageBase64?: string;
   knownHeightCm?: number;
+  weightKg?: number;
+  age?: number;
   gender: Gender;
 }
 
 export interface MeasurementResponse {
   measurements: BodyMeasurements;
   confidencePercent: number;
-  method: 'ai_vision' | 'anthropometric_hybrid';
+  method: 'ai_vision' | 'anthropometric_hybrid' | 'hybrid_stereometry_2d';
+  bodyShape?: string;
+  smartFitNotes?: string[];
+  metrics?: Record<string, any>;
+  engineId?: string;
+  latencyMs?: number;
 }
 
 // --- /api/v1/size-recommend ---

@@ -10,12 +10,14 @@ import { CreateFitProfileRequest, Gender, FitPreference, UserProfile } from '@/t
 export interface ProfileSetupScreenProps {
   initialProfile?: Partial<UserProfile>;
   onBack: () => void;
+  onClose?: () => void;
   onSubmit: (data: CreateFitProfileRequest) => void;
 }
 
 export function ProfileSetupScreen({
   initialProfile,
   onBack,
+  onClose,
   onSubmit,
 }: ProfileSetupScreenProps) {
   const [name, setName] = useState(initialProfile?.name || 'Tôi');
@@ -43,6 +45,7 @@ export function ProfileSetupScreen({
         currentStep={1}
         totalSteps={3}
         onBack={onBack}
+        onClose={onClose}
       />
 
       <form onSubmit={handleSubmit} className="flex flex-1 flex-col justify-between p-5">

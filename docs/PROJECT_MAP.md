@@ -12,6 +12,7 @@ ai-fitting/
 │   ├── api/ai_precision_fit_api.yaml        # API Contract chuẩn (OpenAPI 3.0)
 │   ├── plans/tech_stacks.md                 # Quyết định công nghệ & giới hạn phạm vi
 │   ├── plans/vibe_coding_first_plan.md      # Chi tiết 4 Phases thực thi
+│   ├── plans/VISION_SERVICE_MICROSERVICE_AND_BENCHMARK_PLAN.md # Kế hoạch Microservice Thị giác & Benchmark
 │   ├── plans/tasks/todo.md                  # Checklist tiến độ nhiệm vụ (DoD)
 │   └── PROJECT_MAP.md                       # Bản đồ context & gói context chọn lọc (file này)
 ├── frontend/
@@ -37,7 +38,8 @@ ai-fitting/
 │   │   ├── api/v1/                          # Routers (/quality-check, /measure, /size-recommend, /tryon)
 │   │   ├── models/fitting.py                # Pydantic v2 models (đồng bộ types/fitting.ts)
 │   │   └── services/                        # Logic MediaPipe, Anthropometric, Size scoring
-├── vto-service/                             # Microservice CatVTON (GPU isolated)
+├── vision-service/                          # Microservice Thị giác (MediaPipe, OpenCV, Benchmark - Port 8002)
+├── vto-service/                             # Microservice CatVTON (GPU isolated - Port 8001)
 └── tmp/                                     # Mọi file tạm, script test, scratchpad (git-ignored)
 ```
 

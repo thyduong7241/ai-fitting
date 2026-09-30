@@ -21,8 +21,8 @@ export function Badge({
 }: BadgeProps) {
   const variantStyles: Record<BadgeVariant, { container: string; dot: string }> = {
     perfect: {
-      container: 'bg-[#E8F8F4] text-brand-teal-match border border-[#C2EFE4]',
-      dot: 'bg-brand-teal-match',
+      container: 'bg-[#ECF8F7] text-[#1B8272] border border-[#D1EDEA]',
+      dot: 'bg-[#1B8272]',
     },
     tight: {
       container: 'bg-amber-50 text-amber-800 border border-amber-200',
@@ -41,7 +41,7 @@ export function Badge({
       dot: 'bg-slate-400',
     },
     brand: {
-      container: 'bg-brand-teal-subtle text-brand-teal border border-teal-200 font-semibold',
+      container: 'bg-brand-teal-subtle text-brand-teal border border-[#D8BBD3] font-semibold',
       dot: 'bg-brand-teal',
     },
   };

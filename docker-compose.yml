@@ -6,13 +6,13 @@ services:
       context: ./frontend
       dockerfile: Dockerfile.dev
     ports:
-      - "3000:3000"
+      - "2000:2000"
     volumes:
       - ./frontend:/app
       - /app/node_modules
     environment:
       - NODE_ENV=development
-      - NEXT_PUBLIC_API_URL=http://localhost:8000
+      - NEXT_PUBLIC_API_URL=http://localhost:8000/api/v1
       - NEXT_PUBLIC_SUPABASE_URL=${SUPABASE_URL}
       - NEXT_PUBLIC_SUPABASE_ANON_KEY=${SUPABASE_ANON_KEY}
     depends_on:
@@ -37,8 +37,24 @@ services:
       - QDRANT_URL=${QDRANT_URL}
       - QDRANT_API_KEY=${QDRANT_API_KEY}
       - QDRANT_COLLECTION_NAME=${QDRANT_COLLECTION_NAME}
-      - CORS_ORIGINS=http://localhost:3000,http://frontend:3000,http://127.0.0.1:3000
+      - CORS_ORIGINS=http://localhost:2000,http://frontend:2000,http://127.0.0.1:2000,http://localhost:3000,http://frontend:3000,http://127.0.0.1:3000
+      - VISION_SERVICE_URL=http://vision-service:8002
     command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+    networks:
+      - app-network
+
+  vision-service:
+    build:
+      context: ./vision-service
+      dockerfile: Dockerfile
+    ports:
+      - "8002:8002"
+    volumes:
+      - ./vision-service:/app
+    environment:
+      - ENVIRONMENT=development
+      - VISION_QUALITY_ENGINE=opencv_mediapipe
+      - VISION_MEASUREMENT_ENGINE=hybrid_stereometry_2d
     networks:
       - app-network
 

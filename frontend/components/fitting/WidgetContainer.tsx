@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import { activeTheme } from '@/config/theme';
 
 interface WidgetContainerProps {
   children: React.ReactNode;
@@ -14,7 +15,7 @@ export function WidgetContainer({
   showStatusBar = true,
 }: WidgetContainerProps) {
   return (
-    <div className="flex min-h-screen w-full items-center justify-center bg-[#E5EDF0] p-0 sm:p-4 md:p-6 lg:p-8">
+    <div className={`flex min-h-screen w-full items-center justify-center bg-gradient-to-br ${activeTheme.backdropGradient} p-0 sm:p-4 md:p-6 lg:p-8`}>
       {/* 390px x 844px Mobile Viewport Container */}
       <main
         className={`relative flex h-screen w-full max-w-[430px] flex-col overflow-hidden bg-brand-canvas sm:h-[844px] sm:w-[390px] sm:rounded-[32px] sm:border sm:border-brand-border sm:shadow-widget ${className}`}

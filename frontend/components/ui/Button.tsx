@@ -33,7 +33,7 @@ export function Button({
     primary:
       'bg-brand-teal text-white hover:bg-brand-teal-hover active:scale-[0.98] shadow-sm',
     secondary:
-      'bg-brand-teal-subtle text-brand-teal hover:bg-teal-100 active:scale-[0.98]',
+      'bg-brand-teal-subtle text-brand-teal hover:bg-[#D8BBD3]/50 active:scale-[0.98]',
     outline:
       'border border-brand-border bg-white text-brand-navy hover:bg-slate-50 active:scale-[0.98]',
     ghost:

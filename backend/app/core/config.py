@@ -9,8 +9,11 @@ class Settings(BaseSettings):
     # Application
     ENVIRONMENT: str = "development"
 
+    # Microservices
+    VISION_SERVICE_URL: str = "http://localhost:8002"
+
     # CORS
-    CORS_ORIGINS: Union[List[str], str] = ["http://localhost:3000"]
+    CORS_ORIGINS: Union[List[str], str] = ["http://localhost:2000", "http://localhost:3000"]
 
     # Supabase
     SUPABASE_URL: str

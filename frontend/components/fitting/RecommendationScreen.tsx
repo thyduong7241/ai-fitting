@@ -22,6 +22,7 @@ export interface RecommendationScreenProps {
   activeProfile: UserProfile;
   onSelectProfile: (id: string) => void;
   onBack: () => void;
+  onClose?: () => void;
   onOpenTryOn: () => void;
 }
 
@@ -32,6 +33,7 @@ export function RecommendationScreen({
   activeProfile,
   onSelectProfile,
   onBack,
+  onClose,
   onOpenTryOn,
 }: RecommendationScreenProps) {
   const [preferenceOverride, setPreferenceOverride] = useState<FitPreference>(activeProfile.fitPreference || 'regular');
@@ -62,12 +64,13 @@ export function RecommendationScreen({
         title={`Gợi Ý Size: ${recommendation.recommendedSize}`}
         subtitle={`Tính toán cho ${activeProfile.name} • ${activeProfile.heightCm}cm`}
         onBack={onBack}
+        onClose={onClose}
       />
 
       <div className="flex flex-1 flex-col gap-4 p-5 overflow-y-auto no-scrollbar">
         {/* Main Recommendation Hero Card */}
         <section
-          className="flex flex-col gap-3 rounded-24 border-2 border-brand-teal/30 bg-gradient-to-br from-white to-[#F0FAF8] p-4 shadow-widget"
+          className="flex flex-col gap-3 rounded-24 border-2 border-brand-teal/30 bg-gradient-to-br from-white to-[#ECF8F7] p-4 shadow-widget"
           aria-label="Khuyến nghị kích thước chính"
         >
           <div className="flex items-center justify-between">

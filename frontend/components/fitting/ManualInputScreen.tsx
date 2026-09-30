@@ -9,12 +9,14 @@ import { BodyMeasurements, UserProfile } from '@/types/fitting';
 export interface ManualInputScreenProps {
   activeProfile: UserProfile;
   onBack: () => void;
+  onClose?: () => void;
   onSubmit: (measurements: BodyMeasurements) => void;
 }
 
 export function ManualInputScreen({
   activeProfile,
   onBack,
+  onClose,
   onSubmit,
 }: ManualInputScreenProps) {
   const [unit, setUnit] = useState<'cm' | 'inch'>('cm');
@@ -51,6 +53,7 @@ export function ManualInputScreen({
         currentStep={2}
         totalSteps={3}
         onBack={onBack}
+        onClose={onClose}
       />
 
       <form onSubmit={handleSubmit} className="flex flex-1 flex-col justify-between p-5 overflow-y-auto no-scrollbar">
@@ -142,7 +145,7 @@ export function ManualInputScreen({
             />
           </div>
 
-          <div className="rounded-16 bg-[#EEF5F7] p-3 text-center text-[11px] text-brand-slate">
+          <div className="rounded-16 bg-[#F2D7E8]/40 border border-[#D8BBD3]/50 p-3 text-center text-[11px] text-brand-slate">
             💡 <strong>Mẹo:</strong> Đo ngực tại điểm nhô cao nhất, eo tại điểm hẹp nhất và hông tại điểm nở nhất.
           </div>
         </div>
@@ -162,6 +165,27 @@ export function ManualInputScreen({
           >
             Tính Toán Độ Vừa Vặn & Gợi Ý Size
           </Button>
+
+          <div className="flex items-center justify-between px-1 pt-2 text-xs">
+            <button
+              type="button"
+              onClick={onBack}
+              className="flex items-center gap-1 font-semibold text-brand-slate hover:text-brand-navy active:scale-95 transition-all"
+            >
+              <span>←</span>
+              <span>Quay lại</span>
+            </button>
+            {onClose && (
+              <button
+                type="button"
+                onClick={onClose}
+                className="flex items-center gap-1 font-semibold text-rose-500 hover:text-rose-600 active:scale-95 transition-all"
+              >
+                <span>✕</span>
+                <span>Thoát</span>
+              </button>
+            )}
+          </div>
         </div>
       </form>
     </div>

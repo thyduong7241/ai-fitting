@@ -4,10 +4,16 @@
 
 @layer base {
   :root {
-    --brand-teal: #16abad;
-    --brand-navy: #183247;
-    --brand-canvas: #f6fbfa;
-    --brand-border: #dfebef;
+    --brand-teal: #b58ebc;
+    --brand-navy: #281a35;
+    --brand-canvas: #faf2f7;
+    --brand-border: #ebd6e7;
+    --unicorn-blush: #fae7eb;
+    --unicorn-pink: #f2d7e8;
+    --unicorn-mint: #ecf8f7;
+    --unicorn-orchid: #b58ebc;
+    --unicorn-aqua: #d1edea;
+    --unicorn-lavender: #d8bbd3;
   }
 
   * {

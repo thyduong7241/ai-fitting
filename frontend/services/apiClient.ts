@@ -192,21 +192,21 @@ export const fitApiClient = {
   // 3. AI Pipeline Endpoints
   // ===========================================================================
   async checkQuality(input: QualityCheckRequest | FormData): Promise<QualityCheckResponse> {
-    return request<QualityCheckResponse>('/pipeline/quality-check', {
+    return request<QualityCheckResponse>('/quality-check', {
       method: 'POST',
       body: input,
     });
   },
 
-  async estimateMeasurements(data: MeasurementRequest): Promise<MeasurementResponse> {
-    return request<MeasurementResponse>('/pipeline/measure', {
+  async estimateMeasurements(data: MeasurementRequest | FormData): Promise<MeasurementResponse> {
+    return request<MeasurementResponse>('/measure', {
       method: 'POST',
       body: data,
     });
   },
 
   async getRecommendedSize(data: SizeRecommendRequest): Promise<SizeRecommendResponse> {
-    return request<SizeRecommendResponse>('/pipeline/size-recommend', {
+    return request<SizeRecommendResponse>('/size-recommend', {
       method: 'POST',
       body: data,
     });
@@ -227,3 +227,6 @@ export const fitApiClient = {
     return request<TryOnJob>(`/tryon/jobs/${jobId}`);
   },
 };
+
+export const apiClient = fitApiClient;
+

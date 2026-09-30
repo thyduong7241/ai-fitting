@@ -7,11 +7,13 @@ import { FitMethod } from '@/types/fitting';
 
 export interface MethodSelectScreenProps {
   onBack: () => void;
+  onClose?: () => void;
   onSelectMethod: (method: FitMethod) => void;
 }
 
 export function MethodSelectScreen({
   onBack,
+  onClose,
   onSelectMethod,
 }: MethodSelectScreenProps) {
   return (
@@ -22,6 +24,7 @@ export function MethodSelectScreen({
         currentStep={2}
         totalSteps={3}
         onBack={onBack}
+        onClose={onClose}
       />
 
       <div className="flex flex-1 flex-col justify-between p-5">
@@ -104,7 +107,7 @@ export function MethodSelectScreen({
         </div>
 
         {/* Security / Privacy reassurance note */}
-        <div className="rounded-16 bg-[#EEF5F7] p-3 text-center text-[11px] text-brand-slate">
+        <div className="rounded-16 bg-[#ECF8F7] border border-[#D1EDEA] p-3 text-center text-[11px] text-brand-slate">
           🔒 Toàn bộ ảnh xử lý an toàn tại máy chủ nội bộ (on-premise), không gửi dữ liệu ra bên ngoài.
         </div>
       </div>

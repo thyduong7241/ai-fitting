@@ -63,7 +63,7 @@ export default function CatalogPage() {
   }
 
   return (
-    <div className="min-h-screen bg-[#F6FBFA] text-brand-navy">
+    <div className="min-h-screen bg-[#FAF2F7] text-brand-navy">
       {/* Top E-Commerce Header */}
       <header className="sticky top-0 z-30 border-b border-brand-border/70 bg-white/95 backdrop-blur-md">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
@@ -159,9 +159,9 @@ export default function CatalogPage() {
       {/* Main Catalog Body */}
       <main className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
         {/* Banner Section */}
-        <div className="relative mb-6 overflow-hidden rounded-24 bg-gradient-to-r from-brand-navy via-[#1F3D55] to-brand-teal p-6 text-white shadow-widget">
+        <div className="relative mb-6 overflow-hidden rounded-24 bg-gradient-to-r from-brand-navy via-[#623B6B] to-brand-teal p-6 text-white shadow-widget">
           <div className="relative z-10 max-w-2xl">
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-white/20 backdrop-blur-md px-3 py-0.5 text-xs font-semibold text-teal-200 mb-2">
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-white/20 backdrop-blur-md px-3 py-0.5 text-xs font-semibold text-[#D1EDEA] mb-2">
               ✨ 50 MẪU SẢN PHẨM OUTERWEAR THỰC TẾ
             </span>
             <h1 className="text-xl font-extrabold tracking-tight sm:text-2xl lg:text-3xl text-white">
@@ -213,7 +213,7 @@ export default function CatalogPage() {
                 setSelectedCategory('all');
                 setSearchQuery('');
               }}
-              className="mt-4 rounded-full bg-brand-teal-subtle px-4 py-1.5 text-xs font-semibold text-brand-teal hover:bg-teal-100 transition-all"
+              className="mt-4 rounded-full bg-brand-teal-subtle px-4 py-1.5 text-xs font-semibold text-brand-teal hover:bg-[#F2D7E8] transition-all"
             >
               Đặt lại toàn bộ bộ lọc
             </button>

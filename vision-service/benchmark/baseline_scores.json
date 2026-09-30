@@ -1,0 +1,39 @@
+{
+  "version": "1.0.0",
+  "ratchet_thresholds": {
+    "quality_gate": {
+      "min_f1_score": 96.0,
+      "min_blur_accuracy": 92.0,
+      "max_false_rejection_rate": 3.0,
+      "max_latency_p95_ms": 35.0
+    },
+    "measurement": {
+      "max_mae_overall": 2.2,
+      "max_mae_shoulder": 1.5,
+      "max_mae_waist": 2.0,
+      "max_mae_chest": 2.5,
+      "max_mae_hips": 2.5,
+      "max_mape": 2.8,
+      "min_tolerance_rate_3cm": 90.0,
+      "max_latency_p95_ms": 45.0
+    }
+  },
+  "current_baselines": {
+    "opencv_mediapipe": {
+      "f1_score": 96.5,
+      "blur_accuracy": 94.0,
+      "false_rejection_rate": 2.2,
+      "latency_p95_ms": 28.5
+    },
+    "hybrid_stereometry_2d": {
+      "overall_mae": 1.72,
+      "shoulder_mae": 1.25,
+      "waist_mae": 1.60,
+      "chest_mae": 2.10,
+      "hips_mae": 1.95,
+      "mape": 2.25,
+      "tolerance_rate_3cm": 93.3,
+      "latency_p95_ms": 38.0
+    }
+  }
+}
