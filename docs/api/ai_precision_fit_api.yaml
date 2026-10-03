@@ -34,6 +34,10 @@ tags:
     description: Pipeline xử lý AI (Kiểm tra ảnh, Trích xuất số đo, Khuyến nghị size)
   - name: Virtual Try-On
     description: Hàng đợi và trạng thái thử đồ ảo với mô hình CatVTON
+  - name: Fit Intelligence & Size Recommendation
+    description: Dịch vụ tư vấn size thông minh bằng Machine Learning & sinh lý giải thời trang (Cloudline Engine)
+  - name: Realistic 3D Body Studio
+    description: Dịch vụ sinh mô hình cơ thể người 3D Parametric và phân tích nhân trắc học
 
 paths:
   # ============================================================================
@@ -484,6 +488,172 @@ paths:
           $ref: '#/components/responses/NotFoundError'
         '500':
           $ref: '#/components/responses/InternalServerError'
+
+  # ============================================================================
+  # 5. FIT INTELLIGENCE & SIZE RECOMMENDATION (Cloudline Engine)
+  # ============================================================================
+  /fit-intelligence/health:
+    get:
+      tags:
+        - Fit Intelligence & Size Recommendation
+      summary: Health check Fit Intelligence
+      responses:
+        '200':
+          description: Service online
+  
+  /fit-intelligence/products:
+    get:
+      tags:
+        - Fit Intelligence & Size Recommendation
+      summary: Danh sách sản phẩm áo khoác kèm size chart
+      parameters:
+        - name: brand
+          in: query
+          schema:
+            type: string
+        - name: category
+          in: query
+          schema:
+            type: string
+        - name: gender
+          in: query
+          schema:
+            type: string
+        - name: fit_cut
+          in: query
+          schema:
+            type: string
+        - name: q
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Danh sách sản phẩm
+
+  /fit-intelligence/recommend:
+    post:
+      tags:
+        - Fit Intelligence & Size Recommendation
+      summary: Đề xuất size áo & giải thích chi tiết (Model 1 & Model 2)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                product_id:
+                  type: string
+                  example: uniqlo_jk_01
+                measurements:
+                  type: object
+                  properties:
+                    height:
+                      type: number
+                      example: 165.0
+                    weight:
+                      type: number
+                      example: 56.0
+                    shoulder:
+                      type: number
+                      example: 39.0
+                    bust:
+                      type: number
+                      example: 86.0
+                    waist:
+                      type: number
+                      example: 70.0
+                    hip:
+                      type: number
+                      example: 92.0
+                fit_preference:
+                  type: string
+                  example: regular
+      responses:
+        '200':
+          description: Kết quả đề xuất size và copywriting giải thích
+
+  /fit-intelligence/compare-sizes:
+    post:
+      tags:
+        - Fit Intelligence & Size Recommendation
+      summary: So sánh 2 size áo trực quan
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                product_id:
+                  type: string
+                  example: uniqlo_jk_01
+                size_a:
+                  type: string
+                  example: M
+                size_b:
+                  type: string
+                  example: L
+      responses:
+        '200':
+          description: Ma trận so sánh 2 size
+
+  # ============================================================================
+  # 6. REALISTIC 3D BODY STUDIO
+  # ============================================================================
+  /body-shape/health:
+    get:
+      tags:
+        - Realistic 3D Body Studio
+      summary: Health check Realistic 3D Body Studio
+      responses:
+        '200':
+          description: Service online
+
+  /body-shape/generate:
+    post:
+      tags:
+        - Realistic 3D Body Studio
+      summary: Sinh 3D mesh và thông số nhân trắc học theo số đo
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                gender:
+                  type: string
+                  enum: [female, male]
+                  example: female
+                height_cm:
+                  type: number
+                  example: 165.0
+                weight_kg:
+                  type: number
+                  example: 56.0
+                bust_cm:
+                  type: number
+                  example: 86.0
+                waist_cm:
+                  type: number
+                  example: 70.0
+                hip_cm:
+                  type: number
+                  example: 92.0
+      responses:
+        '200':
+          description: Dữ liệu 3D mesh (vertices, faces, normals, tapes, analysis)
+
+  /body-shape/export/obj:
+    post:
+      tags:
+        - Realistic 3D Body Studio
+      summary: Xuất file 3D mesh định dạng Wavefront .OBJ
+      responses:
+        '200':
+          description: File .obj của avatar 3D
 
 # ==============================================================================
 # COMPONENTS (SCHEMAS, PARAMETERS, RESPONSES)

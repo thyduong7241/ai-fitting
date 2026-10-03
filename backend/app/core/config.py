@@ -22,6 +22,7 @@ class Settings(BaseSettings):
     # LLM
     OPENAI_API_KEY: str = ""
     ANTHROPIC_API_KEY: str = ""
+    GEMINI_API_KEY: str = ""
 
     # Vector Database
     QDRANT_URL: str = ""
@@ -31,6 +32,7 @@ class Settings(BaseSettings):
     class Config:
         env_file = ".env"
         case_sensitive = True
+        extra = "ignore"
 
 
 # Initialize settings

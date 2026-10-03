@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { StepHeader } from '@/components/ui/StepHeader';
 import { Button } from '@/components/ui/Button';
 import { Badge } from '@/components/ui/Badge';
@@ -12,8 +12,10 @@ import {
   UserProfile,
   FitPreference,
   SizeRecommendResponse,
+  FitIntelligenceResponse,
 } from '@/types/fitting';
 import { calculateFitRecommendation } from '@/services/fitEngine';
+import { apiClient } from '@/services/apiClient';
 
 export interface RecommendationScreenProps {
   garment: Garment;
@@ -37,17 +39,52 @@ export function RecommendationScreen({
   onOpenTryOn,
 }: RecommendationScreenProps) {
   const [preferenceOverride, setPreferenceOverride] = useState<FitPreference>(activeProfile.fitPreference || 'regular');
+  const [show3DModal, setShow3DModal] = useState(false);
+  const [backendFit, setBackendFit] = useState<FitIntelligenceResponse | null>(null);
 
-  // Recalculate recommendation based on active profile and preference override
-  const recommendation: SizeRecommendResponse = calculateFitRecommendation(
+  // Recalculate recommendation based on active profile and preference override (Client baseline fallback)
+  const clientRecommendation: SizeRecommendResponse = calculateFitRecommendation(
     garment,
     sizeCharts,
     activeProfile,
     preferenceOverride
   );
 
+  // Fetch advanced ML recommendation & copywriting from backend /api/v1/fit-intelligence/recommend
+  useEffect(() => {
+    let isMounted = true;
+    apiClient
+      .getFitIntelligence({
+        productId: garment.id,
+        measurements: {
+          height: activeProfile.heightCm,
+          weight: activeProfile.weightKg,
+          shoulder: activeProfile.shoulderCm || 39.0,
+          bust: activeProfile.chestCm || 86.0,
+          waist: activeProfile.waistCm || 70.0,
+          hip: activeProfile.hipsCm || 92.0,
+        },
+        fitPreference: preferenceOverride,
+      })
+      .then((data) => {
+        if (isMounted) setBackendFit(data);
+      })
+      .catch((err) => {
+        console.warn('Backend Fit Intelligence fallback to local client engine:', err);
+      });
+
+    return () => {
+      isMounted = false;
+    };
+  }, [garment.id, activeProfile, preferenceOverride]);
+
+  const recommendedSize = backendFit?.recommendedSize || clientRecommendation.recommendedSize;
+  const confidencePercent = backendFit?.confidence || clientRecommendation.confidencePercent;
+  const headline = backendFit?.headline;
+  const whyText = backendFit?.whyText || clientRecommendation.summaryExplanation;
+
   return (
-    <div className="flex flex-1 flex-col justify-between bg-brand-canvas animate-in fade-in duration-200">
+    <div className="flex flex-1 flex-col justify-between bg-brand-canvas animate-in fade-in duration-200 relative">
       {/* Top Header with Profile Switcher */}
       <div className="flex items-center justify-between px-5 py-2.5 bg-white border-b border-brand-border/60">
         <span className="text-[11px] font-bold uppercase tracking-wider text-brand-teal">
@@ -61,7 +98,7 @@ export function RecommendationScreen({
       </div>
 
       <StepHeader
-        title={`Gợi Ý Size: ${recommendation.recommendedSize}`}
+        title={`Gợi Ý Size: ${recommendedSize}`}
         subtitle={`Tính toán cho ${activeProfile.name} • ${activeProfile.heightCm}cm`}
         onBack={onBack}
         onClose={onClose}
@@ -80,42 +117,92 @@ export function RecommendationScreen({
               </span>
               <div className="flex items-baseline gap-2 mt-0.5">
                 <span className="text-4xl font-black text-brand-teal tracking-tight">
-                  Size {recommendation.recommendedSize}
+                  Size {recommendedSize}
                 </span>
                 <span className="text-xs font-bold text-brand-teal-match">
-                  ({recommendation.confidencePercent}% phù hợp)
+                  ({confidencePercent}% phù hợp)
                 </span>
               </div>
             </div>
 
             <Badge variant="perfect" size="md" dot>
-              {recommendation.fitPreferenceLabel}
+              {backendFit?.confidenceLabel || clientRecommendation.fitPreferenceLabel}
             </Badge>
           </div>
 
+          {headline && (
+            <h4 className="text-sm font-bold text-brand-navy">
+              {headline}
+            </h4>
+          )}
+
           <p className="text-xs leading-relaxed text-brand-slate">
-            {recommendation.summaryExplanation}
+            {whyText}
           </p>
 
-          {/* Body Part Fit Badges */}
-          <div className="flex flex-wrap gap-1.5 pt-2 border-t border-brand-border/60">
-            {recommendation.breakdown.map((part) => (
-              <Badge
-                key={part.part}
-                variant={
-                  part.status === 'perfect'
-                    ? 'perfect'
-                    : part.status.includes('tight')
-                    ? 'tight'
-                    : 'loose'
-                }
-                size="sm"
-              >
-                {part.partLabel}: {part.statusLabel}
-              </Badge>
-            ))}
-          </div>
+          {/* 4 Vùng cơ thể chi tiết nếu có từ Backend Fit Engine */}
+          {backendFit?.zones && backendFit.zones.length > 0 ? (
+            <div className="flex flex-wrap gap-1.5 pt-2 border-t border-brand-border/60">
+              {backendFit.zones.map((zone) => (
+                <Badge
+                  key={zone.zone}
+                  variant={
+                    zone.status === 'optimal'
+                      ? 'perfect'
+                      : zone.status.includes('tight')
+                      ? 'tight'
+                      : 'loose'
+                  }
+                  size="sm"
+                >
+                  {zone.zoneVn}: {zone.badge}
+                </Badge>
+              ))}
+            </div>
+          ) : (
+            <div className="flex flex-wrap gap-1.5 pt-2 border-t border-brand-border/60">
+              {clientRecommendation.breakdown.map((part) => (
+                <Badge
+                  key={part.part}
+                  variant={
+                    part.status === 'perfect'
+                      ? 'perfect'
+                      : part.status.includes('tight')
+                      ? 'tight'
+                      : 'loose'
+                  }
+                  size="sm"
+                >
+                  {part.partLabel}: {part.statusLabel}
+                </Badge>
+              ))}
+            </div>
+          )}
         </section>
+
+        {/* 3D Body Shape Showcase Card */}
+        <div className="flex items-center justify-between rounded-16 border border-brand-teal/40 bg-white p-3.5 shadow-sm">
+          <div className="flex items-center gap-3">
+            <div className="flex h-10 w-10 items-center justify-center rounded-12 bg-brand-teal/10 text-brand-teal text-xl">
+              🧍
+            </div>
+            <div>
+              <div className="text-xs font-bold text-brand-navy">
+                Mô Hình Vóc Dáng 3D Của Bạn
+              </div>
+              <div className="text-[11px] text-brand-muted">
+                Xoay 360°, đối chiếu tỷ lệ thực tế & số đo
+              </div>
+            </div>
+          </div>
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={() => setShow3DModal(true)}
+          >
+            Mở 3D Studio
+          </Button>
+        </div>
 
         {/* Dynamic Preference Override Filter */}
         <div className="flex flex-col gap-1.5">
@@ -141,9 +228,9 @@ export function RecommendationScreen({
           </h3>
 
           <div className="flex flex-col gap-2">
-            {Object.keys(recommendation.sizeComparisons).map((sizeKey) => {
-              const comp = recommendation.sizeComparisons[sizeKey];
-              const isBest = sizeKey === recommendation.recommendedSize;
+            {Object.keys(clientRecommendation.sizeComparisons).map((sizeKey) => {
+              const comp = clientRecommendation.sizeComparisons[sizeKey];
+              const isBest = sizeKey === recommendedSize;
 
               return (
                 <div
@@ -193,6 +280,32 @@ export function RecommendationScreen({
           </div>
         </section>
       </div>
+
+      {/* 3D Studio Iframe Modal */}
+      {show3DModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm p-4 animate-in fade-in duration-200">
+          <div className="relative flex h-[85vh] w-full max-w-lg flex-col rounded-24 bg-slate-900 border border-slate-700 shadow-2xl overflow-hidden">
+            <div className="flex items-center justify-between border-b border-slate-800 px-4 py-3 bg-slate-950 text-white">
+              <div className="flex items-center gap-2">
+                <span className="text-lg">🧍</span>
+                <span className="text-sm font-bold">3D Body Studio — {activeProfile.name}</span>
+              </div>
+              <button
+                type="button"
+                onClick={() => setShow3DModal(false)}
+                className="flex h-7 w-7 items-center justify-center rounded-full bg-slate-800 text-slate-300 hover:bg-slate-700"
+              >
+                ✕
+              </button>
+            </div>
+            <iframe
+              src="http://localhost:8000/api/v1/body-shape/studio"
+              className="flex-1 w-full border-none bg-slate-950"
+              title="3D Body Studio"
+            />
+          </div>
+        </div>
+      )}
 
       {/* Sticky Bottom Actions */}
       <footer className="sticky bottom-0 flex flex-col gap-2 border-t border-brand-border/60 bg-white/95 backdrop-blur-sm p-4">

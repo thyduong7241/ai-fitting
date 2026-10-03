@@ -1,0 +1,82 @@
+# Body Fit & Virtual Try-On Master Configuration
+# All parameters are configurable here — no hardcoded magic numbers.
+
+paths:
+  output_dir: "outputs"
+  assets_dir: "assets"
+
+anatomy:
+  # Base vertical landmarks as fraction of total stature [0.0 = top of head, 1.0 = floor]
+  vertical_landmarks:
+    head_top: 0.000
+    chin: 0.130
+    neck: 0.155
+    shoulder: 0.180
+    armpit: 0.230
+    bust: 0.280
+    waist: 0.400
+    high_hip: 0.470
+    hip: 0.520
+    crotch: 0.540
+    knee: 0.720
+    calf: 0.830
+    ankle: 0.940
+    feet: 1.000
+    elbow: 0.380
+    wrist: 0.550
+    fingertips: 0.650
+
+  # Default proportions when measurement is omitted (multiplier * height_cm)
+  proportions:
+    female:
+      bust: 0.520
+      waist: 0.400
+      hip: 0.550
+      shoulder: 0.225
+      leg_length: 0.480
+      arm_length: 0.330
+      cross_section_frontal_ratio:
+        bust: 1.18
+        waist: 1.14
+        hip: 1.22
+      cross_section_depth_ratio:
+        bust: 0.88
+        waist: 0.75
+        hip: 0.82
+    male:
+      bust: 0.560
+      waist: 0.460
+      hip: 0.530
+      shoulder: 0.255
+      leg_length: 0.490
+      arm_length: 0.340
+      cross_section_frontal_ratio:
+        bust: 1.25
+        waist: 1.10
+        hip: 1.15
+      cross_section_depth_ratio:
+        bust: 0.80
+        waist: 0.85
+        hip: 0.85
+
+  # BMI and Weight volumetric expansion
+  weight_modeling:
+    base_bmi: 21.5
+    depth_scale_per_bmi: 0.018  # Body expands in Z (depth) with higher BMI
+    width_scale_per_bmi: 0.012  # Body expands in X (width) with higher BMI
+
+mesh_3d:
+  radial_segments: 32           # Number of vertices around each elliptical ring
+  height_slices: 60             # Number of cross-sectional slices along body height
+  garment_offset_mm: 4.0        # Fabric offset above skin surface to prevent z-fighting
+  garment_sleeve_angle_deg: 15  # Arm resting angle from vertical torso
+
+appearance:
+  mannequin_skin_color: [242, 236, 230]
+  mannequin_line_color: [120, 105, 98]
+  garment_default_color: [45, 95, 170]
+  background_color: [248, 249, 250]
+
+server:
+  host: "0.0.0.0"
+  port: 8000

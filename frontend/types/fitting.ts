@@ -294,3 +294,55 @@ export interface TryOnJob {
 }
 
 export type TryOnJobResponse = TryOnJob;
+
+// --- /api/v1/fit-intelligence ---
+export interface FitIntelligenceResponse {
+  productId?: string;
+  productName?: string;
+  brand?: string;
+  category?: string;
+  priceVnd?: number;
+  localImagePath?: string;
+  recommendedSize: SizeLabel;
+  alternativeSize?: string;
+  confidence: number;
+  confidenceLabel?: string;
+  headline?: string;
+  whyText?: string;
+  zones?: Array<{
+    zone: string;
+    zoneVn: string;
+    deltaCm: number;
+    status: string;
+    badge: string;
+    note: string;
+  }>;
+  details?: Array<{
+    step: string;
+    title: string;
+    desc: string;
+  }>;
+  advisory?: string;
+  comparison?: string;
+}
+
+// --- /api/v1/body-shape ---
+export interface BodyShapeGenerateResponse {
+  executionTimeMs: number;
+  bodyMesh: {
+    vertices: number[][];
+    faces: number[][];
+    normals: number[][];
+    numVertices: number;
+    numFaces: number;
+    color: number[];
+    textureUrl: string;
+  };
+  analysis: {
+    bmi: number;
+    bmiCategory: string;
+    bodyShape: string;
+    whr: number;
+  };
+  measurementsUsed: Record<string, any>;
+}

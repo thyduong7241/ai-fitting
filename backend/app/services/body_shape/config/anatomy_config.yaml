@@ -1,0 +1,156 @@
+# Anatomical & Body Studio Configuration
+# Strict Data-Driven Architecture: Zero hardcoded magic numbers in code.
+
+anatomy:
+  # Landmark vertical positions expressed as fraction of stature from crown (1.0 = floor, 0.0 = top of head)
+  landmarks:
+    crown: 0.000
+    forehead: 0.050
+    eyes: 0.085
+    nose_tip: 0.105
+    lips: 0.118
+    chin: 0.135
+    neck_mid: 0.155
+    shoulder_acromion: 0.180
+    armpit: 0.235
+    bust_apex: 0.285
+    underbust: 0.325
+    waist_narrow: 0.400
+    navel: 0.435
+    high_hip_iliac: 0.475
+    hip_widest: 0.525
+    crotch: 0.540
+    thigh_mid: 0.630
+    knee_center: 0.720
+    calf_widest: 0.825
+    ankle: 0.935
+    heel: 0.975
+    floor: 1.000
+
+  # Default proportions when a measurement is not provided (multiplier * height_cm)
+  proportions:
+    female:
+      bust: 0.525
+      waist: 0.400
+      hip: 0.555
+      shoulder: 0.228
+      arm_length: 0.335
+      leg_length: 0.485
+      cross_section_frontal_ratio:
+        bust: 1.18
+        waist: 1.14
+        hip: 1.22
+      cross_section_depth_ratio:
+        bust: 0.88
+        waist: 0.75
+        hip: 0.82
+    male:
+      bust: 0.565
+      waist: 0.455
+      hip: 0.535
+      shoulder: 0.260
+      arm_length: 0.345
+      leg_length: 0.495
+      cross_section_frontal_ratio:
+        bust: 1.24
+        waist: 1.10
+        hip: 1.15
+      cross_section_depth_ratio:
+        bust: 0.82
+        waist: 0.84
+        hip: 0.85
+
+  # Deformation zone Gaussian falloffs (height ratio sigma)
+  deformation_zones:
+    bust:
+      center_landmark: "bust_apex"
+      sigma_fraction: 0.082
+      frontal_weight: 1.25
+      depth_weight: 1.35
+    waist:
+      center_landmark: "waist_narrow"
+      sigma_fraction: 0.070
+      frontal_weight: 1.15
+      depth_weight: 1.10
+    hip:
+      center_landmark: "hip_widest"
+      sigma_fraction: 0.090
+      frontal_weight: 1.22
+      depth_weight: 1.28
+    shoulder:
+      center_landmark: "shoulder_acromion"
+      sigma_fraction: 0.055
+      width_weight: 1.00
+
+  # Volumetric mass & BMI expansion model
+  weight_modeling:
+    base_bmi: 21.5
+    depth_scale_per_bmi: 0.020
+    width_scale_per_bmi: 0.012
+    female_fat_distribution:
+      bust: 0.25
+      waist: 0.20
+      hip_thigh: 0.45
+      arms: 0.10
+    male_fat_distribution:
+      chest: 0.20
+      abdomen: 0.55
+      thighs: 0.15
+      arms: 0.10
+
+  canonical_skin_rgb:
+    male: [228, 178, 146]
+    female: [238, 196, 174]
+
+  # Classification thresholds
+  body_shapes:
+    female:
+      hourglass_tolerance: 0.08
+      hourglass_waist_ratio: 0.76
+      pear_threshold: 1.05
+      inverted_triangle: 1.05
+      apple_whr: 0.85
+    male:
+      trapezoid_whr: 0.86
+      trapezoid_st_ratio: 1.20
+      v_taper_bust_hip: 1.10
+      oval_whr: 0.95
+
+studio:
+  skin_tones:
+    fair:
+      name: "Trắng sáng (Fair)"
+      rgb: [248, 222, 208]
+      roughness: 0.55
+      metalness: 0.05
+    natural:
+      name: "Tự nhiên / Ấm (Natural Warm)"
+      rgb: [235, 196, 172]
+      roughness: 0.52
+      metalness: 0.05
+    tan:
+      name: "Bánh mật (Tan / Bronze)"
+      rgb: [198, 148, 118]
+      roughness: 0.50
+      metalness: 0.06
+    deep:
+      name: "Nâu sẫm (Deep)"
+      rgb: [136, 92, 68]
+      roughness: 0.48
+      metalness: 0.06
+  lighting_presets:
+    studio:
+      name: "Studio Ba Điểm (3-Point Lighting)"
+      key_intensity: 1.2
+      fill_intensity: 0.6
+      rim_intensity: 0.9
+    dramatic:
+      name: "Tương Phản Cao (Dramatic Shadow)"
+      key_intensity: 1.8
+      fill_intensity: 0.2
+      rim_intensity: 1.5
+    soft:
+      name: "Tự Nhiên / Mềm Dịu (Soft Ambient)"
+      key_intensity: 0.8
+      fill_intensity: 0.8
+      rim_intensity: 0.4

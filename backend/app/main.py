@@ -52,6 +52,14 @@ app.add_middleware(
 # Include API router
 app.include_router(api_router, prefix="/api")
 
+# Static files for 3D Body Studio
+import os
+from fastapi.staticfiles import StaticFiles
+
+body_static_dir = os.path.join(os.path.dirname(__file__), "services", "body_shape", "src", "api", "static")
+if os.path.exists(body_static_dir):
+    app.mount("/static/body_shape", StaticFiles(directory=body_static_dir), name="body_shape_static")
+
 
 @app.get("/")
 async def root():

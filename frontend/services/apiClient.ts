@@ -28,6 +28,8 @@ import {
   CreateTryOnJobRequest,
   TryOnJob,
   APIErrorResponse,
+  FitIntelligenceResponse,
+  BodyShapeGenerateResponse,
 } from '@/types/fitting';
 
 const API_BASE_URL =
@@ -225,6 +227,61 @@ export const fitApiClient = {
 
   async getTryOnJob(jobId: string): Promise<TryOnJob> {
     return request<TryOnJob>(`/tryon/jobs/${jobId}`);
+  },
+
+  // ===========================================================================
+  // 5. Fit Intelligence & 3D Body Studio
+  // ===========================================================================
+  async getFitIntelligence(data: {
+    productId?: string;
+    measurements: {
+      height: number;
+      weight: number;
+      shoulder?: number;
+      bust?: number;
+      waist?: number;
+      hip?: number;
+    };
+    fitPreference?: string;
+  }): Promise<FitIntelligenceResponse> {
+    return request<FitIntelligenceResponse>('/fit-intelligence/recommend', {
+      method: 'POST',
+      body: {
+        product_id: data.productId || 'uniqlo_jk_01',
+        measurements: {
+          height: data.measurements.height || 165.0,
+          weight: data.measurements.weight || 56.0,
+          shoulder: data.measurements.shoulder || 39.0,
+          bust: data.measurements.bust || 86.0,
+          waist: data.measurements.waist || 70.0,
+          hip: data.measurements.hip || 92.0,
+        },
+        fit_preference: data.fitPreference || 'regular',
+      },
+    });
+  },
+
+  async generate3DBody(data: {
+    gender: 'female' | 'male';
+    heightCm: number;
+    weightKg?: number;
+    bustCm?: number;
+    waistCm?: number;
+    hipCm?: number;
+    shoulderWidthCm?: number;
+  }): Promise<BodyShapeGenerateResponse> {
+    return request<BodyShapeGenerateResponse>('/body-shape/generate', {
+      method: 'POST',
+      body: {
+        gender: data.gender,
+        height_cm: data.heightCm,
+        weight_kg: data.weightKg,
+        bust_cm: data.bustCm,
+        waist_cm: data.waistCm,
+        hip_cm: data.hipCm,
+        shoulder_width_cm: data.shoulderWidthCm,
+      },
+    });
   },
 };
 

@@ -1,0 +1,1605 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Body Fit 3D — Studio Nhân Trắc Học & Hình Thể 3D Chân Thực</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <!-- Three.js and OrbitControls -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+
+  <style>
+    :root {
+      --bg-dark: #0b0f19;
+      --bg-panel: rgba(17, 24, 39, 0.82);
+      --bg-panel-border: rgba(255, 255, 255, 0.08);
+      --bg-card: rgba(30, 41, 59, 0.7);
+      --bg-input: rgba(15, 23, 42, 0.85);
+      --primary: #3b82f6;
+      --primary-glow: rgba(59, 130, 246, 0.35);
+      --accent: #10b981;
+      --accent-glow: rgba(16, 185, 129, 0.3);
+      --warning: #f59e0b;
+      --purple: #8b5cf6;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: var(--font-sans);
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      overflow: hidden;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      user-select: none;
+    }
+
+    /* Top Navigation Bar */
+    header {
+      height: 60px;
+      background: rgba(11, 15, 25, 0.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--bg-panel-border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+      z-index: 30;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-logo {
+      width: 34px;
+      height: 34px;
+      background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+      border-radius: 9px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 16px var(--primary-glow);
+    }
+
+    .brand-logo svg {
+      width: 20px;
+      height: 20px;
+      fill: #fff;
+    }
+
+    .brand-title {
+      font-weight: 800;
+      font-size: 1.12rem;
+      letter-spacing: -0.02em;
+      background: linear-gradient(to right, #ffffff, #cbd5e1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .brand-badge {
+      background: rgba(59, 130, 246, 0.15);
+      border: 1px solid rgba(59, 130, 246, 0.35);
+      color: #60a5fa;
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .header-center {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(15, 23, 42, 0.6);
+      padding: 4px;
+      border-radius: 10px;
+      border: 1px solid var(--bg-panel-border);
+    }
+
+    .preset-chip {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      padding: 6px 14px;
+      border-radius: 7px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .preset-chip:hover {
+      color: var(--text-main);
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .preset-chip.active {
+      background: var(--primary);
+      color: #fff;
+      box-shadow: 0 0 12px var(--primary-glow);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn {
+      background: var(--bg-card);
+      border: 1px solid var(--bg-panel-border);
+      color: var(--text-main);
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 0.84rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .btn:hover {
+      background: rgba(51, 65, 85, 0.8);
+      border-color: rgba(255, 255, 255, 0.2);
+      transform: translateY(-1px);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #3b82f6, #2563eb);
+      border: none;
+      color: #fff;
+      box-shadow: 0 4px 14px var(--primary-glow);
+    }
+
+    .btn-primary:hover {
+      background: linear-gradient(135deg, #2563eb, #1d4ed8);
+      box-shadow: 0 6px 20px rgba(37, 99, 235, 0.5);
+    }
+
+    /* Main Workspace Layout */
+    .workspace {
+      flex: 1;
+      display: flex;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Left Sidebar: Controls & Inputs */
+    .sidebar-left {
+      width: 360px;
+      background: var(--bg-panel);
+      backdrop-filter: blur(20px);
+      border-right: 1px solid var(--bg-panel-border);
+      display: flex;
+      flex-direction: column;
+      z-index: 20;
+      overflow-y: auto;
+    }
+
+    .sidebar-header {
+      padding: 18px 20px;
+      border-bottom: 1px solid var(--bg-panel-border);
+    }
+
+    .sidebar-header h2 {
+      font-size: 0.98rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+
+    .sidebar-header p {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .control-section {
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--bg-panel-border);
+    }
+
+    .section-title {
+      font-size: 0.74rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 800;
+      color: #94a3b8;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* Gender Toggle */
+    .gender-switch {
+      display: flex;
+      gap: 8px;
+      background: var(--bg-input);
+      padding: 4px;
+      border-radius: 10px;
+      border: 1px solid var(--bg-panel-border);
+    }
+
+    .gender-btn {
+      flex: 1;
+      border: none;
+      background: transparent;
+      color: var(--text-muted);
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+    }
+
+    .gender-btn.active {
+      background: #3b82f6;
+      color: #fff;
+      box-shadow: 0 2px 10px var(--primary-glow);
+    }
+
+    /* Skin & Studio Lighting pickers */
+    .tone-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+    }
+
+    .tone-card {
+      border: 2px solid transparent;
+      background: var(--bg-input);
+      border-radius: 8px;
+      padding: 6px;
+      cursor: pointer;
+      text-align: center;
+      transition: all 0.2s ease;
+    }
+
+    .tone-card.active {
+      border-color: #3b82f6;
+      background: rgba(59, 130, 246, 0.12);
+    }
+
+    .tone-swatch {
+      width: 100%;
+      height: 24px;
+      border-radius: 5px;
+      margin-bottom: 4px;
+    }
+
+    .tone-label {
+      font-size: 0.68rem;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    .tone-card.active .tone-label {
+      color: #fff;
+    }
+
+    /* Input Item with Slider & Numerical field */
+    .metric-row {
+      margin-bottom: 14px;
+    }
+
+    .metric-row:last-child {
+      margin-bottom: 0;
+    }
+
+    .metric-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 6px;
+    }
+
+    .metric-name {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: #e2e8f0;
+    }
+
+    .metric-input-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .metric-num-input {
+      width: 68px;
+      background: var(--bg-input);
+      border: 1px solid var(--bg-panel-border);
+      color: #60a5fa;
+      font-family: var(--font-mono);
+      font-size: 0.86rem;
+      font-weight: 700;
+      text-align: right;
+      padding: 4px 6px;
+      border-radius: 6px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .metric-num-input:focus {
+      border-color: #3b82f6;
+      box-shadow: 0 0 8px var(--primary-glow);
+    }
+
+    .metric-unit {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+    }
+
+    .metric-slider {
+      width: 100%;
+      -webkit-appearance: none;
+      appearance: none;
+      height: 5px;
+      background: #1e293b;
+      border-radius: 4px;
+      outline: none;
+      cursor: pointer;
+    }
+
+    .metric-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      background: #3b82f6;
+      cursor: pointer;
+      box-shadow: 0 0 8px var(--primary-glow);
+      transition: transform 0.1s;
+    }
+
+    .metric-slider::-webkit-slider-thumb:hover {
+      transform: scale(1.25);
+    }
+
+    /* Center 3D Viewport */
+    .viewport-container {
+      flex: 1;
+      position: relative;
+      background: radial-gradient(circle at 50% 40%, #1e2638 0%, #0b0f19 80%);
+      overflow: hidden;
+    }
+
+    #three-canvas {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    /* Floating Viewport Controls */
+    .viewport-overlay-top {
+      position: absolute;
+      top: 18px;
+      left: 20px;
+      display: flex;
+      gap: 8px;
+      z-index: 10;
+    }
+
+    .viewport-pill {
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--bg-panel-border);
+      color: var(--text-main);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+    }
+
+    .viewport-pill:hover {
+      background: rgba(30, 41, 59, 0.95);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .viewport-pill.active {
+      background: #3b82f6;
+      color: #fff;
+      border-color: #60a5fa;
+      box-shadow: 0 0 12px var(--primary-glow);
+    }
+
+    .viewport-overlay-bottom {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 8px;
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(14px);
+      padding: 6px 12px;
+      border-radius: 30px;
+      border: 1px solid var(--bg-panel-border);
+      z-index: 10;
+    }
+
+    .camera-angle-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      padding: 6px 12px;
+      border-radius: 16px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .camera-angle-btn:hover {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .camera-angle-btn.active {
+      color: #60a5fa;
+      background: rgba(59, 130, 246, 0.18);
+    }
+
+    /* Right Sidebar: Biometric & Shape Insights */
+    .sidebar-right {
+      width: 380px;
+      background: var(--bg-panel);
+      backdrop-filter: blur(20px);
+      border-left: 1px solid var(--bg-panel-border);
+      display: flex;
+      flex-direction: column;
+      z-index: 20;
+      overflow-y: auto;
+    }
+
+    .shape-card {
+      background: linear-gradient(135deg, rgba(30, 41, 59, 0.8), rgba(15, 23, 42, 0.95));
+      border: 1px solid rgba(59, 130, 246, 0.3);
+      border-radius: 14px;
+      padding: 18px;
+      margin: 16px 20px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+    }
+
+    .shape-card::before {
+      content: '';
+      position: absolute;
+      top: -30px;
+      right: -30px;
+      width: 90px;
+      height: 90px;
+      background: radial-gradient(circle, var(--primary-glow) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .shape-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    .shape-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: -0.02em;
+    }
+
+    .shape-badge {
+      background: rgba(16, 185, 129, 0.2);
+      border: 1px solid rgba(16, 185, 129, 0.4);
+      color: #34d399;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 6px;
+    }
+
+    .shape-desc {
+      font-size: 0.82rem;
+      color: #cbd5e1;
+      line-height: 1.5;
+    }
+
+    /* Biometric Indicator Cards */
+    .biometric-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      padding: 0 20px 16px 20px;
+    }
+
+    .bio-card {
+      background: var(--bg-card);
+      border: 1px solid var(--bg-panel-border);
+      border-radius: 12px;
+      padding: 14px;
+    }
+
+    .bio-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 4px;
+    }
+
+    .bio-val {
+      font-size: 1.35rem;
+      font-weight: 800;
+      font-family: var(--font-mono);
+      color: #fff;
+    }
+
+    .bio-sub {
+      font-size: 0.72rem;
+      font-weight: 600;
+      margin-top: 4px;
+      display: inline-block;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    .bio-sub.normal {
+      background: rgba(16, 185, 129, 0.15);
+      color: #34d399;
+    }
+
+    .bio-sub.warning {
+      background: rgba(245, 158, 11, 0.15);
+      color: #fbbf24;
+    }
+
+    /* 3D Tape Labels inside viewport */
+    .tape-floating-badge {
+      position: absolute;
+      background: rgba(15, 23, 42, 0.88);
+      border: 1px solid var(--bg-panel-border);
+      border-radius: 6px;
+      padding: 4px 10px;
+      font-size: 0.74rem;
+      font-weight: 700;
+      color: #fff;
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      transition: opacity 0.2s;
+      white-space: nowrap;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .tape-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+    }
+
+    /* Toast Notification */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #1e293b;
+      border: 1px solid rgba(59, 130, 246, 0.4);
+      color: #fff;
+      padding: 12px 20px;
+      border-radius: 10px;
+      font-size: 0.84rem;
+      font-weight: 600;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 100;
+    }
+
+    .toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    /* Loading Spinner */
+    .spinner-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(11, 15, 25, 0.6);
+      backdrop-filter: blur(4px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 50;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s;
+    }
+
+    .spinner-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .loader {
+      width: 44px;
+      height: 44px;
+      border: 4px solid rgba(59, 130, 246, 0.2);
+      border-top-color: #3b82f6;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navigation Header -->
+  <header>
+    <div class="brand">
+      <div class="brand-logo">
+        <svg viewBox="0 0 24 24">
+          <path d="M12 2a5 5 0 1 0 5 5 5 5 0 0 0-5-5zm0 12c-5.33 0-8 2.67-8 6v2h16v-2c0-3.33-2.67-6-8-6z"/>
+        </svg>
+      </div>
+      <div>
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <span class="brand-title">BODY FIT 3D</span>
+          <span class="brand-badge">Studio</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick Shape Presets -->
+    <div class="header-center">
+      <span style="font-size: 0.74rem; font-weight: 700; color: #64748b; margin-left: 8px;">MẪU NHÂN TRẮC:</span>
+      <button class="preset-chip active" id="preset-hourglass" onclick="applyPreset('hourglass')">Đồng Hồ Cát</button>
+      <button class="preset-chip" id="preset-athletic" onclick="applyPreset('athletic')">Thể Thao</button>
+      <button class="preset-chip" id="preset-slim" onclick="applyPreset('slim')">Thanh Mảnh</button>
+      <button class="preset-chip" id="preset-curvy" onclick="applyPreset('curvy')">Đầy Đặn</button>
+    </div>
+
+    <div class="header-actions">
+      <button class="btn" id="btn-snapshot" onclick="takeSnapshot()">
+        <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+        Chụp Ảnh
+      </button>
+      <button class="btn btn-primary" id="btn-export-obj" onclick="downloadOBJ()">
+        <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+        Tải 3D (.OBJ)
+      </button>
+    </div>
+  </header>
+
+  <!-- Workspace -->
+  <div class="workspace">
+
+    <!-- Left Controls Panel -->
+    <aside class="sidebar-left">
+      <div class="sidebar-header">
+        <h2>Thông Số Nhân Trắc Học</h2>
+        <p>Mô hình 3D biến dạng chuẩn giải phẫu người theo từng centimet</p>
+      </div>
+
+      <!-- Gender & Tone Selection -->
+      <div class="control-section">
+        <div class="section-title">Giới Tính & Giải Phẫu Học</div>
+        <div class="gender-switch">
+          <button class="gender-btn active" id="gender-female" onclick="setGender('female')">
+            👩 Nữ (Female)
+          </button>
+          <button class="gender-btn" id="gender-male" onclick="setGender('male')">
+            👨 Nam (Male)
+          </button>
+        </div>
+      </div>
+
+      <!-- Skin Tone & Lighting -->
+      <div class="control-section">
+        <div class="section-title">Màu Da PBR & Ánh Sáng Studio</div>
+        <div class="tone-grid">
+          <div class="tone-card" id="tone-fair" onclick="setSkinTone('fair')">
+            <div class="tone-swatch" style="background: #f8ded0;"></div>
+            <div class="tone-label">Sáng (Fair)</div>
+          </div>
+          <div class="tone-card active" id="tone-natural" onclick="setSkinTone('natural')">
+            <div class="tone-swatch" style="background: #ebc4ac;"></div>
+            <div class="tone-label">Ấm (Warm)</div>
+          </div>
+          <div class="tone-card" id="tone-tan" onclick="setSkinTone('tan')">
+            <div class="tone-swatch" style="background: #c69476;"></div>
+            <div class="tone-label">Mật (Tan)</div>
+          </div>
+          <div class="tone-card" id="tone-deep" onclick="setSkinTone('deep')">
+            <div class="tone-swatch" style="background: #885c44;"></div>
+            <div class="tone-label">Nâu (Deep)</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Anthropometric Sliders -->
+      <div class="control-section">
+        <div class="section-title">Kích Thước Trọng Điểm</div>
+
+        <!-- Height -->
+        <div class="metric-row">
+          <div class="metric-meta">
+            <span class="metric-name">Chiều Cao (Stature)</span>
+            <div class="metric-input-wrapper">
+              <input type="number" class="metric-num-input" id="num-height" value="168" min="120" max="230" step="0.5" onchange="syncFromInput('height')">
+              <span class="metric-unit">cm</span>
+            </div>
+          </div>
+          <input type="range" class="metric-slider" id="slider-height" min="120" max="230" step="0.5" value="168" oninput="syncFromSlider('height')">
+        </div>
+
+        <!-- Weight -->
+        <div class="metric-row">
+          <div class="metric-meta">
+            <span class="metric-name">Cân Nặng (Weight)</span>
+            <div class="metric-input-wrapper">
+              <input type="number" class="metric-num-input" id="num-weight" value="56" min="30" max="180" step="0.5" onchange="syncFromInput('weight')">
+              <span class="metric-unit">kg</span>
+            </div>
+          </div>
+          <input type="range" class="metric-slider" id="slider-weight" min="30" max="180" step="0.5" value="56" oninput="syncFromSlider('weight')">
+        </div>
+
+        <!-- Bust -->
+        <div class="metric-row">
+          <div class="metric-meta">
+            <span class="metric-name">Vòng 1 (Bust / Ngực)</span>
+            <div class="metric-input-wrapper">
+              <input type="number" class="metric-num-input" id="num-bust" value="88" min="60" max="160" step="0.5" onchange="syncFromInput('bust')">
+              <span class="metric-unit">cm</span>
+            </div>
+          </div>
+          <input type="range" class="metric-slider" id="slider-bust" min="60" max="160" step="0.5" value="88" oninput="syncFromSlider('bust')">
+        </div>
+
+        <!-- Waist -->
+        <div class="metric-row">
+          <div class="metric-meta">
+            <span class="metric-name">Vòng 2 (Waist / Eo)</span>
+            <div class="metric-input-wrapper">
+              <input type="number" class="metric-num-input" id="num-waist" value="64" min="45" max="150" step="0.5" onchange="syncFromInput('waist')">
+              <span class="metric-unit">cm</span>
+            </div>
+          </div>
+          <input type="range" class="metric-slider" id="slider-waist" min="45" max="150" step="0.5" value="64" oninput="syncFromSlider('waist')">
+        </div>
+
+        <!-- Hip -->
+        <div class="metric-row">
+          <div class="metric-meta">
+            <span class="metric-name">Vòng 3 (Hip / Mông)</span>
+            <div class="metric-input-wrapper">
+              <input type="number" class="metric-num-input" id="num-hip" value="92" min="60" max="170" step="0.5" onchange="syncFromInput('hip')">
+              <span class="metric-unit">cm</span>
+            </div>
+          </div>
+          <input type="range" class="metric-slider" id="slider-hip" min="60" max="170" step="0.5" value="92" oninput="syncFromSlider('hip')">
+        </div>
+
+        <!-- Shoulder Width -->
+        <div class="metric-row">
+          <div class="metric-meta">
+            <span class="metric-name">Rộng Vai (Shoulder)</span>
+            <div class="metric-input-wrapper">
+              <input type="number" class="metric-num-input" id="num-shoulder" value="38" min="28" max="65" step="0.5" onchange="syncFromInput('shoulder')">
+              <span class="metric-unit">cm</span>
+            </div>
+          </div>
+          <input type="range" class="metric-slider" id="slider-shoulder" min="28" max="65" step="0.5" value="38" oninput="syncFromSlider('shoulder')">
+        </div>
+
+        <!-- Leg Length -->
+        <div class="metric-row">
+          <div class="metric-meta">
+            <span class="metric-name">Chiều Dài Chân (Leg)</span>
+            <div class="metric-input-wrapper">
+              <input type="number" class="metric-num-input" id="num-leg" value="82" min="50" max="120" step="0.5" onchange="syncFromInput('leg')">
+              <span class="metric-unit">cm</span>
+            </div>
+          </div>
+          <input type="range" class="metric-slider" id="slider-leg" min="50" max="120" step="0.5" value="82" oninput="syncFromSlider('leg')">
+        </div>
+      </div>
+
+      <div style="padding: 20px;">
+        <button class="btn btn-primary" id="btn-recompute" style="width: 100%; justify-content: center; padding: 12px;" onclick="triggerGeneration()">
+          Tái Lập Mô Hình 3D Ngay
+        </button>
+      </div>
+    </aside>
+
+    <!-- Center 3D Viewport -->
+    <main class="viewport-container" id="viewport">
+      <canvas id="three-canvas"></canvas>
+
+      <!-- Viewport Overlays: Top Left Options -->
+      <div class="viewport-overlay-top">
+        <button class="viewport-pill active" id="pill-tapes" onclick="toggleTapes()">
+          <span style="font-size: 1rem;">📏</span> Thước Đo 3D: <strong id="tapes-status">BẬT</strong>
+        </button>
+        <button class="viewport-pill" id="pill-wireframe" onclick="toggleWireframe()">
+          <span style="font-size: 1rem;">🕸️</span> Lưới Khung
+        </button>
+        <button class="viewport-pill" id="pill-autorotate" onclick="toggleAutoRotate()">
+          <span style="font-size: 1rem;">🔄</span> Tự Động Xoay
+        </button>
+      </div>
+
+      <!-- Viewport Overlays: Camera Angles -->
+      <div class="viewport-overlay-bottom">
+        <button class="camera-angle-btn active" id="cam-front" onclick="setCameraView('front')">Chính Diện</button>
+        <button class="camera-angle-btn" id="cam-side" onclick="setCameraView('side')">Góc Nghiêng</button>
+        <button class="camera-angle-btn" id="cam-back" onclick="setCameraView('back')">Mặt Sau</button>
+        <button class="camera-angle-btn" id="cam-threeq" onclick="setCameraView('three_quarter')">Góc 3/4</button>
+        <button class="camera-angle-btn" id="cam-reset" onclick="resetCamera()">Mặc Định</button>
+      </div>
+
+      <!-- 3D Measurement Badges Container -->
+      <div id="tape-badges-container"></div>
+
+      <!-- Loading Spinner -->
+      <div class="spinner-overlay" id="spinner">
+        <div class="loader"></div>
+        <p style="margin-top: 14px; font-weight: 700; color: #fff; font-size: 0.9rem;">Đang tái cấu trúc giải phẫu 3D...</p>
+      </div>
+    </main>
+
+    <!-- Right Sidebar: Biometric & Shape Insights -->
+    <aside class="sidebar-right">
+      <div class="sidebar-header">
+        <h2>Phân Tích Vóc Dáng & Chỉ Số</h2>
+        <p>Thuật toán nhân trắc học phân loại hình thể tự động</p>
+      </div>
+
+      <!-- Shape Classification Card -->
+      <div class="shape-card">
+        <div class="shape-header">
+          <div class="shape-title" id="shape-name">Đồng Hồ Cát</div>
+          <div class="shape-badge" id="shape-badge">Tỷ lệ vàng</div>
+        </div>
+        <div class="shape-desc" id="shape-desc">
+          Vòng 1 và vòng 3 cân đối hoàn hảo, đường cong thắt eo rõ nét mềm mại.
+        </div>
+      </div>
+
+      <!-- Biometric Cards Grid -->
+      <div class="biometric-grid">
+        <div class="bio-card">
+          <div class="bio-label">Chỉ Số Khối Cơ Thể</div>
+          <div class="bio-val" id="val-bmi">21.3</div>
+          <span class="bio-sub normal" id="badge-bmi">Bình Thường</span>
+        </div>
+
+        <div class="bio-card">
+          <div class="bio-label">Tỷ Lệ Eo / Hông (WHR)</div>
+          <div class="bio-val" id="val-whr">0.70</div>
+          <span class="bio-sub normal" id="badge-whr">Tối Ưu</span>
+        </div>
+
+        <div class="bio-card">
+          <div class="bio-label">Tỷ Lệ Chiều Cao / Đầu</div>
+          <div class="bio-val" id="val-head-ratio">7.4</div>
+          <span style="font-size: 0.72rem; color: var(--text-muted);">Chuẩn người mẫu</span>
+        </div>
+
+        <div class="bio-card">
+          <div class="bio-label">Cân Nặng Khuyên Dùng</div>
+          <div class="bio-val" id="val-ideal-weight" style="font-size: 1.05rem; padding-top: 4px;">52 - 68 kg</div>
+          <span style="font-size: 0.72rem; color: #34d399;">Phạm vi an toàn</span>
+        </div>
+      </div>
+
+      <!-- Anatomical Ratios Summary -->
+      <div class="control-section">
+        <div class="section-title">Tỷ Lệ Giải Phẫu Thực Tế</div>
+        <div style="font-size: 0.8rem; display: flex; flex-direction: column; gap: 10px;">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <span style="color: var(--text-muted);">Tỷ lệ Vòng 1 / Vòng 2:</span>
+            <strong style="color: #60a5fa; font-family: var(--font-mono);" id="ratio-bust-waist">1.38</strong>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <span style="color: var(--text-muted);">Tỷ lệ Vòng 3 / Vòng 2:</span>
+            <strong style="color: #34d399; font-family: var(--font-mono);" id="ratio-hip-waist">1.44</strong>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <span style="color: var(--text-muted);">Số đỉnh đa giác 3D (Vertices):</span>
+            <strong style="color: #e2e8f0; font-family: var(--font-mono);" id="info-vertices">1,824</strong>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <span style="color: var(--text-muted);">Thời gian xử lý CPU (ms):</span>
+            <strong style="color: #a78bfa; font-family: var(--font-mono);" id="info-ms">18.4 ms</strong>
+          </div>
+        </div>
+      </div>
+
+      <div style="padding: 20px; color: var(--text-muted); font-size: 0.76rem; line-height: 1.5;">
+        💡 <strong>Mẹo tương tác:</strong> Giữ chuột trái và di chuyển để xoay 360°, cuộn bánh xe chuột để phóng to/thu nhỏ, giữ chuột phải để di chuyển vị trí.
+      </div>
+    </aside>
+
+  </div>
+
+  <!-- Toast Message -->
+  <div class="toast" id="toast">Đã cập nhật mô hình 3D thành công!</div>
+
+  <script>
+    // State Management
+    const state = {
+      gender: 'female',
+      skinTone: 'natural',
+      showTapes: true,
+      showWireframe: false,
+      autoRotate: false,
+      cameraView: 'front',
+      measurements: {
+        height: 168.0,
+        weight: 56.0,
+        bust: 88.0,
+        waist: 64.0,
+        hip: 92.0,
+        shoulder: 38.0,
+        leg: 82.0
+      },
+      lastServerResponse: null
+    };
+
+    // Three.js Core Variables
+    let scene, camera, renderer, controls;
+    let bodyMesh = null;
+    let tapeLinesGroup = null;
+    let currentNormals = null;
+    let debounceTimer = null;
+
+    // Presets
+    const presets = {
+      hourglass: { gender: 'female', height: 168, weight: 56, bust: 90, waist: 64, hip: 94, shoulder: 38, leg: 82 },
+      athletic: { gender: 'male', height: 180, weight: 76, bust: 104, waist: 78, hip: 96, shoulder: 48, leg: 88 },
+      slim: { gender: 'female', height: 172, weight: 50, bust: 82, waist: 60, hip: 88, shoulder: 37, leg: 86 },
+      curvy: { gender: 'female', height: 165, weight: 72, bust: 102, waist: 78, hip: 108, shoulder: 40, leg: 80 }
+    };
+
+    // Initialize Viewport and Three.js
+    function initThree() {
+      const container = document.getElementById('viewport');
+      const canvas = document.getElementById('three-canvas');
+
+      const width = container.clientWidth;
+      const height = container.clientHeight;
+
+      scene = new THREE.Scene();
+      scene.background = new THREE.Color(0x0e1422);
+
+      // Camera: focused around human center of mass (y = 90cm)
+      camera = new THREE.PerspectiveCamera(38, width / height, 0.1, 1000);
+      camera.position.set(0, 95, 290);
+
+      // WebGL Renderer with High Quality Smooth Shading & Tone Mapping
+      renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, preserveDrawingBuffer: true });
+      renderer.setSize(width, height);
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      renderer.outputEncoding = THREE.sRGBEncoding;
+      renderer.toneMapping = THREE.ACESFilmicToneMapping;
+      renderer.toneMappingExposure = 1.05;
+      renderer.shadowMap.enabled = true;
+      renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+
+      // OrbitControls
+      controls = new THREE.OrbitControls(camera, renderer.domElement);
+      controls.target.set(0, 88, 0);
+      controls.enableDamping = true;
+      controls.dampingFactor = 0.05;
+      controls.minDistance = 60;
+      controls.maxDistance = 500;
+      controls.maxPolarAngle = Math.PI / 2 + 0.05; // Do not go below floor
+
+      // 3-Point Studio Lighting Setup
+      setupStudioLighting();
+
+      // Floor Shadow Grid
+      setupFloor();
+
+      // Tape lines group
+      tapeLinesGroup = new THREE.Group();
+      scene.add(tapeLinesGroup);
+
+      // Window Resize Listener
+      window.addEventListener('resize', onWindowResize);
+
+      // Animation Loop
+      animate();
+
+      // Initial Fetch
+      triggerGeneration();
+    }
+
+    function setupStudioLighting() {
+      // 1. Ambient Light
+      const ambientLight = new THREE.AmbientLight(0xffffff, 0.65);
+      scene.add(ambientLight);
+
+      // 2. Key Light (Front Right, Warm)
+      const keyLight = new THREE.DirectionalLight(0xfff5eb, 1.15);
+      keyLight.position.set(120, 180, 160);
+      keyLight.castShadow = true;
+      keyLight.shadow.mapSize.width = 1024;
+      keyLight.shadow.mapSize.height = 1024;
+      keyLight.shadow.bias = -0.0005;
+      scene.add(keyLight);
+
+      // 3. Fill Light (Front Left, Cool Soft)
+      const fillLight = new THREE.DirectionalLight(0xdde9ff, 0.6);
+      fillLight.position.set(-140, 120, 120);
+      scene.add(fillLight);
+
+      // 4. Rim Back Light (Creates glowing edge on human silhouette)
+      const rimLight = new THREE.DirectionalLight(0x93c5fd, 0.9);
+      rimLight.position.set(0, 160, -180);
+      scene.add(rimLight);
+
+      // 5. Subtle Bottom Upfill (Soft bounces)
+      const groundBounce = new THREE.DirectionalLight(0x334155, 0.35);
+      groundBounce.position.set(0, -50, 60);
+      scene.add(groundBounce);
+    }
+
+    function setupFloor() {
+      // Floor circle with subtle grid texture
+      const floorGeo = new THREE.CircleGeometry(160, 64);
+      const floorMat = new THREE.MeshStandardMaterial({
+        color: 0x111827,
+        roughness: 0.85,
+        metalness: 0.1
+      });
+      const floor = new THREE.Mesh(floorGeo, floorMat);
+      floor.rotation.x = -Math.PI / 2;
+      floor.position.y = -0.5;
+      floor.receiveShadow = true;
+      scene.add(floor);
+
+      // Subtle outer ring
+      const ringGeo = new THREE.RingGeometry(158, 160, 64);
+      const ringMat = new THREE.MeshBasicMaterial({ color: 0x1e293b, side: THREE.DoubleSide });
+      const ring = new THREE.Mesh(ringGeo, ringMat);
+      ring.rotation.x = -Math.PI / 2;
+      ring.position.y = -0.4;
+      scene.add(ring);
+    }
+
+    function onWindowResize() {
+      const container = document.getElementById('viewport');
+      const width = container.clientWidth;
+      const height = container.clientHeight;
+
+      camera.aspect = width / height;
+      camera.updateProjectionMatrix();
+      renderer.setSize(width, height);
+    }
+
+    function animate() {
+      requestAnimationFrame(animate);
+
+      if (state.autoRotate && controls) {
+        controls.autoRotate = true;
+        controls.autoRotateSpeed = 2.0;
+      } else if (controls) {
+        controls.autoRotate = false;
+      }
+
+      controls.update();
+      renderer.render(scene, camera);
+
+      // Update 2D Screen Projection of 3D Measurement Badges
+      updateTapeBadges();
+    }
+
+    // Trigger API generation
+    async function triggerGeneration() {
+      showSpinner(true);
+
+      const payload = {
+        gender: state.gender,
+        height_cm: state.measurements.height,
+        weight_kg: state.measurements.weight,
+        bust_cm: state.measurements.bust,
+        waist_cm: state.measurements.waist,
+        hip_cm: state.measurements.hip,
+        shoulder_width_cm: state.measurements.shoulder,
+        leg_length_cm: state.measurements.leg,
+        skin_tone: state.skinTone
+      };
+
+      try {
+        const response = await fetch('/api/v1/body/generate', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+
+        if (!response.ok) {
+          throw new Error('API server returned error: ' + response.statusText);
+        }
+
+        const data = await response.json();
+        state.lastServerResponse = data;
+
+        // Render 3D Body in Scene
+        updateBodyMesh(data.body_mesh);
+
+        // Render Measurement Tapes
+        updateMeasurementTapes(data.measurement_tapes);
+
+        // Update Analytics Dashboard
+        updateAnalyticsUI(data.analysis, data.execution_time_ms, data.body_mesh.num_vertices);
+
+      } catch (err) {
+        console.error('Error generating 3D body:', err);
+        showToast('Lỗi khi sinh 3D body: ' + err.message);
+      } finally {
+        showSpinner(false);
+      }
+    }
+
+    // Create / Update Three.js Body Mesh with Realistic PBR Skin & Texture Mapping
+    function updateBodyMesh(meshData) {
+      if (bodyMesh) {
+        scene.remove(bodyMesh);
+        if (bodyMesh.geometry) bodyMesh.geometry.dispose();
+      }
+
+      const geometry = new THREE.BufferGeometry();
+      const vertices = new Float32Array(meshData.vertices.flat());
+      const faces = new Uint32Array(meshData.faces.flat());
+
+      geometry.setAttribute('position', new THREE.BufferAttribute(vertices, 3));
+      geometry.setIndex(new THREE.BufferAttribute(faces, 1));
+
+      if (meshData.normals && meshData.normals.length > 0) {
+        const normals = new Float32Array(meshData.normals.flat());
+        geometry.setAttribute('normal', new THREE.BufferAttribute(normals, 3));
+      } else {
+        geometry.computeVertexNormals();
+      }
+
+      // Texture loader cache
+      if (!window.textureCache) window.textureCache = {};
+      if (!window.textureLoader) window.textureLoader = new THREE.TextureLoader();
+
+      let texture = null;
+      if (meshData.texture_url) {
+        if (!window.textureCache[meshData.texture_url]) {
+          const loadedTex = window.textureLoader.load(meshData.texture_url, (tex) => {
+            tex.flipY = true;
+            tex.needsUpdate = true;
+            if (bodyMesh && bodyMesh.material) {
+              bodyMesh.material.map = tex;
+              bodyMesh.material.needsUpdate = true;
+            }
+          });
+          loadedTex.flipY = true;
+          window.textureCache[meshData.texture_url] = loadedTex;
+        }
+        texture = window.textureCache[meshData.texture_url];
+      }
+
+      if (meshData.uvs && meshData.uvs.length > 0) {
+        const uvs = new Float32Array(meshData.uvs.flat());
+        geometry.setAttribute('uv', new THREE.BufferAttribute(uvs, 2));
+      }
+
+      const hasVertexColors = (meshData.colors && meshData.colors.length > 0);
+      if (hasVertexColors && !texture) {
+        const colors = new Float32Array(meshData.colors.flat().map(c => c / 255.0));
+        geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+      }
+
+      // Skin tone tint multipliers
+      const toneTints = {
+        'natural': new THREE.Color(0xffffff),
+        'fair': new THREE.Color(0xfff8f5),
+        'tan': new THREE.Color(0xf6e2d4),
+        'deep': new THREE.Color(0xd2a792)
+      };
+      const tint = toneTints[state.skinTone] || new THREE.Color(0xffffff);
+
+      const material = new THREE.MeshStandardMaterial({
+        map: texture || null,
+        color: tint,
+        vertexColors: (!texture && hasVertexColors),
+        roughness: 0.55,
+        metalness: 0.05,
+        wireframe: state.showWireframe,
+        side: THREE.DoubleSide
+      });
+
+      bodyMesh = new THREE.Mesh(geometry, material);
+      bodyMesh.castShadow = true;
+      bodyMesh.receiveShadow = true;
+      scene.add(bodyMesh);
+    }
+
+    // Render 3D Interactive Measurement Tapes
+    function updateMeasurementTapes(tapesData) {
+      // Clear previous tapes
+      while (tapeLinesGroup.children.length > 0) {
+        const obj = tapeLinesGroup.children[0];
+        tapeLinesGroup.remove(obj);
+        if (obj.geometry) obj.geometry.dispose();
+      }
+
+      const badgesContainer = document.getElementById('tape-badges-container');
+      badgesContainer.innerHTML = '';
+
+      if (!state.showTapes || !tapesData) return;
+
+      Object.entries(tapesData).forEach(([key, tape]) => {
+        if (key === 'stature') return; // Stature is displayed in sidebar
+
+        const pts = tape.points;
+        if (!pts || pts.length < 2) return;
+
+        const pointsArray = pts.map(p => new THREE.Vector3(p[0], p[1], p[2]));
+        const curveGeo = new THREE.BufferGeometry().setFromPoints(pointsArray);
+
+        const col = tape.color || [59, 130, 246];
+        const tapeColor = new THREE.Color(`rgb(${col[0]}, ${col[1]}, ${col[2]})`);
+
+        // Glowing line
+        const lineMat = new THREE.LineBasicMaterial({
+          color: tapeColor,
+          linewidth: 2,
+          transparent: true,
+          opacity: 0.95
+        });
+
+        const line = new THREE.Line(curveGeo, lineMat);
+        tapeLinesGroup.add(line);
+
+        // Add 2D screen badge element
+        const badge = document.createElement('div');
+        badge.className = 'tape-floating-badge';
+        badge.id = `badge-${key}`;
+        badge.innerHTML = `
+          <div class="tape-dot" style="background: rgb(${col[0]}, ${col[1]}, ${col[2]}); box-shadow: 0 0 8px rgb(${col[0]}, ${col[1]}, ${col[2]});"></div>
+          <span>${tape.label}</span>
+        `;
+        badgesContainer.appendChild(badge);
+
+        // Store world reference point on tape (front-most point)
+        badge.dataset.worldX = pts[0][0];
+        badge.dataset.worldY = tape.height_y;
+        badge.dataset.worldZ = pts[0][2] + 4.0;
+      });
+    }
+
+    // Update screen positions of 3D floating badges
+    function updateTapeBadges() {
+      if (!state.showTapes) return;
+
+      const container = document.getElementById('viewport');
+      const width = container.clientWidth;
+      const height = container.clientHeight;
+      const badges = document.querySelectorAll('.tape-floating-badge');
+
+      badges.forEach(b => {
+        const wx = parseFloat(b.dataset.worldX || 0);
+        const wy = parseFloat(b.dataset.worldY || 0);
+        const wz = parseFloat(b.dataset.worldZ || 0);
+
+        const pos = new THREE.Vector3(wx, wy, wz);
+        pos.project(camera);
+
+        // Check if behind camera
+        if (pos.z > 1) {
+          b.style.opacity = '0';
+          return;
+        }
+
+        const sx = (pos.x * 0.5 + 0.5) * width;
+        const sy = (-(pos.y * 0.5) + 0.5) * height;
+
+        b.style.left = `${sx}px`;
+        b.style.top = `${sy}px`;
+        b.style.opacity = '1';
+      });
+    }
+
+    // Update Biometrics Dashboard UI
+    function updateAnalyticsUI(analysis, execMs, vertexCount) {
+      if (!analysis) return;
+
+      // Shape card
+      document.getElementById('shape-name').innerText = analysis.body_shape;
+      document.getElementById('shape-desc').innerText = analysis.body_shape_description;
+      document.getElementById('shape-badge').innerText = analysis.whr_health_status;
+
+      // BMI
+      document.getElementById('val-bmi').innerText = analysis.bmi;
+      const bmiBadge = document.getElementById('badge-bmi');
+      bmiBadge.innerText = analysis.bmi_category;
+      bmiBadge.className = (analysis.bmi >= 18.5 && analysis.bmi <= 24.9) ? 'bio-sub normal' : 'bio-sub warning';
+
+      // WHR
+      document.getElementById('val-whr').innerText = analysis.whr;
+      const whrBadge = document.getElementById('badge-whr');
+      whrBadge.innerText = analysis.whr_health_status;
+      whrBadge.className = (analysis.whr <= 0.85) ? 'bio-sub normal' : 'bio-sub warning';
+
+      // Ideal weight & head ratio
+      document.getElementById('val-head-ratio').innerText = analysis.height_to_head_ratio;
+      if (analysis.ideal_weight_range) {
+        document.getElementById('val-ideal-weight').innerText = `${analysis.ideal_weight_range.min_kg} - ${analysis.ideal_weight_range.max_kg} kg`;
+      }
+
+      // Ratios
+      if (analysis.proportions_summary) {
+        document.getElementById('ratio-bust-waist').innerText = analysis.proportions_summary.bust_waist_ratio;
+        document.getElementById('ratio-hip-waist').innerText = analysis.proportions_summary.hip_waist_ratio;
+      }
+
+      // Performance info
+      document.getElementById('info-vertices').innerText = Number(vertexCount).toLocaleString();
+      document.getElementById('info-ms').innerText = `${execMs} ms`;
+    }
+
+    // Preset Applicator
+    function applyPreset(name) {
+      document.querySelectorAll('.preset-chip').forEach(c => c.classList.remove('active'));
+      const chip = document.getElementById(`preset-${name}`);
+      if (chip) chip.classList.add('active');
+
+      const p = presets[name];
+      if (!p) return;
+
+      setGender(p.gender, false);
+      Object.keys(p).forEach(k => {
+        if (k === 'gender') return;
+        state.measurements[k] = p[k];
+        const numInput = document.getElementById(`num-${k}`);
+        const slider = document.getElementById(`slider-${k}`);
+        if (numInput) numInput.value = p[k];
+        if (slider) slider.value = p[k];
+      });
+
+      triggerGeneration();
+    }
+
+    // Gender Switch
+    function setGender(g, autoFetch = true) {
+      const prevGender = state.gender;
+      state.gender = g;
+      document.getElementById('gender-female').classList.toggle('active', g === 'female');
+      document.getElementById('gender-male').classList.toggle('active', g === 'male');
+
+      if (prevGender !== g) {
+        const defaults = (g === 'male') ? {
+          height: 180, weight: 74, bust: 100, waist: 80, hip: 96, shoulder: 47, leg: 88
+        } : {
+          height: 168, weight: 56, bust: 88, waist: 64, hip: 92, shoulder: 38, leg: 82
+        };
+        Object.keys(defaults).forEach(k => {
+          state.measurements[k] = defaults[k];
+          const numInput = document.getElementById(`num-${k}`);
+          const slider = document.getElementById(`slider-${k}`);
+          if (numInput) numInput.value = defaults[k];
+          if (slider) slider.value = defaults[k];
+        });
+      }
+
+      if (autoFetch) triggerGeneration();
+    }
+
+    // Skin Tone Switch
+    function setSkinTone(tone) {
+      state.skinTone = tone;
+      document.querySelectorAll('.tone-card').forEach(c => c.classList.remove('active'));
+      const card = document.getElementById(`tone-${tone}`);
+      if (card) card.classList.add('active');
+
+      triggerGeneration();
+    }
+
+    // Sync input <-> slider with debounced API call
+    function syncFromSlider(key) {
+      const slider = document.getElementById(`slider-${key}`);
+      const numInput = document.getElementById(`num-${key}`);
+      state.measurements[key] = parseFloat(slider.value);
+      numInput.value = slider.value;
+
+      debouncedFetch();
+    }
+
+    function syncFromInput(key) {
+      const slider = document.getElementById(`slider-${key}`);
+      const numInput = document.getElementById(`num-${key}`);
+      state.measurements[key] = parseFloat(numInput.value);
+      slider.value = numInput.value;
+
+      debouncedFetch();
+    }
+
+    function debouncedFetch() {
+      clearTimeout(debounceTimer);
+      debounceTimer = setTimeout(() => {
+        triggerGeneration();
+      }, 250);
+    }
+
+    // Viewport Controls
+    function toggleTapes() {
+      state.showTapes = !state.showTapes;
+      document.getElementById('pill-tapes').classList.toggle('active', state.showTapes);
+      document.getElementById('tapes-status').innerText = state.showTapes ? 'BẬT' : 'TẮT';
+      tapeLinesGroup.visible = state.showTapes;
+
+      const badges = document.getElementById('tape-badges-container');
+      badges.style.display = state.showTapes ? 'block' : 'none';
+    }
+
+    function toggleWireframe() {
+      state.showWireframe = !state.showWireframe;
+      document.getElementById('pill-wireframe').classList.toggle('active', state.showWireframe);
+      if (bodyMesh && bodyMesh.material) {
+        bodyMesh.material.wireframe = state.showWireframe;
+      }
+    }
+
+    function toggleAutoRotate() {
+      state.autoRotate = !state.autoRotate;
+      document.getElementById('pill-autorotate').classList.toggle('active', state.autoRotate);
+    }
+
+    // Camera Angle Presets
+    function setCameraView(angle) {
+      document.querySelectorAll('.camera-angle-btn').forEach(b => b.classList.remove('active'));
+      const btn = document.getElementById(`cam-${angle}`);
+      if (btn) btn.classList.add('active');
+
+      const targetY = (state.measurements.height * 0.52);
+      controls.target.set(0, targetY, 0);
+
+      const dist = 280;
+
+      if (angle === 'front') {
+        camera.position.set(0, targetY + 6, dist);
+      } else if (angle === 'side') {
+        camera.position.set(dist, targetY + 6, 0);
+      } else if (angle === 'back') {
+        camera.position.set(0, targetY + 6, -dist);
+      } else if (angle === 'three_quarter') {
+        const d_diag = dist * 0.707;
+        camera.position.set(d_diag, targetY + 12, d_diag);
+      }
+      controls.update();
+    }
+
+    function resetCamera() {
+      setCameraView('front');
+    }
+
+    // Export OBJ File
+    async function downloadOBJ() {
+      showToast('Đang tạo file 3D OBJ...');
+
+      const payload = {
+        gender: state.gender,
+        height_cm: state.measurements.height,
+        weight_kg: state.measurements.weight,
+        bust_cm: state.measurements.bust,
+        waist_cm: state.measurements.waist,
+        hip_cm: state.measurements.hip,
+        shoulder_width_cm: state.measurements.shoulder,
+        leg_length_cm: state.measurements.leg,
+        skin_tone: state.skinTone
+      };
+
+      try {
+        const res = await fetch('/api/v1/body/export/obj', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+
+        if (!res.ok) throw new Error('Không thể tải file OBJ');
+
+        const blob = await res.blob();
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `body_3d_${state.gender}_${state.measurements.height}cm.obj`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        window.URL.revokeObjectURL(url);
+
+        showToast('Đã tải xuống file 3D OBJ thành công!');
+      } catch (err) {
+        showToast('Lỗi tải file OBJ: ' + err.message);
+      }
+    }
+
+    // Take High-Res Viewport Snapshot
+    function takeSnapshot() {
+      // Temporarily hide tape lines for a clean photography shot
+      const prevTapes = tapeLinesGroup.visible;
+      tapeLinesGroup.visible = false;
+      document.getElementById('tape-badges-container').style.display = 'none';
+
+      renderer.render(scene, camera);
+      const dataUrl = renderer.domElement.toDataURL('image/png');
+
+      tapeLinesGroup.visible = prevTapes;
+      if (state.showTapes) {
+        document.getElementById('tape-badges-container').style.display = 'block';
+      }
+
+      const a = document.createElement('a');
+      a.href = dataUrl;
+      a.download = `body_studio_snapshot_${Date.now()}.png`;
+      a.click();
+
+      showToast('Đã lưu ảnh chụp 3D Studio!');
+    }
+
+    function showSpinner(show) {
+      document.getElementById('spinner').classList.toggle('active', show);
+    }
+
+    function showToast(msg) {
+      const t = document.getElementById('toast');
+      t.innerText = msg;
+      t.classList.add('show');
+      setTimeout(() => t.classList.remove('show'), 3500);
+    }
+
+    // Launch
+    window.onload = initThree;
+  </script>
+</body>
+</html>

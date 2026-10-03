@@ -1,0 +1,4643 @@
+[
+  {
+    "brand": "Zara",
+    "product_name": "Áo Khoác Biker Da Nhân Tạo Đính Khóa Kim Loại",
+    "sizes": "S, M, L, XL",
+    "local_image_path": "assets/products/zara/zara_biker_jacket.jpg",
+    "image_url": "https://static.zara.net/photos/products/zara_biker_jacket.jpg",
+    "description": "Thiết kế biker jacket phong cách rock-chic với chất liệu da PU cao cấp hiệu ứng hạt sần. Ve cổ nhọn đính nút bấm bạc, khóa kéo xéo lệch đặc trưng và túi zip kim loại.",
+    "price_vnd": 2299000,
+    "category": "Áo khoác da",
+    "gender": "Unisex",
+    "id": "zara_jk_01",
+    "fit_cut": "regular",
+    "stretch": "none",
+    "size_chart": {
+      "XS": {
+        "shoulder": 37,
+        "bust": 88,
+        "waist": 72,
+        "length": 64,
+        "sleeve": 57
+      },
+      "S": {
+        "shoulder": 39,
+        "bust": 92,
+        "waist": 76,
+        "length": 66,
+        "sleeve": 59
+      },
+      "M": {
+        "shoulder": 41,
+        "bust": 96,
+        "waist": 80,
+        "length": 68,
+        "sleeve": 60
+      },
+      "L": {
+        "shoulder": 43,
+        "bust": 102,
+        "waist": 86,
+        "length": 70,
+        "sleeve": 61
+      },
+      "XL": {
+        "shoulder": 45,
+        "bust": 108,
+        "waist": 92,
+        "length": 72,
+        "sleeve": 62
+      },
+      "XXL": {
+        "shoulder": 47,
+        "bust": 114,
+        "waist": 98,
+        "length": 74,
+        "sleeve": 63
+      }
+    }
+  },
+  {
+    "brand": "Zara",
+    "product_name": "Áo Khoác Dạ Len Dáng Dài Hai Hàng Cúc (Overcoat)",
+    "sizes": "XS, S, M, L",
+    "local_image_path": "assets/products/zara/zara_wool_overcoat.jpg",
+    "image_url": "https://static.zara.net/photos/products/zara_wool_overcoat.jpg",
+    "description": "Áo măng tô dạ pha len dày dặn màu xám than sang trọng, phom suông dài đứng chuẩn châu Âu. Chi tiết hai hàng cúc cài, ve cổ bản lớn kết hợp xẻ tà sau tạo độ bay mềm mại.",
+    "price_vnd": 2799000,
+    "category": "Áo khoác dạ",
+    "gender": "Nữ",
+    "id": "zara_jk_02",
+    "fit_cut": "regular",
+    "stretch": "low",
+    "size_chart": {
+      "XS": {
+        "shoulder": 37,
+        "bust": 88,
+        "waist": 72,
+        "length": 98,
+        "sleeve": 57
+      },
+      "S": {
+        "shoulder": 39,
+        "bust": 92,
+        "waist": 76,
+        "length": 100,
+        "sleeve": 59
+      },
+      "M": {
+        "shoulder": 41,
+        "bust": 96,
+        "waist": 80,
+        "length": 102,
+        "sleeve": 60
+      },
+      "L": {
+        "shoulder": 43,
+        "bust": 102,
+        "waist": 86,
+        "length": 104,
+        "sleeve": 61
+      },
+      "XL": {
+        "shoulder": 45,
+        "bust": 108,
+        "waist": 92,
+        "length": 106,
+        "sleeve": 62
+      },
+      "XXL": {
+        "shoulder": 47,
+        "bust": 114,
+        "waist": 98,
+        "length": 108,
+        "sleeve": 63
+      }
+    }
+  },
+  {
+    "brand": "Zara",
+    "product_name": "Áo Khoác Bomber Kaki Phong Cách Phi Công",
+    "sizes": "S, M, L, XL",
+    "local_image_path": "assets/products/zara/zara_bomber_kaki.jpg",
+    "image_url": "https://static.zara.net/photos/products/zara_bomber_kaki.jpg",
+    "description": "Chất liệu kaki dệt chéo màu xanh rêu olive chống gió, cổ bo dệt kim êm ái. Túi zip phong cách phi công quân đội ở cánh tay trái và túi viền 2 bên hông.",
+    "price_vnd": 1699000,
+    "category": "Áo khoác bomber",
+    "gender": "Nam",
+    "id": "zara_jk_03",
+    "fit_cut": "regular",
+    "stretch": "low",
+    "size_chart": {
+      "XS": {
+        "shoulder": 39,
+        "bust": 90,
+        "waist": 72,
+        "length": 64,
+        "sleeve": 57
+      },
+      "S": {
+        "shoulder": 41,
+        "bust": 94,
+        "waist": 76,
+        "length": 66,
+        "sleeve": 59
+      },
+      "M": {
+        "shoulder": 43,
+        "bust": 98,
+        "waist": 80,
+        "length": 68,
+        "sleeve": 60
+      },
+      "L": {
+        "shoulder": 45,
+        "bust": 104,
+        "waist": 86,
+        "length": 70,
+        "sleeve": 61
+      },
+      "XL": {
+        "shoulder": 47,
+        "bust": 110,
+        "waist": 92,
+        "length": 72,
+        "sleeve": 62
+      },
+      "XXL": {
+        "shoulder": 49,
+        "bust": 116,
+        "waist": 98,
+        "length": 74,
+        "sleeve": 63
+      }
+    }
+  },
+  {
+    "brand": "Zara",
+    "product_name": "Áo Blazer Đen Dáng Suông Tối Giản Cao Cấp",
+    "sizes": "XS, S, M, L",
+    "local_image_path": "assets/products/zara/zara_tailored_blazer.jpg",
+    "image_url": "https://static.zara.net/photos/products/zara_tailored_blazer.jpg",
+    "description": "Blazer phom relaxed đệm vai sắc sảo mang ngôn ngữ thiết kế tối giản hiện đại của Zara. Cổ ve nhọn thanh lịch, cài một nút trước ngực, túi mổ có nắp tinh xảo.",
+    "price_vnd": 1999000,
+    "category": "Áo blazer",
+    "gender": "Unisex",
+    "id": "zara_jk_04",
+    "fit_cut": "regular",
+    "stretch": "low",
+    "size_chart": {
+      "XS": {
+        "shoulder": 37,
+        "bust": 88,
+        "waist": 72,
+        "length": 64,
+        "sleeve": 57
+      },
+      "S": {
+        "shoulder": 39,
+        "bust": 92,
+        "waist": 76,
+        "length": 66,
+        "sleeve": 59
+      },
+      "M": {
+        "shoulder": 41,
+        "bust": 96,
+        "waist": 80,
+        "length": 68,
+        "sleeve": 60
+      },
+      "L": {
+        "shoulder": 43,
+        "bust": 102,
+        "waist": 86,
+        "length": 70,
+        "sleeve": 61
+      },
+      "XL": {
+        "shoulder": 45,
+        "bust": 108,
+        "waist": 92,
+        "length": 72,
+        "sleeve": 62
+      },
+      "XXL": {
+        "shoulder": 47,
+        "bust": 114,
+        "waist": 98,
+        "length": 74,
+        "sleeve": 63
+      }
+    }
+  },
+  {
+    "brand": "Zara",
+    "product_name": "Áo Khoác Phao Có Mũ Trượt Nước Dáng Rộng",
+    "sizes": "XS, S, M, L",
+    "local_image_path": "assets/products/zara/zara_hooded_puffer.jpg",
+    "image_url": "https://static.zara.net/photos/products/zara_hooded_puffer.jpg",
+    "description": "Áo khoác chần bông màu trắng kem thời thượng, mũ trùm có dây rút điều chỉnh. Bề mặt vải xử lý chống thấm nước trượt nước, khóa kéo kín và bo thun cổ tay giữ ấm tối đa.",
+    "price_vnd": 1899000,
+    "category": "Áo khoác phao",
+    "gender": "Nữ",
+    "id": "zara_jk_05",
+    "fit_cut": "oversized",
+    "stretch": "none",
+    "size_chart": {
+      "XS": {
+        "shoulder": 37,
+        "bust": 92,
+        "waist": 76,
+        "length": 64,
+        "sleeve": 57
+      },
+      "S": {
+        "shoulder": 39,
+        "bust": 96,
+        "waist": 80,
+        "length": 66,
+        "sleeve": 59
+      },
+      "M": {
+        "shoulder": 41,
+        "bust": 100,
+        "waist": 84,
+        "length": 68,
+        "sleeve": 60
+      },
+      "L": {
+        "shoulder": 43,
+        "bust": 106,
+        "waist": 90,
+        "length": 70,
+        "sleeve": 61
+      },
+      "XL": {
+        "shoulder": 45,
+        "bust": 112,
+        "waist": 96,
+        "length": 72,
+        "sleeve": 62
+      },
+      "XXL": {
+        "shoulder": 47,
+        "bust": 118,
+        "waist": 102,
+        "length": 74,
+        "sleeve": 63
+      }
+    }
+  },
+  {
+    "brand": "Zara",
+    "product_name": "Áo Khoác Dạ Tweed Trắng Kem Phối Khuy Vàng Sang Trọng",
+    "sizes": "XS, S, M, L",
+    "local_image_path": "assets/products/zara/zara_tweed_jacket.jpg",
+    "image_url": "https://static.zara.net/photos/products/zara_tweed_jacket.jpg",
+    "description": "Chất dạ tweed bouclé dệt nổi tinh xảo màu trắng kem quý phái. Cổ tròn không bẻ, hàng khuy kim loại chạm khắc hoa văn mạ vàng cao cấp, túi mổ trang trí trước ngực.",
+    "price_vnd": 2499000,
+    "category": "Áo khoác dạ",
+    "gender": "Nữ",
+    "id": "zara_jk_06",
+    "fit_cut": "regular",
+    "stretch": "low",
+    "size_chart": {
+      "XS": {
+        "shoulder": 37,
+        "bust": 88,
+        "waist": 72,
+        "length": 64,
+        "sleeve": 57
+      },
+      "S": {
+        "shoulder": 39,
+        "bust": 92,
+        "waist": 76,
+        "length": 66,
+        "sleeve": 59
+      },
+      "M": {
+        "shoulder": 41,
+        "bust": 96,
+        "waist": 80,
+        "length": 68,
+        "sleeve": 60
+      },
+      "L": {
+        "shoulder": 43,
+        "bust": 102,
+        "waist": 86,
+        "length": 70,
+        "sleeve": 61
+      },
+      "XL": {
+        "shoulder": 45,
+        "bust": 108,
+        "waist": 92,
+        "length": 72,
+        "sleeve": 62
+      },
+      "XXL": {
+        "shoulder": 47,
+        "bust": 114,
+        "waist": 98,
+        "length": 74,
+        "sleeve": 63
+      }
+    }
+  },
+  {
+    "brand": "Zara",
+    "product_name": "Áo Khoác Bomber Da Lộn Nâu Camel Thời Thượng",
+    "sizes": "S, M, L, XL",
+    "local_image_path": "assets/products/zara/zara_suede_bomber.jpg",
+    "image_url": "https://static.zara.net/photos/products/zara_suede_bomber.jpg",
+    "description": "Chất da lộn nhân tạo siêu mềm mịn màu nâu camel cổ điển. Thiết kế phom bomber bo thun gấu áo và cổ tay áo co giãn êm ái, khóa kéo kim loại sáng bóng thanh lịch.",
+    "price_vnd": 2199000,
+    "category": "Áo khoác da",
+    "gender": "Nam",
+    "id": "zara_jk_07",
+    "fit_cut": "regular",
+    "stretch": "none",
+    "size_chart": {
+      "XS": {
+        "shoulder": 39,
+        "bust": 90,
+        "waist": 72,
+        "length": 64,
+        "sleeve": 57
+      },
+      "S": {
+        "shoulder": 41,
+        "bust": 94,
+        "waist": 76,
+        "length": 66,
+        "sleeve": 59
+      },
+      "M": {
+        "shoulder": 43,
+        "bust": 98,
+        "waist": 80,
+        "length": 68,
+        "sleeve": 60
+      },
+      "L": {
+        "shoulder": 45,
+        "bust": 104,
+        "waist": 86,
+        "length": 70,
+        "sleeve": 61
+      },
+      "XL": {
+        "shoulder": 47,
+        "bust": 110,
+        "waist": 92,
+        "length": 72,
+        "sleeve": 62
+      },
+      "XXL": {
+        "shoulder": 49,
+        "bust": 116,
+        "waist": 98,
+        "length": 74,
+        "sleeve": 63
+      }
+    }
+  },
+  {
+    "brand": "Zara",
+    "product_name": "Áo Khoác Gió Thể Thao Phom Suông Cổ Cao Phối Trắng Xám",
+    "sizes": "S, M, L, XL",
+    "local_image_path": "assets/products/zara/zara_windbreaker.jpg",
+    "image_url": "https://static.zara.net/photos/products/zara_windbreaker.jpg",
+    "description": "Dòng trang phục thể thao Zara Athletic với chất vải cản gió siêu nhẹ. Cổ áo dựng đứng có dây rút co giãn, túi zip ẩn hông tiện lợi và đường may giấu tỉ mỉ.",
+    "price_vnd": 1499000,
+    "category": "Áo khoác gió",
+    "gender": "Unisex",
+    "id": "zara_jk_08",
+    "fit_cut": "regular",
+    "stretch": "low",
+    "size_chart": {
+      "XS": {
+        "shoulder": 37,
+        "bust": 88,
+        "waist": 72,
+        "length": 64,
+        "sleeve": 57
+      },
+      "S": {
+        "shoulder": 39,
+        "bust": 92,
+        "waist": 76,
+        "length": 66,
+        "sleeve": 59
+      },
+      "M": {
+        "shoulder": 41,
+        "bust": 96,
+        "waist": 80,
+        "length": 68,
+        "sleeve": 60
+      },
+      "L": {
+        "shoulder": 43,
+        "bust": 102,
+        "waist": 86,
+        "length": 70,
+        "sleeve": 61
+      },
+      "XL": {
+        "shoulder": 45,
+        "bust": 108,
+        "waist": 92,
+        "length": 72,
+        "sleeve": 62
+      },
+      "XXL": {
+        "shoulder": 47,
+        "bust": 114,
+        "waist": 98,
+        "length": 74,
+        "sleeve": 63
+      }
+    }
+  },
+  {
+    "brand": "Zara",
+    "product_name": "Áo Khoác Denim Dáng Rộng Wash Xanh Cổ Điển",
+    "sizes": "S, M, L, XL",
+    "local_image_path": "assets/products/zara/zara_denim_vintage.jpg",
+    "image_url": "https://static.zara.net/photos/products/zara_denim_vintage.jpg",
+    "description": "Vải bò 100% cotton xử lý wash màu xanh sáng vintage tự nhiên. Thiết kế dáng suông rộng phóng khoáng, hai túi nắp ngực đính cúc kim loại dập vân cổ điển.",
+    "price_vnd": 1599000,
+    "category": "Áo khoác jean",
+    "gender": "Unisex",
+    "id": "zara_jk_09",
+    "fit_cut": "oversized",
+    "stretch": "low",
+    "size_chart": {
+      "XS": {
+        "shoulder": 37,
+        "bust": 92,
+        "waist": 76,
+        "length": 64,
+        "sleeve": 57
+      },
+      "S": {
+        "shoulder": 39,
+        "bust": 96,
+        "waist": 80,
+        "length": 66,
+        "sleeve": 59
+      },
+      "M": {
+        "shoulder": 41,
+        "bust": 100,
+        "waist": 84,
+        "length": 68,
+        "sleeve": 60
+      },
+      "L": {
+        "shoulder": 43,
+        "bust": 106,
+        "waist": 90,
+        "length": 70,
+        "sleeve": 61
+      },
+      "XL": {
+        "shoulder": 45,
+        "bust": 112,
+        "waist": 96,
+        "length": 72,
+        "sleeve": 62
+      },
+      "XXL": {
+        "shoulder": 47,
+        "bust": 118,
+        "waist": 102,
+        "length": 74,
+        "sleeve": 63
+      }
+    }
+  },
+  {
+    "brand": "Zara",
+    "product_name": "Áo Khoác Măng Tô Trench Coat Dáng Dài Kèm Thắt Lưng",
+    "sizes": "XS, S, M, L",
+    "local_image_path": "assets/products/zara/zara_long_trench.jpg",
+    "image_url": "https://static.zara.net/photos/products/zara_long_trench.jpg",
+    "description": "Mẫu trench coat kinh điển hai hàng cúc với ve cổ lớn sang trọng. Vải kaki trượt nước cao cấp màu be cát, thắt lưng đai cài bản to tôn eo và cầu vai cài nút quý phái.",
+    "price_vnd": 2999000,
+    "category": "Áo khoác gió",
+    "gender": "Nữ",
+    "id": "zara_jk_10",
+    "fit_cut": "regular",
+    "stretch": "low",
+    "size_chart": {
+      "XS": {
+        "shoulder": 37,
+        "bust": 88,
+        "waist": 72,
+        "length": 98,
+        "sleeve": 57
+      },
+      "S": {
+        "shoulder": 39,
+        "bust": 92,
+        "waist": 76,
+        "length": 100,
+        "sleeve": 59
+      },
+      "M": {
+        "shoulder": 41,
+        "bust": 96,
+        "waist": 80,
+        "length": 102,
+        "sleeve": 60
+      },
+      "L": {
+        "shoulder": 43,
+        "bust": 102,
+        "waist": 86,
+        "length": 104,
+        "sleeve": 61
+      },
+      "XL": {
+        "shoulder": 45,
+        "bust": 108,
+        "waist": 92,
+        "length": 106,
+        "sleeve": 62
+      },
+      "XXL": {
+        "shoulder": 47,
+        "bust": 114,
+        "waist": 98,
+        "length": 108,
+        "sleeve": 63
+      }
+    }
+  },
+  {
+    "brand": "Uniqlo",
+    "product_name": "Áo Khoác Phao Siêu Nhẹ Siêu Ấm (Ultra Light Down Jacket)",
+    "sizes": "S, M, L, XL, XXL",
+    "local_image_path": "assets/products/uniqlo/uniqlo_ultra_light_down.jpg",
+    "image_url": "https://image.uniqlo.com/UQ/ST3/vn/imagesgoods/ultra_light_down.jpg",
+    "description": "Vải nylon siêu mỏng nhẹ chống trượt nước kết hợp lớp đệm lông vũ tự nhiên 90/10 giữ nhiệt tối ưu. Có thể cuộn gọn vào túi đựng nhỏ gọn mang theo mọi lúc.",
+    "price_vnd": 1499000,
+    "category": "Áo khoác phao",
+    "gender": "Unisex",
+    "id": "uniqlo_jk_01",
+    "fit_cut": "regular",
+    "stretch": "none",
+    "size_chart": {
+      "XS": {
+        "shoulder": 37,
+        "bust": 88,
+        "waist": 72,
+        "length": 64,
+        "sleeve": 57
+      },
+      "S": {
+        "shoulder": 39,
+        "bust": 92,
+        "waist": 76,
+        "length": 66,
+        "sleeve": 59
+      },
+      "M": {
+        "shoulder": 41,
+        "bust": 96,
+        "waist": 80,
+        "length": 68,
+        "sleeve": 60
+      },
+      "L": {
+        "shoulder": 43,
+        "bust": 102,
+        "waist": 86,
+        "length": 70,
+        "sleeve": 61
+      },
+      "XL": {
+        "shoulder": 45,
+        "bust": 108,
+        "waist": 92,
+        "length": 72,
+        "sleeve": 62
+      },
+      "XXL": {
+        "shoulder": 47,
+        "bust": 114,
+        "waist": 98,
+        "length": 74,
+        "sleeve": 63
+      }
+    }
+  },
+  {
+    "brand": "Uniqlo",
+    "product_name": "Áo Khoác Giả Lông Cừu Kéo Khóa Cổ Cao (Fluffy Fleece)",
+    "sizes": "XS, S, M, L, XL",
+    "local_image_path": "assets/products/uniqlo/uniqlo_fluffy_fleece.jpg",
+    "image_url": "https://image.uniqlo.com/UQ/ST3/vn/imagesgoods/fluffy_fleece.jpg",
+    "description": "Chất nỉ lông xù mềm mại như lông cừu, màu trắng kem trang nhã. Cổ đứng cao cản gió, túi trước lót vải nỉ ấm áp, thiết kế bo gấu nhẹ giữ ấm cơ thể trong mùa lạnh.",
+    "price_vnd": 686000,
+    "category": "Áo khoác lông",
+    "gender": "Nữ",
+    "id": "uniqlo_jk_02",
+    "fit_cut": "regular",
+    "stretch": "low",
+    "size_chart": {
+      "XS": {
+        "shoulder": 37,
+        "bust": 88,
+        "waist": 72,
+        "length": 64,
+        "sleeve": 57
+      },
+      "S": {
+        "shoulder": 39,
+        "bust": 92,
+        "waist": 76,
+        "length": 66,
+        "sleeve": 59
+      },
+      "M": {
+        "shoulder": 41,
+        "bust": 96,
+        "waist": 80,
+        "length": 68,
+        "sleeve": 60
+      },
+      "L": {
+        "shoulder": 43,
+        "bust": 102,
+        "waist": 86,
+        "length": 70,
+        "sleeve": 61
+      },
+      "XL": {
+        "shoulder": 45,
+        "bust": 108,
+        "waist": 92,
+        "length": 72,
+        "sleeve": 62
+      },
+      "XXL": {
+        "shoulder": 47,
+        "bust": 114,
+        "waist": 98,
+        "length": 74,
+        "sleeve": 63
+      }
+    }
+  },
+  {
+    "brand": "Uniqlo",
+    "product_name": "Áo Khoác Parka Blocktech Chống Gió Chống Nước Cao Cấp",
+    "sizes": "S, M, L, XL",
+    "local_image_path": "assets/products/uniqlo/uniqlo_blocktech_parka.jpg",
+    "image_url": "https://image.uniqlo.com/UQ/ST3/vn/imagesgoods/blocktech_parka.jpg",
+    "description": "Công nghệ màng Blocktech cản gió 100% và chống mưa hiệu quả với các đường ép nhiệt chống thấm. Thiết kế mũ trùm 3 mảnh và khóa ngực ép nhiệt chống nước sắc sảo.",
+    "price_vnd": 1499000,
+    "category": "Áo khoác gió",
+    "gender": "Nam",
+    "id": "uniqlo_jk_03",
+    "fit_cut": "regular",
+    "stretch": "low",
+    "size_chart": {
+      "XS": {
+        "shoulder": 39,
+        "bust": 90,
+        "waist": 72,
+        "length": 98,
+        "sleeve": 57
+      },
+      "S": {
+        "shoulder": 41,
+        "bust": 94,
+        "waist": 76,
+        "length": 100,
+        "sleeve": 59
+      },
+      "M": {
+        "shoulder": 43,
+        "bust": 98,
+        "waist": 80,
+        "length": 102,
+        "sleeve": 60
+      },
+      "L": {
+        "shoulder": 45,
+        "bust": 104,
+        "waist": 86,
+        "length": 104,
+        "sleeve": 61
+      },
+      "XL": {
+        "shoulder": 47,
+        "bust": 110,
+        "waist": 92,
+        "length": 106,
+        "sleeve": 62
+      },
+      "XXL": {
+        "shoulder": 49,
+        "bust": 116,
+        "waist": 98,
+        "length": 108,
+        "sleeve": 63
+      }
+    }
+  },
+  {
+    "brand": "Uniqlo",
+    "product_name": "Áo Khoác Denim Co Giãn Thoải Mái (Stretch Denim Jacket)",
+    "sizes": "S, M, L, XL",
+    "local_image_path": "assets/products/uniqlo/uniqlo_stretch_denim.jpg",
+    "image_url": "https://image.uniqlo.com/UQ/ST3/vn/imagesgoods/stretch_denim.jpg",
+    "description": "Vải cotton denim pha sợi co giãn cao cấp màu chàm đậm Indigo. Phom áo Regular Fit kinh điển với hai túi nắp ngực và chỉ may viền cam nổi bật chuẩn phong cách Nhật.",
+    "price_vnd": 980000,
+    "category": "Áo khoác jean",
+    "gender": "Nam",
+    "id": "uniqlo_jk_04",
+    "fit_cut": "regular",
+    "stretch": "medium",
+    "size_chart": {
+      "XS": {
+        "shoulder": 39,
+        "bust": 90,
+        "waist": 72,
+        "length": 64,
+        "sleeve": 57
+      },
+      "S": {
+        "shoulder": 41,
+        "bust": 94,
+        "waist": 76,
+        "length": 66,
+        "sleeve": 59
+      },
+      "M": {
+        "shoulder": 43,
+        "bust": 98,
+        "waist": 80,
+        "length": 68,
+        "sleeve": 60
+      },
+      "L": {
+        "shoulder": 45,
+        "bust": 104,
+        "waist": 86,
+        "length": 70,
+        "sleeve": 61
+      },
+      "XL": {
+        "shoulder": 47,
+        "bust": 110,
+        "waist": 92,
+        "length": 72,
+        "sleeve": 62
+      },
+      "XXL": {
+        "shoulder": 49,
+        "bust": 116,
+        "waist": 98,
+        "length": 74,
+        "sleeve": 63
+      }
+    }
+  },
+  {
+    "brand": "Uniqlo",
+    "product_name": "Áo Khoác Phao Cổ Tròn Dáng Gọn (Ultra Light Down Compact)",
+    "sizes": "S, M, L, XL",
+    "local_image_path": "assets/products/uniqlo/uniqlo_compact_down.jpg",
+    "image_url": "https://image.uniqlo.com/UQ/ST3/vn/imagesgoods/compact_down.jpg",
+    "description": "Thiết kế không cổ với hàng cúc bấm phẳng tinh tế màu xanh rêu quân đội. Hoàn hảo để mặc ngoài như áo khoác nhẹ hoặc mặc lót trong áo măng tô vào những ngày rét đậm.",
+    "price_vnd": 1199000,
+    "category": "Áo khoác phao",
+    "gender": "Unisex",
+    "id": "uniqlo_jk_05",
+    "fit_cut": "regular",
+    "stretch": "none",
+    "size_chart": {
+      "XS": {
+        "shoulder": 37,
+        "bust": 88,
+        "waist": 72,
+        "length": 64,
+        "sleeve": 57
+      },
+      "S": {
+        "shoulder": 39,
+        "bust": 92,
+        "waist": 76,
+        "length": 66,
+        "sleeve": 59
+      },
+      "M": {
+        "shoulder": 41,
+        "bust": 96,
+        "waist": 80,
+        "length": 68,
+        "sleeve": 60
+      },
+      "L": {
+        "shoulder": 43,
+        "bust": 102,
+        "waist": 86,
+        "length": 70,
+        "sleeve": 61
+      },
+      "XL": {
+        "shoulder": 45,
+        "bust": 108,
+        "waist": 92,
+        "length": 72,
+        "sleeve": 62
+      },
+      "XXL": {
+        "shoulder": 47,
+        "bust": 114,
+        "waist": 98,
+        "length": 74,
+        "sleeve": 63
+      }
+    }
+  },
+  {
+    "brand": "Uniqlo",
+    "product_name": "Áo Khoác Len Souffle Sợi Dệt Mịn Màng Cổ Tim",
+    "sizes": "S, M, L, XL",
+    "local_image_path": "assets/products/uniqlo/uniqlo_souffle_cardigan.jpg",
+    "image_url": "https://image.uniqlo.com/UQ/ST3/vn/imagesgoods/souffle_cardigan.jpg",
+    "description": "Chất len dệt Souffle độc quyền xốp nhẹ, hoàn toàn không gây ngứa ngáy trên da. Màu xám tiêu trang nhã với hàng cúc vân sừng sang trọng, lý tưởng cho thời tiết se lạnh.",
+    "price_vnd": 784000,
+    "category": "Áo khoác len",
+    "gender": "Unisex",
+    "id": "uniqlo_jk_06",
+    "fit_cut": "regular",
+    "stretch": "medium",
+    "size_chart": {
+      "XS": {
+        "shoulder": 37,
+        "bust": 88,
+        "waist": 72,
+        "length": 64,
+        "sleeve": 57
+      },
+      "S": {
+        "shoulder": 39,
+        "bust": 92,
+        "waist": 76,
+        "length": 66,
+        "sleeve": 59
+      },
+      "M": {
+        "shoulder": 41,
+        "bust": 96,
+        "waist": 80,
+        "length": 68,
+        "sleeve": 60
+      },
+      "L": {
+        "shoulder": 43,
+        "bust": 102,
+        "waist": 86,
+        "length": 70,
+        "sleeve": 61
+      },
+      "XL": {
+        "shoulder": 45,
+        "bust": 108,
+        "waist": 92,
+        "length": 72,
+        "sleeve": 62
+      },
+      "XXL": {
+        "shoulder": 47,
+        "bust": 114,
+        "waist": 98,
+        "length": 74,
+        "sleeve": 63
+      }
+    }
+  },
+  {
+    "brand": "Uniqlo",
+    "product_name": "Áo Khoác Nỉ Lông Cừu Cản Gió Siêu Ấm (Windproof Fleece)",
+    "sizes": "S, M, L, XL",
+    "local_image_path": "assets/products/uniqlo/uniqlo_windproof_fleece.jpg",
+    "image_url": "https://image.uniqlo.com/UQ/ST3/vn/imagesgoods/windproof_fleece.jpg",
+    "description": "Tích hợp lớp màng chống gió siêu mỏng nằm giữa hai lớp vải lông xù ấm áp. Túi zip ngực viền tương phản tiện dụng, cổ cao ôm sát bảo vệ cổ họng trong gió lạnh.",
+    "price_vnd": 980000,
+    "category": "Áo khoác lông",
+    "gender": "Unisex",
+    "id": "uniqlo_jk_07",
+    "fit_cut": "regular",
+    "stretch": "low",
+    "size_chart": {
+      "XS": {
+        "shoulder": 37,
+        "bust": 88,
+        "waist": 72,
+        "length": 64,
+        "sleeve": 57
+      },
+      "S": {
+        "shoulder": 39,
+        "bust": 92,
+        "waist": 76,
+        "length": 66,
+        "sleeve": 59
+      },
+      "M": {
+        "shoulder": 41,
+        "bust": 96,
+        "waist": 80,
+        "length": 68,
+        "sleeve": 60
+      },
+      "L": {
+        "shoulder": 43,
+        "bust": 102,
+        "waist": 86,
+        "length": 70,
+        "sleeve": 61
+      },
+      "XL": {
+        "shoulder": 45,
+        "bust": 108,
+        "waist": 92,
+        "length": 72,
+        "sleeve": 62
+      },
+      "XXL": {
+        "shoulder": 47,
+        "bust": 114,
+        "waist": 98,
+        "length": 74,
+        "sleeve": 63
+      }
+    }
+  },
+  {
+    "brand": "Uniqlo",
+    "product_name": "Áo Khoác Kaki Đa Năng Utility Parka Cổ Nhung Tăm",
+    "sizes": "S, M, L, XL",
+    "local_image_path": "assets/products/uniqlo/uniqlo_utility_jacket.jpg",
+    "image_url": "https://image.uniqlo.com/UQ/ST3/vn/imagesgoods/utility_jacket.jpg",
+    "description": "Lấy cảm hứng từ áo khoác thợ săn truyền thống với vải canvas xanh rêu dệt dày dặn và cổ bẻ nhung tăm nâu. Bốn túi hộp tiện ích phía trước đáp ứng nhu cầu mang đồ thường nhật.",
+    "price_vnd": 1499000,
+    "category": "Áo khoác gió",
+    "gender": "Nam",
+    "id": "uniqlo_jk_08",
+    "fit_cut": "regular",
+    "stretch": "low",
+    "size_chart": {
+      "XS": {
+        "shoulder": 39,
+        "bust": 90,
+        "waist": 72,
+        "length": 98,
+        "sleeve": 57
+      },
+      "S": {
+        "shoulder": 41,
+        "bust": 94,
+        "waist": 76,
+        "length": 100,
+        "sleeve": 59
+      },
+      "M": {
+        "shoulder": 43,
+        "bust": 98,
+        "waist": 80,
+        "length": 102,
+        "sleeve": 60
+      },
+      "L": {
+        "shoulder": 45,
+        "bust": 104,
+        "waist": 86,
+        "length": 104,
+        "sleeve": 61
+      },
+      "XL": {
+        "shoulder": 47,
+        "bust": 110,
+        "waist": 92,
+        "length": 106,
+        "sleeve": 62
+      },
+      "XXL": {
+        "shoulder": 49,
+        "bust": 116,
+        "waist": 98,
+        "length": 108,
+        "sleeve": 63
+      }
+    }
+  },
+  {
+    "brand": "Uniqlo",
+    "product_name": "Áo Khoác Phao Lông Vũ Không Đường May (Seamless Down Parka)",
+    "sizes": "S, M, L, XL, XXL",
+    "local_image_path": "assets/products/uniqlo/uniqlo_seamless_down.jpg",
+    "image_url": "https://image.uniqlo.com/UQ/ST3/vn/imagesgoods/seamless_down.jpg",
+    "description": "Công nghệ ép nhiệt không đường may giúp ngăn chặn tuyệt đối gió lạnh lùa và nước mưa ngấm qua khe chỉ. Đệm lông vũ chất lượng cao giữ nhiệt hoàn hảo dưới 0 độ C.",
+    "price_vnd": 2499000,
+    "category": "Áo khoác phao",
+    "gender": "Unisex",
+    "id": "uniqlo_jk_09",
+    "fit_cut": "regular",
+    "stretch": "none",
+    "size_chart": {
+      "XS": {
+        "shoulder": 37,
+        "bust": 88,
+        "waist": 72,
+        "length": 98,
+        "sleeve": 57
+      },
+      "S": {
+        "shoulder": 39,
+        "bust": 92,
+        "waist": 76,
+        "length": 100,
+        "sleeve": 59
+      },
+      "M": {
+        "shoulder": 41,
+        "bust": 96,
+        "waist": 80,
+        "length": 102,
+        "sleeve": 60
+      },
+      "L": {
+        "shoulder": 43,
+        "bust": 102,
+        "waist": 86,
+        "length": 104,
+        "sleeve": 61
+      },
+      "XL": {
+        "shoulder": 45,
+        "bust": 108,
+        "waist": 92,
+        "length": 106,
+        "sleeve": 62
+      },
+      "XXL": {
+        "shoulder": 47,
+        "bust": 114,
+        "waist": 98,
+        "length": 108,
+        "sleeve": 63
+      }
+    }
+  },
+  {
+    "brand": "Uniqlo",
+    "product_name": "Áo Blazer Kẻ Caro Phom Thoải Mái (Relaxed Tailored Jacket)",
+    "sizes": "S, M, L, XL",
+    "local_image_path": "assets/products/uniqlo/uniqlo_relaxed_blazer.jpg",
+    "image_url": "https://image.uniqlo.com/UQ/ST3/vn/imagesgoods/relaxed_blazer.jpg",
+    "description": "Chất dạ dệt kẻ caro xám than tinh tế với công nghệ co giãn nhẹ chống nhăn. Phom suông hiện đại vừa vặn cho môi trường công sở thông minh năng động.",
+    "price_vnd": 1799000,
+    "category": "Áo blazer",
+    "gender": "Nam",
+    "id": "uniqlo_jk_10",
+    "fit_cut": "regular",
+    "stretch": "low",
+    "size_chart": {
+      "XS": {
+        "shoulder": 39,
+        "bust": 90,
+        "waist": 72,
+        "length": 64,
+        "sleeve": 57
+      },
+      "S": {
+        "shoulder": 41,
+        "bust": 94,
+        "waist": 76,
+        "length": 66,
+        "sleeve": 59
+      },
+      "M": {
+        "shoulder": 43,
+        "bust": 98,
+        "waist": 80,
+        "length": 68,
+        "sleeve": 60
+      },
+      "L": {
+        "shoulder": 45,
+        "bust": 104,
+        "waist": 86,
+        "length": 70,
+        "sleeve": 61
+      },
+      "XL": {
+        "shoulder": 47,
+        "bust": 110,
+        "waist": 92,
+        "length": 72,
+        "sleeve": 62
+      },
+      "XXL": {
+        "shoulder": 49,
+        "bust": 116,
+        "waist": 98,
+        "length": 74,
+        "sleeve": 63
+      }
+    }
+  },
+  {
+    "brand": "H&M",
+    "product_name": "Áo Khoác Dạ Pha Len Một Hàng Cúc Thanh Lịch",
+    "sizes": "S, M, L, XL",
+    "local_image_path": "assets/products/hm/hm_tailored_wool_coat.jpg",
+    "image_url": "https://lp2.hm.com/hmprod?set=tailored_wool_coat.jpg",
+    "description": "Áo khoác dạ tông màu be camel ấm áp mang phong cách Bắc Âu thanh lịch. Thiết kế một hàng cúc tối giản, túi nắp tinh tế, phom suông che khuyết điểm hoàn hảo.",
+    "price_vnd": 1499000,
+    "category": "Áo khoác dạ",
+    "gender": "Nữ",
+    "id": "hm_jk_01",
+    "fit_cut": "regular",
+    "stretch": "low",
+    "size_chart": {
+      "XS": {
+        "shoulder": 37,
+        "bust": 88,
+        "waist": 72,
+        "length": 64,
+        "sleeve": 57
+      },
+      "S": {
+        "shoulder": 39,
+        "bust": 92,
+        "waist": 76,
+        "length": 66,
+        "sleeve": 59
+      },
+      "M": {
+        "shoulder": 41,
+        "bust": 96,
+        "waist": 80,
+        "length": 68,
+        "sleeve": 60
+      },
+      "L": {
+        "shoulder": 43,
+        "bust": 102,
+        "waist": 86,
+        "length": 70,
+        "sleeve": 61
+      },
+      "XL": {
+        "shoulder": 45,
+        "bust": 108,
+        "waist": 92,
+        "length": 72,
+        "sleeve": 62
+      },
+      "XXL": {
+        "shoulder": 47,
+        "bust": 114,
+        "waist": 98,
+        "length": 74,
+        "sleeve": 63
+      }
+    }
+  },
+  {
+    "brand": "H&M",
+    "product_name": "Áo Khoác Phao Cổ Đứng Ngắn Chần Bông Đen",
+    "sizes": "XS, S, M, L",
+    "local_image_path": "assets/products/hm/hm_stand_collar_puffer.jpg",
+    "image_url": "https://lp2.hm.com/hmprod?set=stand_collar_puffer.jpg",
+    "description": "Áo phao ngắn chần bông màu đen kinh điển, cổ đứng cản gió hiệu quả. Khóa kéo ẩn cùng hai túi zip hông tiện lợi, lớp lót giữ nhiệt nhẹ nhàng không gây cảm giác nặng nề.",
+    "price_vnd": 999000,
+    "category": "Áo khoác phao",
+    "gender": "Unisex",
+    "id": "hm_jk_02",
+    "fit_cut": "regular",
+    "stretch": "none",
+    "size_chart": {
+      "XS": {
+        "shoulder": 37,
+        "bust": 88,
+        "waist": 72,
+        "length": 48,
+        "sleeve": 57
+      },
+      "S": {
+        "shoulder": 39,
+        "bust": 92,
+        "waist": 76,
+        "length": 50,
+        "sleeve": 59
+      },
+      "M": {
+        "shoulder": 41,
+        "bust": 96,
+        "waist": 80,
+        "length": 52,
+        "sleeve": 60
+      },
+      "L": {
+        "shoulder": 43,
+        "bust": 102,
+        "waist": 86,
+        "length": 54,
+        "sleeve": 61
+      },
+      "XL": {
+        "shoulder": 45,
+        "bust": 108,
+        "waist": 92,
+        "length": 56,
+        "sleeve": 62
+      },
+      "XXL": {
+        "shoulder": 47,
+        "bust": 114,
+        "waist": 98,
+        "length": 58,
+        "sleeve": 63
+      }
+    }
+  },
+  {
+    "brand": "H&M",
+    "product_name": "Áo Khoác Varsity Bóng Chày Thêu Logo Học Đường",
+    "sizes": "S, M, L, XL",
+    "local_image_path": "assets/products/hm/hm_varsity_bomber.jpg",
+    "image_url": "https://lp2.hm.com/hmprod?set=varsity_jacket.jpg",
+    "description": "Phong cách học đường Mỹ với thân nỉ xanh navy phối tay áo trắng ngà tương phản. Thêu nổi logo chữ 'H 1947' trước ngực, bo thun sọc cổ áo và cổ tay thể thao năng động.",
+    "price_vnd": 1199000,
+    "category": "Áo khoác bomber",
+    "gender": "Unisex",
+    "id": "hm_jk_03",
+    "fit_cut": "oversized",
+    "stretch": "low",
+    "size_chart": {
+      "XS": {
+        "shoulder": 37,
+        "bust": 92,
+        "waist": 76,
+        "length": 64,
+        "sleeve": 57
+      },
+      "S": {
+        "shoulder": 39,
+        "bust": 96,
+        "waist": 80,
+        "length": 66,
+        "sleeve": 59
+      },
+      "M": {
+        "shoulder": 41,
+        "bust": 100,
+        "waist": 84,
+        "length": 68,
+        "sleeve": 60
+      },
+      "L": {
+        "shoulder": 43,
+        "bust": 106,
+        "waist": 90,
+        "length": 70,
+        "sleeve": 61
+      },
+      "XL": {
+        "shoulder": 45,
+        "bust": 112,
+        "waist": 96,
+        "length": 72,
+        "sleeve": 62
+      },
+      "XXL": {
+        "shoulder": 47,
+        "bust": 118,
+        "waist": 102,
+        "length": 74,
+        "sleeve": 63
+      }
+    }
+  },
+  {
+    "brand": "H&M",
+    "product_name": "Áo Khoác Biker Da Dáng Lửng Kéo Khóa Chéo",
+    "sizes": "XS, S, M, L",
+    "local_image_path": "assets/products/hm/hm_biker_cropped.jpg",
+    "image_url": "https://lp2.hm.com/hmprod?set=biker_cropped.jpg",
+    "description": "Chất da nhân tạo mềm mịn màu đen tuyền với thiết kế croptop lửng tôn eo. Cổ bẻ ve nhọn đính cúc bấm kim loại, khóa kéo túi chéo tạo điểm nhấn góc cạnh sành điệu.",
+    "price_vnd": 1299000,
+    "category": "Áo khoác da",
+    "gender": "Nữ",
+    "id": "hm_jk_04",
+    "fit_cut": "regular",
+    "stretch": "none",
+    "size_chart": {
+      "XS": {
+        "shoulder": 37,
+        "bust": 88,
+        "waist": 72,
+        "length": 48,
+        "sleeve": 57
+      },
+      "S": {
+        "shoulder": 39,
+        "bust": 92,
+        "waist": 76,
+        "length": 50,
+        "sleeve": 59
+      },
+      "M": {
+        "shoulder": 41,
+        "bust": 96,
+        "waist": 80,
+        "length": 52,
+        "sleeve": 60
+      },
+      "L": {
+        "shoulder": 43,
+        "bust": 102,
+        "waist": 86,
+        "length": 54,
+        "sleeve": 61
+      },
+      "XL": {
+        "shoulder": 45,
+        "bust": 108,
+        "waist": 92,
+        "length": 56,
+        "sleeve": 62
+      },
+      "XXL": {
+        "shoulder": 47,
+        "bust": 114,
+        "waist": 98,
+        "length": 58,
+        "sleeve": 63
+      }
+    }
+  },
+  {
+    "brand": "H&M",
+    "product_name": "Áo Khoác Shacket Dạ Kẻ Caro Phom Rộng Vintage",
+    "sizes": "S, M, L, XL",
+    "local_image_path": "assets/products/hm/hm_plaid_shacket.jpg",
+    "image_url": "https://lp2.hm.com/hmprod?set=plaid_shacket.jpg",
+    "description": "Áo sơ mi khoác ngoài (shacket) chất vải dệt dày dặn họa tiết ca rô be - nâu ấm áp. Túi hộp nắp đậy đối xứng trước ngực, phom oversize trẻ trung dễ phối layer.",
+    "price_vnd": 1099000,
+    "category": "Áo khoác dạ",
+    "gender": "Unisex",
+    "id": "hm_jk_05",
+    "fit_cut": "oversized",
+    "stretch": "low",
+    "size_chart": {
+      "XS": {
+        "shoulder": 37,
+        "bust": 92,
+        "waist": 76,
+        "length": 64,
+        "sleeve": 57
+      },
+      "S": {
+        "shoulder": 39,
+        "bust": 96,
+        "waist": 80,
+        "length": 66,
+        "sleeve": 59
+      },
+      "M": {
+        "shoulder": 41,
+        "bust": 100,
+        "waist": 84,
+        "length": 68,
+        "sleeve": 60
+      },
+      "L": {
+        "shoulder": 43,
+        "bust": 106,
+        "waist": 90,
+        "length": 70,
+        "sleeve": 61
+      },
+      "XL": {
+        "shoulder": 45,
+        "bust": 112,
+        "waist": 96,
+        "length": 72,
+        "sleeve": 62
+      },
+      "XXL": {
+        "shoulder": 47,
+        "bust": 118,
+        "waist": 102,
+        "length": 74,
+        "sleeve": 63
+      }
+    }
+  },
+  {
+    "brand": "H&M",
+    "product_name": "Áo Khoác Parka Dáng Dài Có Mũ Viền Lông Cừu Nhân Tạo",
+    "sizes": "S, M, L, XL",
+    "local_image_path": "assets/products/hm/hm_parka_fur.jpg",
+    "image_url": "https://lp2.hm.com/hmprod?set=parka_fur.jpg",
+    "description": "Áo parka chống rét cao cấp màu xanh rêu quân đội. Mũ trùm viền lông nhân tạo có thể tháo rời, dây rút eo tùy chỉnh độ ôm và lớp lót bông xốp ấm áp.",
+    "price_vnd": 1799000,
+    "category": "Áo khoác gió",
+    "gender": "Unisex",
+    "id": "hm_jk_06",
+    "fit_cut": "regular",
+    "stretch": "low",
+    "size_chart": {
+      "XS": {
+        "shoulder": 37,
+        "bust": 88,
+        "waist": 72,
+        "length": 98,
+        "sleeve": 57
+      },
+      "S": {
+        "shoulder": 39,
+        "bust": 92,
+        "waist": 76,
+        "length": 100,
+        "sleeve": 59
+      },
+      "M": {
+        "shoulder": 41,
+        "bust": 96,
+        "waist": 80,
+        "length": 102,
+        "sleeve": 60
+      },
+      "L": {
+        "shoulder": 43,
+        "bust": 102,
+        "waist": 86,
+        "length": 104,
+        "sleeve": 61
+      },
+      "XL": {
+        "shoulder": 45,
+        "bust": 108,
+        "waist": 92,
+        "length": 106,
+        "sleeve": 62
+      },
+      "XXL": {
+        "shoulder": 47,
+        "bust": 114,
+        "waist": 98,
+        "length": 108,
+        "sleeve": 63
+      }
+    }
+  },
+  {
+    "brand": "H&M",
+    "product_name": "Áo Khoác Nỉ Lông Teddy Xốp Trắng Ngà Ấm Áp",
+    "sizes": "XS, S, M, L",
+    "local_image_path": "assets/products/hm/hm_teddy_jacket.jpg",
+    "image_url": "https://lp2.hm.com/hmprod?set=teddy_jacket.jpg",
+    "description": "Chất nỉ xù giả lông teddy mềm như bông màu trắng ngà. Thiết kế khóa kéo đôi êm ái, cổ đứng ấm cổ và hai túi mổ trước giữ ấm tay trong mùa gió đông.",
+    "price_vnd": 899000,
+    "category": "Áo khoác lông",
+    "gender": "Nữ",
+    "id": "hm_jk_07",
+    "fit_cut": "regular",
+    "stretch": "low",
+    "size_chart": {
+      "XS": {
+        "shoulder": 37,
+        "bust": 88,
+        "waist": 72,
+        "length": 64,
+        "sleeve": 57
+      },
+      "S": {
+        "shoulder": 39,
+        "bust": 92,
+        "waist": 76,
+        "length": 66,
+        "sleeve": 59
+      },
+      "M": {
+        "shoulder": 41,
+        "bust": 96,
+        "waist": 80,
+        "length": 68,
+        "sleeve": 60
+      },
+      "L": {
+        "shoulder": 43,
+        "bust": 102,
+        "waist": 86,
+        "length": 70,
+        "sleeve": 61
+      },
+      "XL": {
+        "shoulder": 45,
+        "bust": 108,
+        "waist": 92,
+        "length": 72,
+        "sleeve": 62
+      },
+      "XXL": {
+        "shoulder": 47,
+        "bust": 114,
+        "waist": 98,
+        "length": 74,
+        "sleeve": 63
+      }
+    }
+  },
+  {
+    "brand": "H&M",
+    "product_name": "Áo Khoác Dạ Tweed Dệt Họa Tiết Đen Trắng Cổ Điển",
+    "sizes": "XS, S, M, L",
+    "local_image_path": "assets/products/hm/hm_tweed_cropped.jpg",
+    "image_url": "https://lp2.hm.com/hmprod?set=tweed_cropped.jpg",
+    "description": "Vải dạ tweed dệt họa tiết tiêu đen trắng thanh lịch. Cổ tròn không bẻ viền nhung đen sắc sảo, cúc cài tròn bóng và phom croptop tôn chiều cao khi diện cùng quần cạp cao.",
+    "price_vnd": 1399000,
+    "category": "Áo khoác dạ",
+    "gender": "Nữ",
+    "id": "hm_jk_08",
+    "fit_cut": "regular",
+    "stretch": "low",
+    "size_chart": {
+      "XS": {
+        "shoulder": 37,
+        "bust": 88,
+        "waist": 72,
+        "length": 64,
+        "sleeve": 57
+      },
+      "S": {
+        "shoulder": 39,
+        "bust": 92,
+        "waist": 76,
+        "length": 66,
+        "sleeve": 59
+      },
+      "M": {
+        "shoulder": 41,
+        "bust": 96,
+        "waist": 80,
+        "length": 68,
+        "sleeve": 60
+      },
+      "L": {
+        "shoulder": 43,
+        "bust": 102,
+        "waist": 86,
+        "length": 70,
+        "sleeve": 61
+      },
+      "XL": {
+        "shoulder": 45,
+        "bust": 108,
+        "waist": 92,
+        "length": 72,
+        "sleeve": 62
+      },
+      "XXL": {
+        "shoulder": 47,
+        "bust": 114,
+        "waist": 98,
+        "length": 74,
+        "sleeve": 63
+      }
+    }
+  },
+  {
+    "brand": "H&M",
+    "product_name": "Áo Khoác Dù Thể Thao Phong Cách Thập Niên 90",
+    "sizes": "S, M, L, XL",
+    "local_image_path": "assets/products/hm/hm_track_jacket.jpg",
+    "image_url": "https://lp2.hm.com/hmprod?set=track_jacket.jpg",
+    "description": "Thiết kế colorblock thể thao phối ba dải màu xanh ngọc, trắng và đen thời thượng. Chất vải dù dù nhăn chống gió, có lớp lót lưới thoáng khí và logo H&M thêu ngực.",
+    "price_vnd": 999000,
+    "category": "Áo khoác gió",
+    "gender": "Unisex",
+    "id": "hm_jk_09",
+    "fit_cut": "regular",
+    "stretch": "low",
+    "size_chart": {
+      "XS": {
+        "shoulder": 37,
+        "bust": 88,
+        "waist": 72,
+        "length": 64,
+        "sleeve": 57
+      },
+      "S": {
+        "shoulder": 39,
+        "bust": 92,
+        "waist": 76,
+        "length": 66,
+        "sleeve": 59
+      },
+      "M": {
+        "shoulder": 41,
+        "bust": 96,
+        "waist": 80,
+        "length": 68,
+        "sleeve": 60
+      },
+      "L": {
+        "shoulder": 43,
+        "bust": 102,
+        "waist": 86,
+        "length": 70,
+        "sleeve": 61
+      },
+      "XL": {
+        "shoulder": 45,
+        "bust": 108,
+        "waist": 92,
+        "length": 72,
+        "sleeve": 62
+      },
+      "XXL": {
+        "shoulder": 47,
+        "bust": 114,
+        "waist": 98,
+        "length": 74,
+        "sleeve": 63
+      }
+    }
+  },
+  {
+    "brand": "H&M",
+    "product_name": "Áo Khoác Dạ Dáng Dài Hai Hàng Cúc Màu Đen Quyền Lực",
+    "sizes": "S, M, L, XL",
+    "local_image_path": "assets/products/hm/hm_black_coat.jpg",
+    "image_url": "https://lp2.hm.com/hmprod?set=black_coat.jpg",
+    "description": "Áo măng tô dạ đen tuyền dáng dài qua đầu gối với ve cổ nhọn sắc nét. Phom đứng đệm vai chuẩn chỉnh, hai hàng cúc xừng đen và túi ngực mổ thanh thoát.",
+    "price_vnd": 1999000,
+    "category": "Áo khoác dạ",
+    "gender": "Nữ",
+    "id": "hm_jk_10",
+    "fit_cut": "regular",
+    "stretch": "low",
+    "size_chart": {
+      "XS": {
+        "shoulder": 37,
+        "bust": 88,
+        "waist": 72,
+        "length": 98,
+        "sleeve": 57
+      },
+      "S": {
+        "shoulder": 39,
+        "bust": 92,
+        "waist": 76,
+        "length": 100,
+        "sleeve": 59
+      },
+      "M": {
+        "shoulder": 41,
+        "bust": 96,
+        "waist": 80,
+        "length": 102,
+        "sleeve": 60
+      },
+      "L": {
+        "shoulder": 43,
+        "bust": 102,
+        "waist": 86,
+        "length": 104,
+        "sleeve": 61
+      },
+      "XL": {
+        "shoulder": 45,
+        "bust": 108,
+        "waist": 92,
+        "length": 106,
+        "sleeve": 62
+      },
+      "XXL": {
+        "shoulder": 47,
+        "bust": 114,
+        "waist": 98,
+        "length": 108,
+        "sleeve": 63
+      }
+    }
+  },
+  {
+    "brand": "Stradivarius",
+    "product_name": "Áo Khoác Phao Cropped Dáng Phồng Trẻ Trung",
+    "sizes": "XS, S, M, L",
+    "local_image_path": "assets/products/stradivarius/stradivarius_cropped_puffer.jpg",
+    "image_url": "https://static.stradivarius.net/products/cropped_puffer.jpg",
+    "description": "Dáng áo lửng croptop phồng xốp thời thượng màu be sáng. Cổ cao dựng đứng giữ nhiệt, tay áo và gấu áo bo chun ôm nhẹ tôn dáng eo cho giới trẻ năng động.",
+    "price_vnd": 1099000,
+    "category": "Áo khoác phao",
+    "gender": "Nữ",
+    "id": "stradivarius_jk_01",
+    "fit_cut": "regular",
+    "stretch": "none",
+    "size_chart": {
+      "XS": {
+        "shoulder": 37,
+        "bust": 88,
+        "waist": 72,
+        "length": 48,
+        "sleeve": 57
+      },
+      "S": {
+        "shoulder": 39,
+        "bust": 92,
+        "waist": 76,
+        "length": 50,
+        "sleeve": 59
+      },
+      "M": {
+        "shoulder": 41,
+        "bust": 96,
+        "waist": 80,
+        "length": 52,
+        "sleeve": 60
+      },
+      "L": {
+        "shoulder": 43,
+        "bust": 102,
+        "waist": 86,
+        "length": 54,
+        "sleeve": 61
+      },
+      "XL": {
+        "shoulder": 45,
+        "bust": 108,
+        "waist": 92,
+        "length": 56,
+        "sleeve": 62
+      },
+      "XXL": {
+        "shoulder": 47,
+        "bust": 114,
+        "waist": 98,
+        "length": 58,
+        "sleeve": 63
+      }
+    }
+  },
+  {
+    "brand": "Stradivarius",
+    "product_name": "Áo Khoác Biker Aviator Da Lộn Phối Lông Cừu",
+    "sizes": "XS, S, M, L",
+    "local_image_path": "assets/products/stradivarius/stradivarius_aviator_jacket.jpg",
+    "image_url": "https://static.stradivarius.net/products/aviator_jacket.jpg",
+    "description": "Kiểu dáng áo phi công aviator cổ điển với mặt ngoài da lộn nâu bò cao cấp, toàn bộ ve cổ, gấu áo và viền tay áo phối lông cừu trắng ấm áp và cá tính.",
+    "price_vnd": 1699000,
+    "category": "Áo khoác da",
+    "gender": "Nữ",
+    "id": "stradivarius_jk_02",
+    "fit_cut": "regular",
+    "stretch": "none",
+    "size_chart": {
+      "XS": {
+        "shoulder": 37,
+        "bust": 88,
+        "waist": 72,
+        "length": 64,
+        "sleeve": 57
+      },
+      "S": {
+        "shoulder": 39,
+        "bust": 92,
+        "waist": 76,
+        "length": 66,
+        "sleeve": 59
+      },
+      "M": {
+        "shoulder": 41,
+        "bust": 96,
+        "waist": 80,
+        "length": 68,
+        "sleeve": 60
+      },
+      "L": {
+        "shoulder": 43,
+        "bust": 102,
+        "waist": 86,
+        "length": 70,
+        "sleeve": 61
+      },
+      "XL": {
+        "shoulder": 45,
+        "bust": 108,
+        "waist": 92,
+        "length": 72,
+        "sleeve": 62
+      },
+      "XXL": {
+        "shoulder": 47,
+        "bust": 114,
+        "waist": 98,
+        "length": 74,
+        "sleeve": 63
+      }
+    }
+  },
+  {
+    "brand": "Stradivarius",
+    "product_name": "Áo Blazer Dạ Kẻ Houndstooth Nanh Sói Hai Hàng Cúc",
+    "sizes": "XS, S, M, L",
+    "local_image_path": "assets/products/stradivarius/stradivarius_houndstooth_blazer.jpg",
+    "image_url": "https://static.stradivarius.net/products/houndstooth_blazer.jpg",
+    "description": "Chất dạ dệt dày dặn họa tiết nanh sói đen trắng kinh điển. Thiết kế chiết eo nhẹ với hai hàng cúc đen tương phản, mang lại diện mạo sang trọng cuốn hút.",
+    "price_vnd": 1299000,
+    "category": "Áo blazer",
+    "gender": "Nữ",
+    "id": "stradivarius_jk_03",
+    "fit_cut": "regular",
+    "stretch": "low",
+    "size_chart": {
+      "XS": {
+        "shoulder": 37,
+        "bust": 88,
+        "waist": 72,
+        "length": 64,
+        "sleeve": 57
+      },
+      "S": {
+        "shoulder": 39,
+        "bust": 92,
+        "waist": 76,
+        "length": 66,
+        "sleeve": 59
+      },
+      "M": {
+        "shoulder": 41,
+        "bust": 96,
+        "waist": 80,
+        "length": 68,
+        "sleeve": 60
+      },
+      "L": {
+        "shoulder": 43,
+        "bust": 102,
+        "waist": 86,
+        "length": 70,
+        "sleeve": 61
+      },
+      "XL": {
+        "shoulder": 45,
+        "bust": 108,
+        "waist": 92,
+        "length": 72,
+        "sleeve": 62
+      },
+      "XXL": {
+        "shoulder": 47,
+        "bust": 114,
+        "waist": 98,
+        "length": 74,
+        "sleeve": 63
+      }
+    }
+  },
+  {
+    "brand": "Stradivarius",
+    "product_name": "Áo Khoác Trench Coat Dáng Lửng Kèm Đai Thắt",
+    "sizes": "XS, S, M, L",
+    "local_image_path": "assets/products/stradivarius/stradivarius_crop_trench.jpg",
+    "image_url": "https://static.stradivarius.net/products/crop_trench.jpg",
+    "description": "Biến tấu thời thượng từ phom măng tô truyền thống thành dáng trench coat lửng ngang eo có đai thắt khóa kim loại. Cầu vai đính cúc sành điệu, chất kaki trượt nước.",
+    "price_vnd": 1199000,
+    "category": "Áo khoác gió",
+    "gender": "Nữ",
+    "id": "stradivarius_jk_04",
+    "fit_cut": "regular",
+    "stretch": "low",
+    "size_chart": {
+      "XS": {
+        "shoulder": 37,
+        "bust": 88,
+        "waist": 72,
+        "length": 98,
+        "sleeve": 57
+      },
+      "S": {
+        "shoulder": 39,
+        "bust": 92,
+        "waist": 76,
+        "length": 100,
+        "sleeve": 59
+      },
+      "M": {
+        "shoulder": 41,
+        "bust": 96,
+        "waist": 80,
+        "length": 102,
+        "sleeve": 60
+      },
+      "L": {
+        "shoulder": 43,
+        "bust": 102,
+        "waist": 86,
+        "length": 104,
+        "sleeve": 61
+      },
+      "XL": {
+        "shoulder": 45,
+        "bust": 108,
+        "waist": 92,
+        "length": 106,
+        "sleeve": 62
+      },
+      "XXL": {
+        "shoulder": 47,
+        "bust": 114,
+        "waist": 98,
+        "length": 108,
+        "sleeve": 63
+      }
+    }
+  },
+  {
+    "brand": "Stradivarius",
+    "product_name": "Áo Khoác Denim Rách Gấu Tua Rua Phong Cách Y2K",
+    "sizes": "XS, S, M, L",
+    "local_image_path": "assets/products/stradivarius/stradivarius_distressed_denim.jpg",
+    "image_url": "https://static.stradivarius.net/products/distressed_denim.jpg",
+    "description": "Vải bò cotton xanh sáng xử lý wash mài nhẹ và các vệt xước cá tính. Gấu áo cắt thô tua rua tự nhiên, dáng áo rộng nhẹ phóng khoáng chuẩn phong cách Gen Z.",
+    "price_vnd": 999000,
+    "category": "Áo khoác jean",
+    "gender": "Nữ",
+    "id": "stradivarius_jk_05",
+    "fit_cut": "regular",
+    "stretch": "low",
+    "size_chart": {
+      "XS": {
+        "shoulder": 37,
+        "bust": 88,
+        "waist": 72,
+        "length": 64,
+        "sleeve": 57
+      },
+      "S": {
+        "shoulder": 39,
+        "bust": 92,
+        "waist": 76,
+        "length": 66,
+        "sleeve": 59
+      },
+      "M": {
+        "shoulder": 41,
+        "bust": 96,
+        "waist": 80,
+        "length": 68,
+        "sleeve": 60
+      },
+      "L": {
+        "shoulder": 43,
+        "bust": 102,
+        "waist": 86,
+        "length": 70,
+        "sleeve": 61
+      },
+      "XL": {
+        "shoulder": 45,
+        "bust": 108,
+        "waist": 92,
+        "length": 72,
+        "sleeve": 62
+      },
+      "XXL": {
+        "shoulder": 47,
+        "bust": 114,
+        "waist": 98,
+        "length": 74,
+        "sleeve": 63
+      }
+    }
+  },
+  {
+    "brand": "Stradivarius",
+    "product_name": "Áo Khoác Chần Bông Quả Trám Màu Xanh Bạc Hà",
+    "sizes": "XS, S, M, L",
+    "local_image_path": "assets/products/stradivarius/stradivarius_quilted_jacket.jpg",
+    "image_url": "https://static.stradivarius.net/products/quilted_jacket.jpg",
+    "description": "Họa tiết chần bông hình quả trám thanh mảnh trên nền vải xanh mint bạc hà pastel ngọt ngào. Cổ tròn không bẻ nhẹ nhàng, cúc bấm bọc vải đồng màu tối giản.",
+    "price_vnd": 1199000,
+    "category": "Áo khoác phao",
+    "gender": "Nữ",
+    "id": "stradivarius_jk_06",
+    "fit_cut": "regular",
+    "stretch": "none",
+    "size_chart": {
+      "XS": {
+        "shoulder": 37,
+        "bust": 88,
+        "waist": 72,
+        "length": 64,
+        "sleeve": 57
+      },
+      "S": {
+        "shoulder": 39,
+        "bust": 92,
+        "waist": 76,
+        "length": 66,
+        "sleeve": 59
+      },
+      "M": {
+        "shoulder": 41,
+        "bust": 96,
+        "waist": 80,
+        "length": 68,
+        "sleeve": 60
+      },
+      "L": {
+        "shoulder": 43,
+        "bust": 102,
+        "waist": 86,
+        "length": 70,
+        "sleeve": 61
+      },
+      "XL": {
+        "shoulder": 45,
+        "bust": 108,
+        "waist": 92,
+        "length": 72,
+        "sleeve": 62
+      },
+      "XXL": {
+        "shoulder": 47,
+        "bust": 114,
+        "waist": 98,
+        "length": 74,
+        "sleeve": 63
+      }
+    }
+  },
+  {
+    "brand": "Stradivarius",
+    "product_name": "Áo Khoác Bóng Chày Varsity Dáng Lửng Thêu Logo",
+    "sizes": "XS, S, M, L",
+    "local_image_path": "assets/products/stradivarius/stradivarius_varsity_cropped.jpg",
+    "image_url": "https://static.stradivarius.net/products/varsity_cropped.jpg",
+    "description": "Phom dáng lửng croptop phối hai màu trắng ngà và xanh navy sành điệu. Thêu nổi chữ 'S Varsity 1994' trước ngực, chất nỉ cotton mềm xốp tạo phom thể thao năng động.",
+    "price_vnd": 1299000,
+    "category": "Áo khoác bomber",
+    "gender": "Nữ",
+    "id": "stradivarius_jk_07",
+    "fit_cut": "oversized",
+    "stretch": "low",
+    "size_chart": {
+      "XS": {
+        "shoulder": 37,
+        "bust": 92,
+        "waist": 76,
+        "length": 48,
+        "sleeve": 57
+      },
+      "S": {
+        "shoulder": 39,
+        "bust": 96,
+        "waist": 80,
+        "length": 50,
+        "sleeve": 59
+      },
+      "M": {
+        "shoulder": 41,
+        "bust": 100,
+        "waist": 84,
+        "length": 52,
+        "sleeve": 60
+      },
+      "L": {
+        "shoulder": 43,
+        "bust": 106,
+        "waist": 90,
+        "length": 54,
+        "sleeve": 61
+      },
+      "XL": {
+        "shoulder": 45,
+        "bust": 112,
+        "waist": 96,
+        "length": 56,
+        "sleeve": 62
+      },
+      "XXL": {
+        "shoulder": 47,
+        "bust": 118,
+        "waist": 102,
+        "length": 58,
+        "sleeve": 63
+      }
+    }
+  },
+  {
+    "brand": "Stradivarius",
+    "product_name": "Áo Khoác Lông Thỏ Nhân Tạo Màu Nâu Mocha Mềm Mại",
+    "sizes": "XS, S, M, L",
+    "local_image_path": "assets/products/stradivarius/stradivarius_faux_fur_coat.jpg",
+    "image_url": "https://static.stradivarius.net/products/faux_fur_coat.jpg",
+    "description": "Chất lông nhân tạo sợi tơ siêu mượt màu nâu mocha cà phê sữa. Dáng áo dài ngang đùi cổ ve bẻ sang chảnh, cài móc kim loại giấu kín tạo vẻ ngoài lộng lẫy mùa lễ hội.",
+    "price_vnd": 1899000,
+    "category": "Áo khoác lông",
+    "gender": "Nữ",
+    "id": "stradivarius_jk_08",
+    "fit_cut": "regular",
+    "stretch": "low",
+    "size_chart": {
+      "XS": {
+        "shoulder": 37,
+        "bust": 88,
+        "waist": 72,
+        "length": 64,
+        "sleeve": 57
+      },
+      "S": {
+        "shoulder": 39,
+        "bust": 92,
+        "waist": 76,
+        "length": 66,
+        "sleeve": 59
+      },
+      "M": {
+        "shoulder": 41,
+        "bust": 96,
+        "waist": 80,
+        "length": 68,
+        "sleeve": 60
+      },
+      "L": {
+        "shoulder": 43,
+        "bust": 102,
+        "waist": 86,
+        "length": 70,
+        "sleeve": 61
+      },
+      "XL": {
+        "shoulder": 45,
+        "bust": 108,
+        "waist": 92,
+        "length": 72,
+        "sleeve": 62
+      },
+      "XXL": {
+        "shoulder": 47,
+        "bust": 114,
+        "waist": 98,
+        "length": 74,
+        "sleeve": 63
+      }
+    }
+  },
+  {
+    "brand": "Stradivarius",
+    "product_name": "Áo Khoác Gile Dạ Dáng Dài Cổ Ve Lật Màu Camel",
+    "sizes": "XS, S, M, L",
+    "local_image_path": "assets/products/stradivarius/stradivarius_gile_coat.jpg",
+    "image_url": "https://static.stradivarius.net/products/gile_coat.jpg",
+    "description": "Thiết kế áo gile dạ không tay dáng dài tôn dáng thon thả. Cổ ve nhọn sắc sảo cài một nút ngực, tông màu nâu camel kinh điển cực kỳ dễ phối layer với áo len cổ lọ.",
+    "price_vnd": 1399000,
+    "category": "Áo khoác dạ",
+    "gender": "Nữ",
+    "id": "stradivarius_jk_09",
+    "fit_cut": "regular",
+    "stretch": "low",
+    "size_chart": {
+      "XS": {
+        "shoulder": 37,
+        "bust": 88,
+        "waist": 72,
+        "length": 98,
+        "sleeve": 57
+      },
+      "S": {
+        "shoulder": 39,
+        "bust": 92,
+        "waist": 76,
+        "length": 100,
+        "sleeve": 59
+      },
+      "M": {
+        "shoulder": 41,
+        "bust": 96,
+        "waist": 80,
+        "length": 102,
+        "sleeve": 60
+      },
+      "L": {
+        "shoulder": 43,
+        "bust": 102,
+        "waist": 86,
+        "length": 104,
+        "sleeve": 61
+      },
+      "XL": {
+        "shoulder": 45,
+        "bust": 108,
+        "waist": 92,
+        "length": 106,
+        "sleeve": 62
+      },
+      "XXL": {
+        "shoulder": 47,
+        "bust": 114,
+        "waist": 98,
+        "length": 108,
+        "sleeve": 63
+      }
+    }
+  },
+  {
+    "brand": "Stradivarius",
+    "product_name": "Áo Khoác Măng Tô Da Nhân Tạo Dáng Dài Kèm Thắt Lưng",
+    "sizes": "XS, S, M, L",
+    "local_image_path": "assets/products/stradivarius/stradivarius_leather_trench.jpg",
+    "image_url": "https://static.stradivarius.net/products/leather_trench.jpg",
+    "description": "Chất liệu da nhân tạo màu đen bóng mềm rũ theo phong cách Matrix thời thượng. Dáng măng tô dài qua đầu gối với đai thắt eo khóa kim loại tôn trọn đường cong cơ thể.",
+    "price_vnd": 2499000,
+    "category": "Áo khoác da",
+    "gender": "Nữ",
+    "id": "stradivarius_jk_10",
+    "fit_cut": "regular",
+    "stretch": "none",
+    "size_chart": {
+      "XS": {
+        "shoulder": 37,
+        "bust": 88,
+        "waist": 72,
+        "length": 98,
+        "sleeve": 57
+      },
+      "S": {
+        "shoulder": 39,
+        "bust": 92,
+        "waist": 76,
+        "length": 100,
+        "sleeve": 59
+      },
+      "M": {
+        "shoulder": 41,
+        "bust": 96,
+        "waist": 80,
+        "length": 102,
+        "sleeve": 60
+      },
+      "L": {
+        "shoulder": 43,
+        "bust": 102,
+        "waist": 86,
+        "length": 104,
+        "sleeve": 61
+      },
+      "XL": {
+        "shoulder": 45,
+        "bust": 108,
+        "waist": 92,
+        "length": 106,
+        "sleeve": 62
+      },
+      "XXL": {
+        "shoulder": 47,
+        "bust": 114,
+        "waist": 98,
+        "length": 108,
+        "sleeve": 63
+      }
+    }
+  },
+  {
+    "brand": "Pull&Bear",
+    "product_name": "Áo Khoác Bomber Varsity Bóng Chày Phối Tay Da",
+    "sizes": "S, M, L, XL",
+    "local_image_path": "assets/products/pullandbear/pullbear_varsity_bomber.jpg",
+    "image_url": "https://static.pullandbear.net/products/varsity_bomber.jpg",
+    "description": "Áo khoác bomber mang đậm phong cách đường phố Retro. Thân áo dạ nỉ xanh lá đậm kết hợp tay áo da nhân tạo màu kem, thêu chữ nổi nghệ thuật và cổ viền sọc bo thun thể thao.",
+    "price_vnd": 1399000,
+    "category": "Áo khoác bomber",
+    "gender": "Unisex",
+    "id": "pullbear_jk_01",
+    "fit_cut": "oversized",
+    "stretch": "low",
+    "size_chart": {
+      "XS": {
+        "shoulder": 37,
+        "bust": 92,
+        "waist": 76,
+        "length": 64,
+        "sleeve": 57
+      },
+      "S": {
+        "shoulder": 39,
+        "bust": 96,
+        "waist": 80,
+        "length": 66,
+        "sleeve": 59
+      },
+      "M": {
+        "shoulder": 41,
+        "bust": 100,
+        "waist": 84,
+        "length": 68,
+        "sleeve": 60
+      },
+      "L": {
+        "shoulder": 43,
+        "bust": 106,
+        "waist": 90,
+        "length": 70,
+        "sleeve": 61
+      },
+      "XL": {
+        "shoulder": 45,
+        "bust": 112,
+        "waist": 96,
+        "length": 72,
+        "sleeve": 62
+      },
+      "XXL": {
+        "shoulder": 47,
+        "bust": 118,
+        "waist": 102,
+        "length": 74,
+        "sleeve": 63
+      }
+    }
+  },
+  {
+    "brand": "Pull&Bear",
+    "product_name": "Áo Khoác Denim Cổ Bẻ Wash Xanh Vintage Đường Phố",
+    "sizes": "S, M, L, XL",
+    "local_image_path": "assets/products/pullandbear/pullbear_denim_trucker.jpg",
+    "image_url": "https://static.pullandbear.net/products/denim_trucker.jpg",
+    "description": "Vải bò cotton denim 100% xử lý mài wash màu xanh vintage hoài niệm. Hai túi hộp nắp cài nút trước ngực, phom suông rộng phóng khoáng dễ mix layer cùng áo hoodie.",
+    "price_vnd": 999000,
+    "category": "Áo khoác jean",
+    "gender": "Unisex",
+    "id": "pullbear_jk_02",
+    "fit_cut": "regular",
+    "stretch": "low",
+    "size_chart": {
+      "XS": {
+        "shoulder": 37,
+        "bust": 88,
+        "waist": 72,
+        "length": 64,
+        "sleeve": 57
+      },
+      "S": {
+        "shoulder": 39,
+        "bust": 92,
+        "waist": 76,
+        "length": 66,
+        "sleeve": 59
+      },
+      "M": {
+        "shoulder": 41,
+        "bust": 96,
+        "waist": 80,
+        "length": 68,
+        "sleeve": 60
+      },
+      "L": {
+        "shoulder": 43,
+        "bust": 102,
+        "waist": 86,
+        "length": 70,
+        "sleeve": 61
+      },
+      "XL": {
+        "shoulder": 45,
+        "bust": 108,
+        "waist": 92,
+        "length": 72,
+        "sleeve": 62
+      },
+      "XXL": {
+        "shoulder": 47,
+        "bust": 114,
+        "waist": 98,
+        "length": 74,
+        "sleeve": 63
+      }
+    }
+  },
+  {
+    "brand": "Pull&Bear",
+    "product_name": "Áo Khoác Dù Gorpcore Túi Hộp Chống Nước Phối Màu",
+    "sizes": "S, M, L, XL",
+    "local_image_path": "assets/products/pullandbear/pullbear_gorpcore_parka.jpg",
+    "image_url": "https://static.pullandbear.net/products/gorpcore_parka.jpg",
+    "description": "Phong cách Gorpcore dã ngoại với phối màu colorblock đen - xanh rêu. Vải dù ripstop trượt nước, trang bị nhiều túi hộp utility có khóa bấm và nắp đậy tiện ích.",
+    "price_vnd": 1299000,
+    "category": "Áo khoác gió",
+    "gender": "Unisex",
+    "id": "pullbear_jk_03",
+    "fit_cut": "regular",
+    "stretch": "low",
+    "size_chart": {
+      "XS": {
+        "shoulder": 37,
+        "bust": 88,
+        "waist": 72,
+        "length": 64,
+        "sleeve": 57
+      },
+      "S": {
+        "shoulder": 39,
+        "bust": 92,
+        "waist": 76,
+        "length": 66,
+        "sleeve": 59
+      },
+      "M": {
+        "shoulder": 41,
+        "bust": 96,
+        "waist": 80,
+        "length": 68,
+        "sleeve": 60
+      },
+      "L": {
+        "shoulder": 43,
+        "bust": 102,
+        "waist": 86,
+        "length": 70,
+        "sleeve": 61
+      },
+      "XL": {
+        "shoulder": 45,
+        "bust": 108,
+        "waist": 92,
+        "length": 72,
+        "sleeve": 62
+      },
+      "XXL": {
+        "shoulder": 47,
+        "bust": 114,
+        "waist": 98,
+        "length": 74,
+        "sleeve": 63
+      }
+    }
+  },
+  {
+    "brand": "Pull&Bear",
+    "product_name": "Áo Khoác Da Bạc Màu Cổ Bẻ Phong Cách Thập Niên 90",
+    "sizes": "S, M, L, XL",
+    "local_image_path": "assets/products/pullandbear/pullbear_vintage_leather.jpg",
+    "image_url": "https://static.pullandbear.net/products/vintage_leather.jpg",
+    "description": "Chất liệu da nhân tạo cao cấp màu nâu hạt dẻ qua kỹ thuật xử lý mài loang cổ điển. Cổ bẻ thanh lịch, hai túi khóa zip ngang ngực và viền bo gấu thun co giãn êm ái.",
+    "price_vnd": 1699000,
+    "category": "Áo khoác da",
+    "gender": "Nam",
+    "id": "pullbear_jk_04",
+    "fit_cut": "regular",
+    "stretch": "none",
+    "size_chart": {
+      "XS": {
+        "shoulder": 39,
+        "bust": 90,
+        "waist": 72,
+        "length": 64,
+        "sleeve": 57
+      },
+      "S": {
+        "shoulder": 41,
+        "bust": 94,
+        "waist": 76,
+        "length": 66,
+        "sleeve": 59
+      },
+      "M": {
+        "shoulder": 43,
+        "bust": 98,
+        "waist": 80,
+        "length": 68,
+        "sleeve": 60
+      },
+      "L": {
+        "shoulder": 45,
+        "bust": 104,
+        "waist": 86,
+        "length": 70,
+        "sleeve": 61
+      },
+      "XL": {
+        "shoulder": 47,
+        "bust": 110,
+        "waist": 92,
+        "length": 72,
+        "sleeve": 62
+      },
+      "XXL": {
+        "shoulder": 49,
+        "bust": 116,
+        "waist": 98,
+        "length": 74,
+        "sleeve": 63
+      }
+    }
+  },
+  {
+    "brand": "Pull&Bear",
+    "product_name": "Áo Khoác Nhung Tăm Nâu Bò Lót Lông Cừu Ấm Áp",
+    "sizes": "S, M, L, XL",
+    "local_image_path": "assets/products/pullandbear/pullbear_corduroy_sherpa.jpg",
+    "image_url": "https://static.pullandbear.net/products/corduroy_sherpa.jpg",
+    "description": "Vải nhung tăm gân nổi màu nâu bò cổ điển kết hợp lớp lót trong và cổ áo phủ lông cừu sherpa nhân tạo trắng mịn cách nhiệt tuyệt đối, cài khuy kim loại chắc chắn.",
+    "price_vnd": 1499000,
+    "category": "Áo khoác dạ",
+    "gender": "Unisex",
+    "id": "pullbear_jk_05",
+    "fit_cut": "regular",
+    "stretch": "low",
+    "size_chart": {
+      "XS": {
+        "shoulder": 37,
+        "bust": 88,
+        "waist": 72,
+        "length": 64,
+        "sleeve": 57
+      },
+      "S": {
+        "shoulder": 39,
+        "bust": 92,
+        "waist": 76,
+        "length": 66,
+        "sleeve": 59
+      },
+      "M": {
+        "shoulder": 41,
+        "bust": 96,
+        "waist": 80,
+        "length": 68,
+        "sleeve": 60
+      },
+      "L": {
+        "shoulder": 43,
+        "bust": 102,
+        "waist": 86,
+        "length": 70,
+        "sleeve": 61
+      },
+      "XL": {
+        "shoulder": 45,
+        "bust": 108,
+        "waist": 92,
+        "length": 72,
+        "sleeve": 62
+      },
+      "XXL": {
+        "shoulder": 47,
+        "bust": 114,
+        "waist": 98,
+        "length": 74,
+        "sleeve": 63
+      }
+    }
+  },
+  {
+    "brand": "Pull&Bear",
+    "product_name": "Áo Khoác Nỉ Chui Đầu Họa Tiết Thổ Cẩm Aztec Độc Đáo",
+    "sizes": "S, M, L, XL",
+    "local_image_path": "assets/products/pullandbear/pullbear_fleece_print.jpg",
+    "image_url": "https://static.pullandbear.net/products/fleece_print.jpg",
+    "description": "Chất nỉ xốp dày ấm in họa tiết hình học Aztec thổ cẩm rực rỡ mang phong cách du mục. Thiết kế cổ bấm nút tiện lợi cùng túi kangaroo lớn phía trước giữ ấm tay.",
+    "price_vnd": 1099000,
+    "category": "Áo khoác lông",
+    "gender": "Unisex",
+    "id": "pullbear_jk_06",
+    "fit_cut": "regular",
+    "stretch": "low",
+    "size_chart": {
+      "XS": {
+        "shoulder": 37,
+        "bust": 88,
+        "waist": 72,
+        "length": 64,
+        "sleeve": 57
+      },
+      "S": {
+        "shoulder": 39,
+        "bust": 92,
+        "waist": 76,
+        "length": 66,
+        "sleeve": 59
+      },
+      "M": {
+        "shoulder": 41,
+        "bust": 96,
+        "waist": 80,
+        "length": 68,
+        "sleeve": 60
+      },
+      "L": {
+        "shoulder": 43,
+        "bust": 102,
+        "waist": 86,
+        "length": 70,
+        "sleeve": 61
+      },
+      "XL": {
+        "shoulder": 45,
+        "bust": 108,
+        "waist": 92,
+        "length": 72,
+        "sleeve": 62
+      },
+      "XXL": {
+        "shoulder": 47,
+        "bust": 114,
+        "waist": 98,
+        "length": 74,
+        "sleeve": 63
+      }
+    }
+  },
+  {
+    "brand": "Pull&Bear",
+    "product_name": "Áo Khoác Gió Có Mũ Phối Ba Màu Năng Động",
+    "sizes": "S, M, L, XL",
+    "local_image_path": "assets/products/pullandbear/pullbear_colorblock_windbreaker.jpg",
+    "image_url": "https://static.pullandbear.net/products/colorblock_windbreaker.jpg",
+    "description": "Phối ba tông màu thời thượng: đen, cam đất và be sáng. Vải dù mỏng nhẹ chống thấm nước, mũ trùm có dây rút điều chỉnh và bo thun cổ tay chống gió lùa hiệu quả.",
+    "price_vnd": 999000,
+    "category": "Áo khoác gió",
+    "gender": "Unisex",
+    "id": "pullbear_jk_07",
+    "fit_cut": "regular",
+    "stretch": "low",
+    "size_chart": {
+      "XS": {
+        "shoulder": 37,
+        "bust": 88,
+        "waist": 72,
+        "length": 64,
+        "sleeve": 57
+      },
+      "S": {
+        "shoulder": 39,
+        "bust": 92,
+        "waist": 76,
+        "length": 66,
+        "sleeve": 59
+      },
+      "M": {
+        "shoulder": 41,
+        "bust": 96,
+        "waist": 80,
+        "length": 68,
+        "sleeve": 60
+      },
+      "L": {
+        "shoulder": 43,
+        "bust": 102,
+        "waist": 86,
+        "length": 70,
+        "sleeve": 61
+      },
+      "XL": {
+        "shoulder": 45,
+        "bust": 108,
+        "waist": 92,
+        "length": 72,
+        "sleeve": 62
+      },
+      "XXL": {
+        "shoulder": 47,
+        "bust": 114,
+        "waist": 98,
+        "length": 74,
+        "sleeve": 63
+      }
+    }
+  },
+  {
+    "brand": "Pull&Bear",
+    "product_name": "Áo Khoác Phi Công MA-1 Dáng Phồng Màu Xám Rêu",
+    "sizes": "S, M, L, XL",
+    "local_image_path": "assets/products/pullandbear/pullbear_ma1_bomber.jpg",
+    "image_url": "https://static.pullandbear.net/products/ma1_bomber.jpg",
+    "description": "Kiểu dáng áo bay quân sự MA-1 huyền thoại với chất vải nylon xám rêu và lớp lót bông chần màu cam neon nổi bật. Túi zip con đặc trưng ở bắp tay và cổ bo dệt kim êm ái.",
+    "price_vnd": 1499000,
+    "category": "Áo khoác bomber",
+    "gender": "Nam",
+    "id": "pullbear_jk_08",
+    "fit_cut": "oversized",
+    "stretch": "low",
+    "size_chart": {
+      "XS": {
+        "shoulder": 39,
+        "bust": 94,
+        "waist": 76,
+        "length": 64,
+        "sleeve": 57
+      },
+      "S": {
+        "shoulder": 41,
+        "bust": 98,
+        "waist": 80,
+        "length": 66,
+        "sleeve": 59
+      },
+      "M": {
+        "shoulder": 43,
+        "bust": 102,
+        "waist": 84,
+        "length": 68,
+        "sleeve": 60
+      },
+      "L": {
+        "shoulder": 45,
+        "bust": 108,
+        "waist": 90,
+        "length": 70,
+        "sleeve": 61
+      },
+      "XL": {
+        "shoulder": 47,
+        "bust": 114,
+        "waist": 96,
+        "length": 72,
+        "sleeve": 62
+      },
+      "XXL": {
+        "shoulder": 49,
+        "bust": 120,
+        "waist": 102,
+        "length": 74,
+        "sleeve": 63
+      }
+    }
+  },
+  {
+    "brand": "Pull&Bear",
+    "product_name": "Áo Khoác Denim Đen Wash Bụi Bặm Phong Cách Grunge",
+    "sizes": "S, M, L, XL",
+    "local_image_path": "assets/products/pullandbear/pullbear_black_denim.jpg",
+    "image_url": "https://static.pullandbear.net/products/black_denim.jpg",
+    "description": "Vải bò cotton đen qua xử lý mài acid wash tạo hiệu ứng màu khói bạc chất lừ. Cúc bấm kim loại màu chì mờ, đường may nổi chắc chắn, form relaxed fit thoải mái.",
+    "price_vnd": 1199000,
+    "category": "Áo khoác jean",
+    "gender": "Unisex",
+    "id": "pullbear_jk_09",
+    "fit_cut": "regular",
+    "stretch": "low",
+    "size_chart": {
+      "XS": {
+        "shoulder": 37,
+        "bust": 88,
+        "waist": 72,
+        "length": 64,
+        "sleeve": 57
+      },
+      "S": {
+        "shoulder": 39,
+        "bust": 92,
+        "waist": 76,
+        "length": 66,
+        "sleeve": 59
+      },
+      "M": {
+        "shoulder": 41,
+        "bust": 96,
+        "waist": 80,
+        "length": 68,
+        "sleeve": 60
+      },
+      "L": {
+        "shoulder": 43,
+        "bust": 102,
+        "waist": 86,
+        "length": 70,
+        "sleeve": 61
+      },
+      "XL": {
+        "shoulder": 45,
+        "bust": 108,
+        "waist": 92,
+        "length": 72,
+        "sleeve": 62
+      },
+      "XXL": {
+        "shoulder": 47,
+        "bust": 114,
+        "waist": 98,
+        "length": 74,
+        "sleeve": 63
+      }
+    }
+  },
+  {
+    "brand": "Pull&Bear",
+    "product_name": "Áo Khoác Phao Gile Dáng Rộng Màu Be Nhám",
+    "sizes": "S, M, L, XL",
+    "local_image_path": "assets/products/pullandbear/pullbear_puffer_vest.jpg",
+    "image_url": "https://static.pullandbear.net/products/puffer_vest.jpg",
+    "description": "Áo phao sát nách gile phom rộng chần bông nhẹ màu be đá hiện đại. Cổ đứng cao cản gió, khóa kéo đôi mượt mà và túi hông sâu tiện dụng, cực dễ mix cùng hoodie.",
+    "price_vnd": 1099000,
+    "category": "Áo khoác phao",
+    "gender": "Unisex",
+    "id": "pullbear_jk_10",
+    "fit_cut": "oversized",
+    "stretch": "none",
+    "size_chart": {
+      "XS": {
+        "shoulder": 37,
+        "bust": 92,
+        "waist": 76,
+        "length": 98,
+        "sleeve": 57
+      },
+      "S": {
+        "shoulder": 39,
+        "bust": 96,
+        "waist": 80,
+        "length": 100,
+        "sleeve": 59
+      },
+      "M": {
+        "shoulder": 41,
+        "bust": 100,
+        "waist": 84,
+        "length": 102,
+        "sleeve": 60
+      },
+      "L": {
+        "shoulder": 43,
+        "bust": 106,
+        "waist": 90,
+        "length": 104,
+        "sleeve": 61
+      },
+      "XL": {
+        "shoulder": 45,
+        "bust": 112,
+        "waist": 96,
+        "length": 106,
+        "sleeve": 62
+      },
+      "XXL": {
+        "shoulder": 47,
+        "bust": 118,
+        "waist": 102,
+        "length": 108,
+        "sleeve": 63
+      }
+    }
+  },
+  {
+    "id": "zara_jk_11",
+    "brand": "Zara",
+    "product_name": "Áo Khoác Trench Coat Dáng Rộng Phong Cách Cổ Điển",
+    "category": "Áo măng tô",
+    "gender": "Nữ",
+    "sizes": "XS, S, M, L, XL",
+    "local_image_path": "assets/products/zara/zara_long_trench.jpg",
+    "image_url": "https://static.zara.net/photos/products/zara_long_trench.jpg",
+    "price_vnd": 2999000,
+    "description": "Áo trench coat kinh điển màu be cát, chất vải twill dệt chéo cản gió và chống thấm nhẹ. Đai thắt eo kim loại cao cấp cùng chi tiết đệm vai tạo phom thanh lịch.",
+    "fit_cut": "oversized",
+    "stretch": "none",
+    "size_chart": {
+      "XS": {
+        "shoulder": 37,
+        "bust": 92,
+        "waist": 76,
+        "length": 100,
+        "sleeve": 57
+      },
+      "S": {
+        "shoulder": 39,
+        "bust": 96,
+        "waist": 80,
+        "length": 102,
+        "sleeve": 59
+      },
+      "M": {
+        "shoulder": 41,
+        "bust": 100,
+        "waist": 84,
+        "length": 104,
+        "sleeve": 60
+      },
+      "L": {
+        "shoulder": 43,
+        "bust": 106,
+        "waist": 90,
+        "length": 106,
+        "sleeve": 61
+      },
+      "XL": {
+        "shoulder": 45,
+        "bust": 112,
+        "waist": 96,
+        "length": 108,
+        "sleeve": 62
+      },
+      "XXL": {
+        "shoulder": 47,
+        "bust": 118,
+        "waist": 102,
+        "length": 110,
+        "sleeve": 63
+      }
+    }
+  },
+  {
+    "id": "zara_jk_12",
+    "brand": "Zara",
+    "product_name": "Áo Khoác Da Lộn Suede Khóa Zip Kim Loại Độc Bản",
+    "category": "Áo khoác da",
+    "gender": "Nam",
+    "sizes": "S, M, L, XL",
+    "local_image_path": "assets/products/zara/zara_suede_bomber.jpg",
+    "image_url": "https://static.zara.net/photos/products/zara_suede_bomber.jpg",
+    "price_vnd": 2499000,
+    "description": "Chất liệu da lộn nhân tạo (faux suede) mềm mịn màu nâu cognac ấm áp. Thiết kế cổ đức thanh lịch, cổ tay cài nút bấm kim loại sang trọng.",
+    "fit_cut": "regular",
+    "stretch": "low",
+    "size_chart": {
+      "XS": {
+        "shoulder": 39,
+        "bust": 90,
+        "waist": 72,
+        "length": 64,
+        "sleeve": 57
+      },
+      "S": {
+        "shoulder": 41,
+        "bust": 94,
+        "waist": 76,
+        "length": 66,
+        "sleeve": 59
+      },
+      "M": {
+        "shoulder": 43,
+        "bust": 98,
+        "waist": 80,
+        "length": 68,
+        "sleeve": 60
+      },
+      "L": {
+        "shoulder": 45,
+        "bust": 104,
+        "waist": 86,
+        "length": 70,
+        "sleeve": 61
+      },
+      "XL": {
+        "shoulder": 47,
+        "bust": 110,
+        "waist": 92,
+        "length": 72,
+        "sleeve": 62
+      },
+      "XXL": {
+        "shoulder": 49,
+        "bust": 116,
+        "waist": 98,
+        "length": 74,
+        "sleeve": 63
+      }
+    }
+  },
+  {
+    "id": "zara_jk_13",
+    "brand": "Zara",
+    "product_name": "Áo Khoác Dạ Tweed Dáng Cropped Họa Tiết Houndstooth",
+    "category": "Áo khoác tweed",
+    "gender": "Nữ",
+    "sizes": "XS, S, M, L",
+    "local_image_path": "assets/products/zara/zara_tweed_jacket.jpg",
+    "image_url": "https://static.zara.net/photos/products/zara_tweed_jacket.jpg",
+    "price_vnd": 2199000,
+    "description": "Dáng áo lửng tôn dáng với chất dạ tweed dệt sợi kim tuyến ánh vàng nhẹ. Khuy cài ngọc trai đính kim loại thủ công tinh tế chuẩn quý phái.",
+    "fit_cut": "slim",
+    "stretch": "none",
+    "size_chart": {
+      "XS": {
+        "shoulder": 37,
+        "bust": 86,
+        "waist": 70,
+        "length": 48,
+        "sleeve": 57
+      },
+      "S": {
+        "shoulder": 39,
+        "bust": 90,
+        "waist": 74,
+        "length": 50,
+        "sleeve": 59
+      },
+      "M": {
+        "shoulder": 41,
+        "bust": 94,
+        "waist": 78,
+        "length": 52,
+        "sleeve": 60
+      },
+      "L": {
+        "shoulder": 43,
+        "bust": 100,
+        "waist": 84,
+        "length": 54,
+        "sleeve": 61
+      },
+      "XL": {
+        "shoulder": 45,
+        "bust": 106,
+        "waist": 90,
+        "length": 56,
+        "sleeve": 62
+      },
+      "XXL": {
+        "shoulder": 47,
+        "bust": 112,
+        "waist": 96,
+        "length": 58,
+        "sleeve": 63
+      }
+    }
+  },
+  {
+    "id": "zara_jk_14",
+    "brand": "Zara",
+    "product_name": "Áo Khoác Gió Thể Thao Phối Màu Retro Colorblock",
+    "category": "Áo khoác gió",
+    "gender": "Unisex",
+    "sizes": "S, M, L, XL, XXL",
+    "local_image_path": "assets/products/zara/zara_windbreaker.jpg",
+    "image_url": "https://static.zara.net/photos/products/zara_windbreaker.jpg",
+    "price_vnd": 1599000,
+    "description": "Chất liệu dù nylon chống tia UV và trượt nước cực tốt. Thiết kế khối màu vintage 90s, có mũ trùm rút dây giấu kín trong cổ áo.",
+    "fit_cut": "oversized",
+    "stretch": "none",
+    "size_chart": {
+      "XS": {
+        "shoulder": 39,
+        "bust": 94,
+        "waist": 76,
+        "length": 64,
+        "sleeve": 57
+      },
+      "S": {
+        "shoulder": 41,
+        "bust": 98,
+        "waist": 80,
+        "length": 66,
+        "sleeve": 59
+      },
+      "M": {
+        "shoulder": 43,
+        "bust": 102,
+        "waist": 84,
+        "length": 68,
+        "sleeve": 60
+      },
+      "L": {
+        "shoulder": 45,
+        "bust": 108,
+        "waist": 90,
+        "length": 70,
+        "sleeve": 61
+      },
+      "XL": {
+        "shoulder": 47,
+        "bust": 114,
+        "waist": 96,
+        "length": 72,
+        "sleeve": 62
+      },
+      "XXL": {
+        "shoulder": 49,
+        "bust": 120,
+        "waist": 102,
+        "length": 74,
+        "sleeve": 63
+      }
+    }
+  },
+  {
+    "id": "zara_jk_15",
+    "brand": "Zara",
+    "product_name": "Áo Khoác Denim Rách Gấu Phom Rộng Vintage Wash",
+    "category": "Áo denim",
+    "gender": "Unisex",
+    "sizes": "S, M, L, XL",
+    "local_image_path": "assets/products/zara/zara_denim_vintage.jpg",
+    "image_url": "https://static.zara.net/photos/products/zara_denim_vintage.jpg",
+    "price_vnd": 1899000,
+    "description": "Vải denim cotton 100% xử lý giặt mài hiệu ứng sờn nhẹ tự nhiên. Đường may chỉ nổi màu đồng cổ, hai túi nắp ngực tiện dụng.",
+    "fit_cut": "oversized",
+    "stretch": "none",
+    "size_chart": {
+      "XS": {
+        "shoulder": 37,
+        "bust": 92,
+        "waist": 76,
+        "length": 64,
+        "sleeve": 57
+      },
+      "S": {
+        "shoulder": 39,
+        "bust": 96,
+        "waist": 80,
+        "length": 66,
+        "sleeve": 59
+      },
+      "M": {
+        "shoulder": 41,
+        "bust": 100,
+        "waist": 84,
+        "length": 68,
+        "sleeve": 60
+      },
+      "L": {
+        "shoulder": 43,
+        "bust": 106,
+        "waist": 90,
+        "length": 70,
+        "sleeve": 61
+      },
+      "XL": {
+        "shoulder": 45,
+        "bust": 112,
+        "waist": 96,
+        "length": 72,
+        "sleeve": 62
+      },
+      "XXL": {
+        "shoulder": 47,
+        "bust": 118,
+        "waist": 102,
+        "length": 74,
+        "sleeve": 63
+      }
+    }
+  },
+  {
+    "id": "zara_jk_16",
+    "brand": "Zara",
+    "product_name": "Áo Phao Dáng Dài Có Mũ Lông Tháo Rời Siêu Ấm",
+    "category": "Áo phao",
+    "gender": "Nữ",
+    "sizes": "XS, S, M, L",
+    "local_image_path": "assets/products/zara/zara_hooded_puffer.jpg",
+    "image_url": "https://static.zara.net/photos/products/zara_hooded_puffer.jpg",
+    "price_vnd": 3199000,
+    "description": "Lớp đệm bông giữ nhiệt mật độ cao chống chọi nhiệt độ âm, viền mũ lông nhân tạo mềm mượt. Thiết kế khóa 2 chiều linh hoạt khi ngồi xe.",
+    "fit_cut": "regular",
+    "stretch": "none",
+    "size_chart": {
+      "XS": {
+        "shoulder": 37,
+        "bust": 88,
+        "waist": 72,
+        "length": 100,
+        "sleeve": 57
+      },
+      "S": {
+        "shoulder": 39,
+        "bust": 92,
+        "waist": 76,
+        "length": 102,
+        "sleeve": 59
+      },
+      "M": {
+        "shoulder": 41,
+        "bust": 96,
+        "waist": 80,
+        "length": 104,
+        "sleeve": 60
+      },
+      "L": {
+        "shoulder": 43,
+        "bust": 102,
+        "waist": 86,
+        "length": 106,
+        "sleeve": 61
+      },
+      "XL": {
+        "shoulder": 45,
+        "bust": 108,
+        "waist": 92,
+        "length": 108,
+        "sleeve": 62
+      },
+      "XXL": {
+        "shoulder": 47,
+        "bust": 114,
+        "waist": 98,
+        "length": 110,
+        "sleeve": 63
+      }
+    }
+  },
+  {
+    "id": "uniqlo_jk_11",
+    "brand": "Uniqlo",
+    "product_name": "Áo Khoác Parka Chống Nắng UV Protection Siêu Nhẹ Có Mũ",
+    "category": "Áo khoác gió",
+    "gender": "Nữ",
+    "sizes": "S, M, L, XL",
+    "local_image_path": "assets/products/uniqlo/uniqlo_blocktech_parka.jpg",
+    "image_url": "https://image.uniqlo.com/products/uniqlo_parka.jpg",
+    "price_vnd": 799000,
+    "description": "Công nghệ cản tia cực tím UPF 50+ độc quyền, chất vải co giãn nhẹ bỏ túi nhỏ gọn. Mũ trùm rộng bao bọc vùng gáy bảo vệ da tối đa.",
+    "fit_cut": "regular",
+    "stretch": "medium",
+    "size_chart": {
+      "XS": {
+        "shoulder": 37,
+        "bust": 88,
+        "waist": 72,
+        "length": 64,
+        "sleeve": 57
+      },
+      "S": {
+        "shoulder": 39,
+        "bust": 92,
+        "waist": 76,
+        "length": 66,
+        "sleeve": 59
+      },
+      "M": {
+        "shoulder": 41,
+        "bust": 96,
+        "waist": 80,
+        "length": 68,
+        "sleeve": 60
+      },
+      "L": {
+        "shoulder": 43,
+        "bust": 102,
+        "waist": 86,
+        "length": 70,
+        "sleeve": 61
+      },
+      "XL": {
+        "shoulder": 45,
+        "bust": 108,
+        "waist": 92,
+        "length": 72,
+        "sleeve": 62
+      },
+      "XXL": {
+        "shoulder": 47,
+        "bust": 114,
+        "waist": 98,
+        "length": 74,
+        "sleeve": 63
+      }
+    }
+  },
+  {
+    "id": "uniqlo_jk_12",
+    "brand": "Uniqlo",
+    "product_name": "Áo Khoác Lông Cừu Dày Giữ Nhiệt Windproof Siêu Ấm",
+    "category": "Áo lông cừu",
+    "gender": "Nam",
+    "sizes": "S, M, L, XL, XXL",
+    "local_image_path": "assets/products/uniqlo/uniqlo_blocktech_parka.jpg",
+    "image_url": "https://image.uniqlo.com/products/uniqlo_wind_fleece.jpg",
+    "price_vnd": 1299000,
+    "description": "Màng chắn gió chuyên dụng kẹp giữa 2 lớp lông cừu boa fleece mềm mại, ngăn hoàn toàn gió lạnh lùa qua sớ vải.",
+    "fit_cut": "regular",
+    "stretch": "low",
+    "size_chart": {
+      "XS": {
+        "shoulder": 39,
+        "bust": 90,
+        "waist": 72,
+        "length": 64,
+        "sleeve": 57
+      },
+      "S": {
+        "shoulder": 41,
+        "bust": 94,
+        "waist": 76,
+        "length": 66,
+        "sleeve": 59
+      },
+      "M": {
+        "shoulder": 43,
+        "bust": 98,
+        "waist": 80,
+        "length": 68,
+        "sleeve": 60
+      },
+      "L": {
+        "shoulder": 45,
+        "bust": 104,
+        "waist": 86,
+        "length": 70,
+        "sleeve": 61
+      },
+      "XL": {
+        "shoulder": 47,
+        "bust": 110,
+        "waist": 92,
+        "length": 72,
+        "sleeve": 62
+      },
+      "XXL": {
+        "shoulder": 49,
+        "bust": 116,
+        "waist": 98,
+        "length": 74,
+        "sleeve": 63
+      }
+    }
+  },
+  {
+    "id": "uniqlo_jk_13",
+    "brand": "Uniqlo",
+    "product_name": "Áo Blazer Kẻ Sọc Tinh Tế Cảm Giác Len Siêu Nhẹ",
+    "category": "Áo blazer",
+    "gender": "Nam",
+    "sizes": "S, M, L, XL",
+    "local_image_path": "assets/products/uniqlo/uniqlo_blocktech_parka.jpg",
+    "image_url": "https://image.uniqlo.com/products/uniqlo_blazer.jpg",
+    "price_vnd": 1999000,
+    "description": "Sợi vải dệt công nghệ AirSense siêu co giãn, thoáng khí và có thể giặt máy mà không sợ mất phom vest chuẩn lịch lãm công sở.",
+    "fit_cut": "slim",
+    "stretch": "medium",
+    "size_chart": {
+      "XS": {
+        "shoulder": 39,
+        "bust": 88,
+        "waist": 70,
+        "length": 64,
+        "sleeve": 57
+      },
+      "S": {
+        "shoulder": 41,
+        "bust": 92,
+        "waist": 74,
+        "length": 66,
+        "sleeve": 59
+      },
+      "M": {
+        "shoulder": 43,
+        "bust": 96,
+        "waist": 78,
+        "length": 68,
+        "sleeve": 60
+      },
+      "L": {
+        "shoulder": 45,
+        "bust": 102,
+        "waist": 84,
+        "length": 70,
+        "sleeve": 61
+      },
+      "XL": {
+        "shoulder": 47,
+        "bust": 108,
+        "waist": 90,
+        "length": 72,
+        "sleeve": 62
+      },
+      "XXL": {
+        "shoulder": 49,
+        "bust": 114,
+        "waist": 96,
+        "length": 74,
+        "sleeve": 63
+      }
+    }
+  },
+  {
+    "id": "uniqlo_jk_14",
+    "brand": "Uniqlo",
+    "product_name": "Áo Khoác Dệt Kim Dáng Rộng Cổ Tròn Souffle Nữ",
+    "category": "Áo len khoác",
+    "gender": "Nữ",
+    "sizes": "XS, S, M, L",
+    "local_image_path": "assets/products/uniqlo/uniqlo_blocktech_parka.jpg",
+    "image_url": "https://image.uniqlo.com/products/uniqlo_souffle.jpg",
+    "price_vnd": 999000,
+    "description": "Chất len xốp Souffle Yarn êm mềm không ngứa rát, phom thả vai nữ tính dễ phối chân váy hoặc đầm liền.",
+    "fit_cut": "oversized",
+    "stretch": "medium",
+    "size_chart": {
+      "XS": {
+        "shoulder": 37,
+        "bust": 92,
+        "waist": 76,
+        "length": 64,
+        "sleeve": 57
+      },
+      "S": {
+        "shoulder": 39,
+        "bust": 96,
+        "waist": 80,
+        "length": 66,
+        "sleeve": 59
+      },
+      "M": {
+        "shoulder": 41,
+        "bust": 100,
+        "waist": 84,
+        "length": 68,
+        "sleeve": 60
+      },
+      "L": {
+        "shoulder": 43,
+        "bust": 106,
+        "waist": 90,
+        "length": 70,
+        "sleeve": 61
+      },
+      "XL": {
+        "shoulder": 45,
+        "bust": 112,
+        "waist": 96,
+        "length": 72,
+        "sleeve": 62
+      },
+      "XXL": {
+        "shoulder": 47,
+        "bust": 118,
+        "waist": 102,
+        "length": 74,
+        "sleeve": 63
+      }
+    }
+  },
+  {
+    "id": "uniqlo_jk_15",
+    "brand": "Uniqlo",
+    "product_name": "Áo Khoác Kaki Utility Đa Túi Phong Cách Workwear",
+    "category": "Áo khoác kaki",
+    "gender": "Nam",
+    "sizes": "S, M, L, XL",
+    "local_image_path": "assets/products/uniqlo/uniqlo_utility_jacket.jpg",
+    "image_url": "https://image.uniqlo.com/products/uniqlo_utility_jacket.jpg",
+    "price_vnd": 1499000,
+    "description": "Cổ áo phối vải nhung gân corduroy sang trọng, 4 túi vuông trước ngực và hông tiện dụng chứa đồ cá nhân.",
+    "fit_cut": "regular",
+    "stretch": "none",
+    "size_chart": {
+      "XS": {
+        "shoulder": 39,
+        "bust": 90,
+        "waist": 72,
+        "length": 64,
+        "sleeve": 57
+      },
+      "S": {
+        "shoulder": 41,
+        "bust": 94,
+        "waist": 76,
+        "length": 66,
+        "sleeve": 59
+      },
+      "M": {
+        "shoulder": 43,
+        "bust": 98,
+        "waist": 80,
+        "length": 68,
+        "sleeve": 60
+      },
+      "L": {
+        "shoulder": 45,
+        "bust": 104,
+        "waist": 86,
+        "length": 70,
+        "sleeve": 61
+      },
+      "XL": {
+        "shoulder": 47,
+        "bust": 110,
+        "waist": 92,
+        "length": 72,
+        "sleeve": 62
+      },
+      "XXL": {
+        "shoulder": 49,
+        "bust": 116,
+        "waist": 98,
+        "length": 74,
+        "sleeve": 63
+      }
+    }
+  },
+  {
+    "id": "uniqlo_jk_16",
+    "brand": "Uniqlo",
+    "product_name": "Áo Khoác Lông Vũ Không Đường May Seamless Down",
+    "category": "Áo phao lông vũ",
+    "gender": "Unisex",
+    "sizes": "S, M, L, XL, XXL",
+    "local_image_path": "assets/products/uniqlo/uniqlo_seamless_down.jpg",
+    "image_url": "https://image.uniqlo.com/products/uniqlo_seamless_down.jpg",
+    "price_vnd": 2999000,
+    "description": "Công nghệ ép nhiệt không đường chỉ chống nước và ngăn lông vũ thoát ra ngoài. Chỉ số cách nhiệt Fill Power trên 750 cực đỉnh.",
+    "fit_cut": "regular",
+    "stretch": "none",
+    "size_chart": {
+      "XS": {
+        "shoulder": 37,
+        "bust": 88,
+        "waist": 72,
+        "length": 64,
+        "sleeve": 57
+      },
+      "S": {
+        "shoulder": 39,
+        "bust": 92,
+        "waist": 76,
+        "length": 66,
+        "sleeve": 59
+      },
+      "M": {
+        "shoulder": 41,
+        "bust": 96,
+        "waist": 80,
+        "length": 68,
+        "sleeve": 60
+      },
+      "L": {
+        "shoulder": 43,
+        "bust": 102,
+        "waist": 86,
+        "length": 70,
+        "sleeve": 61
+      },
+      "XL": {
+        "shoulder": 45,
+        "bust": 108,
+        "waist": 92,
+        "length": 72,
+        "sleeve": 62
+      },
+      "XXL": {
+        "shoulder": 47,
+        "bust": 114,
+        "waist": 98,
+        "length": 74,
+        "sleeve": 63
+      }
+    }
+  },
+  {
+    "id": "hm_jk_11",
+    "brand": "H&M",
+    "product_name": "Áo Khoác Biker Da Cropped Cá Tính Nữ",
+    "category": "Áo khoác da",
+    "gender": "Nữ",
+    "sizes": "XS, S, M, L",
+    "local_image_path": "assets/products/hm/hm_biker_cropped.jpg",
+    "image_url": "https://image.hm.com/products/hm_biker_cropped.jpg",
+    "price_vnd": 1499000,
+    "description": "Dáng lửng ôm eo tôn vòng hai quyến rũ, chất da mềm mại cùng chi tiết thắt lưng có khóa kim loại tạo điểm nhấn eo.",
+    "fit_cut": "slim",
+    "stretch": "low",
+    "size_chart": {
+      "XS": {
+        "shoulder": 37,
+        "bust": 86,
+        "waist": 70,
+        "length": 48,
+        "sleeve": 57
+      },
+      "S": {
+        "shoulder": 39,
+        "bust": 90,
+        "waist": 74,
+        "length": 50,
+        "sleeve": 59
+      },
+      "M": {
+        "shoulder": 41,
+        "bust": 94,
+        "waist": 78,
+        "length": 52,
+        "sleeve": 60
+      },
+      "L": {
+        "shoulder": 43,
+        "bust": 100,
+        "waist": 84,
+        "length": 54,
+        "sleeve": 61
+      },
+      "XL": {
+        "shoulder": 45,
+        "bust": 106,
+        "waist": 90,
+        "length": 56,
+        "sleeve": 62
+      },
+      "XXL": {
+        "shoulder": 47,
+        "bust": 112,
+        "waist": 96,
+        "length": 58,
+        "sleeve": 63
+      }
+    }
+  },
+  {
+    "id": "hm_jk_12",
+    "brand": "H&M",
+    "product_name": "Áo Khoác Shacket Sơ Mi Kẻ Caro Dạ Nỉ Ấm",
+    "category": "Áo sơ mi khoác",
+    "gender": "Unisex",
+    "sizes": "S, M, L, XL",
+    "local_image_path": "assets/products/hm/hm_plaid_shacket.jpg",
+    "image_url": "https://image.hm.com/products/hm_plaid_shacket.jpg",
+    "price_vnd": 1199000,
+    "description": "Họa tiết sọc tartan xanh đen cổ điển, chất dạ nỉ dày vừa phải phù hợp mặc khoác ngoài áo thun vào tiết trời thu đông se lạnh.",
+    "fit_cut": "oversized",
+    "stretch": "low",
+    "size_chart": {
+      "XS": {
+        "shoulder": 37,
+        "bust": 92,
+        "waist": 76,
+        "length": 64,
+        "sleeve": 57
+      },
+      "S": {
+        "shoulder": 39,
+        "bust": 96,
+        "waist": 80,
+        "length": 66,
+        "sleeve": 59
+      },
+      "M": {
+        "shoulder": 41,
+        "bust": 100,
+        "waist": 84,
+        "length": 68,
+        "sleeve": 60
+      },
+      "L": {
+        "shoulder": 43,
+        "bust": 106,
+        "waist": 90,
+        "length": 70,
+        "sleeve": 61
+      },
+      "XL": {
+        "shoulder": 45,
+        "bust": 112,
+        "waist": 96,
+        "length": 72,
+        "sleeve": 62
+      },
+      "XXL": {
+        "shoulder": 47,
+        "bust": 118,
+        "waist": 102,
+        "length": 74,
+        "sleeve": 63
+      }
+    }
+  },
+  {
+    "id": "hm_jk_13",
+    "brand": "H&M",
+    "product_name": "Áo Khoác Thể Thao Track Jacket Dệt Kim Retro",
+    "category": "Áo khoác thể thao",
+    "gender": "Nam",
+    "sizes": "S, M, L, XL",
+    "local_image_path": "assets/products/hm/hm_track_jacket.jpg",
+    "image_url": "https://image.hm.com/products/hm_track_jacket.jpg",
+    "price_vnd": 999000,
+    "description": "Viền sọc kẻ tay áo phong cách retro 80s, chất thun thể thao poly bóng nhẹ thấm hút tốt, cổ dựng đứng năng động.",
+    "fit_cut": "regular",
+    "stretch": "medium",
+    "size_chart": {
+      "XS": {
+        "shoulder": 39,
+        "bust": 90,
+        "waist": 72,
+        "length": 64,
+        "sleeve": 57
+      },
+      "S": {
+        "shoulder": 41,
+        "bust": 94,
+        "waist": 76,
+        "length": 66,
+        "sleeve": 59
+      },
+      "M": {
+        "shoulder": 43,
+        "bust": 98,
+        "waist": 80,
+        "length": 68,
+        "sleeve": 60
+      },
+      "L": {
+        "shoulder": 45,
+        "bust": 104,
+        "waist": 86,
+        "length": 70,
+        "sleeve": 61
+      },
+      "XL": {
+        "shoulder": 47,
+        "bust": 110,
+        "waist": 92,
+        "length": 72,
+        "sleeve": 62
+      },
+      "XXL": {
+        "shoulder": 49,
+        "bust": 116,
+        "waist": 98,
+        "length": 74,
+        "sleeve": 63
+      }
+    }
+  },
+  {
+    "id": "hm_jk_14",
+    "brand": "H&M",
+    "product_name": "Áo Khoác Teddy Bear Lông Cừu Dập Xù Siêu Đáng Yêu",
+    "category": "Áo lông cừu",
+    "gender": "Nữ",
+    "sizes": "XS, S, M, L",
+    "local_image_path": "assets/products/hm/hm_teddy_jacket.jpg",
+    "image_url": "https://image.hm.com/products/hm_teddy_jacket.jpg",
+    "price_vnd": 1399000,
+    "description": "Lớp lông xù teddy màu kem vani ngọt ngào, lót lụa satin bên trong trượt êm không bết dính. Túi xéo hai bên giữ ấm tay.",
+    "fit_cut": "oversized",
+    "stretch": "low",
+    "size_chart": {
+      "XS": {
+        "shoulder": 37,
+        "bust": 92,
+        "waist": 76,
+        "length": 64,
+        "sleeve": 57
+      },
+      "S": {
+        "shoulder": 39,
+        "bust": 96,
+        "waist": 80,
+        "length": 66,
+        "sleeve": 59
+      },
+      "M": {
+        "shoulder": 41,
+        "bust": 100,
+        "waist": 84,
+        "length": 68,
+        "sleeve": 60
+      },
+      "L": {
+        "shoulder": 43,
+        "bust": 106,
+        "waist": 90,
+        "length": 70,
+        "sleeve": 61
+      },
+      "XL": {
+        "shoulder": 45,
+        "bust": 112,
+        "waist": 96,
+        "length": 72,
+        "sleeve": 62
+      },
+      "XXL": {
+        "shoulder": 47,
+        "bust": 118,
+        "waist": 102,
+        "length": 74,
+        "sleeve": 63
+      }
+    }
+  },
+  {
+    "id": "hm_jk_15",
+    "brand": "H&M",
+    "product_name": "Áo Măng Tô Dạ Đen Cổ Điển Tối Giản Dáng Dài",
+    "category": "Áo khoác dạ",
+    "gender": "Unisex",
+    "sizes": "S, M, L, XL",
+    "local_image_path": "assets/products/hm/hm_black_coat.jpg",
+    "image_url": "https://image.hm.com/products/hm_black_coat.jpg",
+    "price_vnd": 2499000,
+    "description": "Sắc đen tuyền tối giản huyền bí, phom suông đứng tôn dáng vai. Thiết kế 1 hàng cúc đơn tinh giản, phối đồ cực kỳ thanh lịch.",
+    "fit_cut": "regular",
+    "is_long": true,
+    "stretch": "none",
+    "size_chart": {
+      "XS": {
+        "shoulder": 37,
+        "bust": 88,
+        "waist": 72,
+        "length": 100,
+        "sleeve": 57
+      },
+      "S": {
+        "shoulder": 39,
+        "bust": 92,
+        "waist": 76,
+        "length": 102,
+        "sleeve": 59
+      },
+      "M": {
+        "shoulder": 41,
+        "bust": 96,
+        "waist": 80,
+        "length": 104,
+        "sleeve": 60
+      },
+      "L": {
+        "shoulder": 43,
+        "bust": 102,
+        "waist": 86,
+        "length": 106,
+        "sleeve": 61
+      },
+      "XL": {
+        "shoulder": 45,
+        "bust": 108,
+        "waist": 92,
+        "length": 108,
+        "sleeve": 62
+      },
+      "XXL": {
+        "shoulder": 47,
+        "bust": 114,
+        "waist": 98,
+        "length": 110,
+        "sleeve": 63
+      }
+    }
+  },
+  {
+    "id": "hm_jk_16",
+    "brand": "H&M",
+    "product_name": "Áo Parka Chống Mưa Lót Lông Có Mũ Trùm Đầu",
+    "category": "Áo parka",
+    "gender": "Nữ",
+    "sizes": "S, M, L, XL",
+    "local_image_path": "assets/products/hm/hm_parka_fur.jpg",
+    "image_url": "https://image.hm.com/products/hm_parka_fur.jpg",
+    "price_vnd": 2299000,
+    "description": "Dáng áo parka thắt dây rút eo giúp định hình vóc dáng thon gọn. Lớp lót lông ấm áp và khóa kéo kép cản gió tối ưu.",
+    "fit_cut": "regular",
+    "stretch": "none",
+    "size_chart": {
+      "XS": {
+        "shoulder": 37,
+        "bust": 88,
+        "waist": 72,
+        "length": 100,
+        "sleeve": 57
+      },
+      "S": {
+        "shoulder": 39,
+        "bust": 92,
+        "waist": 76,
+        "length": 102,
+        "sleeve": 59
+      },
+      "M": {
+        "shoulder": 41,
+        "bust": 96,
+        "waist": 80,
+        "length": 104,
+        "sleeve": 60
+      },
+      "L": {
+        "shoulder": 43,
+        "bust": 102,
+        "waist": 86,
+        "length": 106,
+        "sleeve": 61
+      },
+      "XL": {
+        "shoulder": 45,
+        "bust": 108,
+        "waist": 92,
+        "length": 108,
+        "sleeve": 62
+      },
+      "XXL": {
+        "shoulder": 47,
+        "bust": 114,
+        "waist": 98,
+        "length": 110,
+        "sleeve": 63
+      }
+    }
+  },
+  {
+    "id": "strad_jk_11",
+    "brand": "Stradivarius",
+    "product_name": "Áo Khoác Cropped Trench Coat Dáng Lửng Thời Thượng",
+    "category": "Áo măng tô lửng",
+    "gender": "Nữ",
+    "sizes": "XS, S, M, L",
+    "local_image_path": "assets/products/stradivarius/stradivarius_aviator_jacket.jpg",
+    "image_url": "https://static.stradivarius.net/products/strad_crop_trench.jpg",
+    "price_vnd": 1499000,
+    "description": "Biến tấu từ trench coat cổ điển thành phom cropped trẻ trung, cầu vai phối đai cài và ve cổ bẻ lớn hiện đại.",
+    "fit_cut": "oversized",
+    "stretch": "none",
+    "size_chart": {
+      "XS": {
+        "shoulder": 37,
+        "bust": 92,
+        "waist": 76,
+        "length": 48,
+        "sleeve": 57
+      },
+      "S": {
+        "shoulder": 39,
+        "bust": 96,
+        "waist": 80,
+        "length": 50,
+        "sleeve": 59
+      },
+      "M": {
+        "shoulder": 41,
+        "bust": 100,
+        "waist": 84,
+        "length": 52,
+        "sleeve": 60
+      },
+      "L": {
+        "shoulder": 43,
+        "bust": 106,
+        "waist": 90,
+        "length": 54,
+        "sleeve": 61
+      },
+      "XL": {
+        "shoulder": 45,
+        "bust": 112,
+        "waist": 96,
+        "length": 56,
+        "sleeve": 62
+      },
+      "XXL": {
+        "shoulder": 47,
+        "bust": 118,
+        "waist": 102,
+        "length": 58,
+        "sleeve": 63
+      }
+    }
+  },
+  {
+    "id": "strad_jk_12",
+    "brand": "Stradivarius",
+    "product_name": "Áo Khoác Chần Bông Quilted Họa Tiết Quả Trám Nhẹ Nhàng",
+    "category": "Áo chần bông",
+    "gender": "Nữ",
+    "sizes": "XS, S, M, L",
+    "local_image_path": "assets/products/stradivarius/stradivarius_aviator_jacket.jpg",
+    "image_url": "https://static.stradivarius.net/products/strad_quilted.jpg",
+    "price_vnd": 1299000,
+    "description": "Họa tiết trần bông quả trám phong cách tiểu thư đồng quê nước Anh, viền cổ nẹp vải thô và nút bấm bọc vải đồng màu.",
+    "fit_cut": "regular",
+    "stretch": "none",
+    "size_chart": {
+      "XS": {
+        "shoulder": 37,
+        "bust": 88,
+        "waist": 72,
+        "length": 64,
+        "sleeve": 57
+      },
+      "S": {
+        "shoulder": 39,
+        "bust": 92,
+        "waist": 76,
+        "length": 66,
+        "sleeve": 59
+      },
+      "M": {
+        "shoulder": 41,
+        "bust": 96,
+        "waist": 80,
+        "length": 68,
+        "sleeve": 60
+      },
+      "L": {
+        "shoulder": 43,
+        "bust": 102,
+        "waist": 86,
+        "length": 70,
+        "sleeve": 61
+      },
+      "XL": {
+        "shoulder": 45,
+        "bust": 108,
+        "waist": 92,
+        "length": 72,
+        "sleeve": 62
+      },
+      "XXL": {
+        "shoulder": 47,
+        "bust": 114,
+        "waist": 98,
+        "length": 74,
+        "sleeve": 63
+      }
+    }
+  },
+  {
+    "id": "strad_jk_13",
+    "brand": "Stradivarius",
+    "product_name": "Áo Khoác Bomber Bóng Chày Varsity Thêu Logo Nổi",
+    "category": "Áo khoác bomber",
+    "gender": "Nữ",
+    "sizes": "S, M, L",
+    "local_image_path": "assets/products/stradivarius/stradivarius_aviator_jacket.jpg",
+    "image_url": "https://static.stradivarius.net/products/strad_varsity.jpg",
+    "price_vnd": 1699000,
+    "description": "Phối tay da nhân tạo màu trắng ngà kết hợp thân áo dạ màu xanh lá đậm học viện, chữ thêu khăn xù nổi bật trước ngực.",
+    "fit_cut": "oversized",
+    "stretch": "low",
+    "size_chart": {
+      "XS": {
+        "shoulder": 37,
+        "bust": 92,
+        "waist": 76,
+        "length": 64,
+        "sleeve": 57
+      },
+      "S": {
+        "shoulder": 39,
+        "bust": 96,
+        "waist": 80,
+        "length": 66,
+        "sleeve": 59
+      },
+      "M": {
+        "shoulder": 41,
+        "bust": 100,
+        "waist": 84,
+        "length": 68,
+        "sleeve": 60
+      },
+      "L": {
+        "shoulder": 43,
+        "bust": 106,
+        "waist": 90,
+        "length": 70,
+        "sleeve": 61
+      },
+      "XL": {
+        "shoulder": 45,
+        "bust": 112,
+        "waist": 96,
+        "length": 72,
+        "sleeve": 62
+      },
+      "XXL": {
+        "shoulder": 47,
+        "bust": 118,
+        "waist": 102,
+        "length": 74,
+        "sleeve": 63
+      }
+    }
+  },
+  {
+    "id": "strad_jk_14",
+    "brand": "Stradivarius",
+    "product_name": "Áo Khoác Lông Nhân Tạo Dày Dặn Sang Trọng Màu Nâu Tây",
+    "category": "Áo khoác lông",
+    "gender": "Nữ",
+    "sizes": "XS, S, M, L",
+    "local_image_path": "assets/products/stradivarius/stradivarius_aviator_jacket.jpg",
+    "image_url": "https://static.stradivarius.net/products/strad_fur_coat.jpg",
+    "price_vnd": 2199000,
+    "description": "Lớp lông tơ nhân tạo bồng bềnh êm ái, màu nâu tây tôn da, thích hợp diện trong các bữa tiệc đêm mùa đông sang trọng.",
+    "fit_cut": "regular",
+    "stretch": "none",
+    "size_chart": {
+      "XS": {
+        "shoulder": 37,
+        "bust": 88,
+        "waist": 72,
+        "length": 64,
+        "sleeve": 57
+      },
+      "S": {
+        "shoulder": 39,
+        "bust": 92,
+        "waist": 76,
+        "length": 66,
+        "sleeve": 59
+      },
+      "M": {
+        "shoulder": 41,
+        "bust": 96,
+        "waist": 80,
+        "length": 68,
+        "sleeve": 60
+      },
+      "L": {
+        "shoulder": 43,
+        "bust": 102,
+        "waist": 86,
+        "length": 70,
+        "sleeve": 61
+      },
+      "XL": {
+        "shoulder": 45,
+        "bust": 108,
+        "waist": 92,
+        "length": 72,
+        "sleeve": 62
+      },
+      "XXL": {
+        "shoulder": 47,
+        "bust": 114,
+        "waist": 98,
+        "length": 74,
+        "sleeve": 63
+      }
+    }
+  },
+  {
+    "id": "strad_jk_15",
+    "brand": "Stradivarius",
+    "product_name": "Áo Gile Khoác Dạ Dáng Dài Thắt Đai Nữ Tính",
+    "category": "Áo gile dạ",
+    "gender": "Nữ",
+    "sizes": "XS, S, M, L",
+    "local_image_path": "assets/products/stradivarius/stradivarius_aviator_jacket.jpg",
+    "image_url": "https://static.stradivarius.net/products/strad_gile_coat.jpg",
+    "price_vnd": 1799000,
+    "description": "Thiết kế sát nách cách tân giúp dễ dàng phối layer cùng áo len cổ lọ, xẻ tà 2 bên tạo nét bay bổng nhẹ nhàng khi bước đi.",
+    "fit_cut": "regular",
+    "stretch": "none",
+    "size_chart": {
+      "XS": {
+        "shoulder": 37,
+        "bust": 88,
+        "waist": 72,
+        "length": 100,
+        "sleeve": 57
+      },
+      "S": {
+        "shoulder": 39,
+        "bust": 92,
+        "waist": 76,
+        "length": 102,
+        "sleeve": 59
+      },
+      "M": {
+        "shoulder": 41,
+        "bust": 96,
+        "waist": 80,
+        "length": 104,
+        "sleeve": 60
+      },
+      "L": {
+        "shoulder": 43,
+        "bust": 102,
+        "waist": 86,
+        "length": 106,
+        "sleeve": 61
+      },
+      "XL": {
+        "shoulder": 45,
+        "bust": 108,
+        "waist": 92,
+        "length": 108,
+        "sleeve": 62
+      },
+      "XXL": {
+        "shoulder": 47,
+        "bust": 114,
+        "waist": 98,
+        "length": 110,
+        "sleeve": 63
+      }
+    }
+  },
+  {
+    "id": "strad_jk_16",
+    "brand": "Stradivarius",
+    "product_name": "Áo Măng Tô Da Bóng Hiệu Ứng Ma Trận Đẳng Cấp",
+    "category": "Áo măng tô da",
+    "gender": "Nữ",
+    "sizes": "S, M, L",
+    "local_image_path": "assets/products/stradivarius/stradivarius_aviator_jacket.jpg",
+    "image_url": "https://static.stradivarius.net/products/strad_leather_trench.jpg",
+    "price_vnd": 2699000,
+    "description": "Chất da PU bóng vinyl cá tính phong cách Matrix Y2K, cản gió tuyệt đối và chống bám bụi bẩn vượt trội.",
+    "fit_cut": "regular",
+    "stretch": "none",
+    "size_chart": {
+      "XS": {
+        "shoulder": 37,
+        "bust": 88,
+        "waist": 72,
+        "length": 100,
+        "sleeve": 57
+      },
+      "S": {
+        "shoulder": 39,
+        "bust": 92,
+        "waist": 76,
+        "length": 102,
+        "sleeve": 59
+      },
+      "M": {
+        "shoulder": 41,
+        "bust": 96,
+        "waist": 80,
+        "length": 104,
+        "sleeve": 60
+      },
+      "L": {
+        "shoulder": 43,
+        "bust": 102,
+        "waist": 86,
+        "length": 106,
+        "sleeve": 61
+      },
+      "XL": {
+        "shoulder": 45,
+        "bust": 108,
+        "waist": 92,
+        "length": 108,
+        "sleeve": 62
+      },
+      "XXL": {
+        "shoulder": 47,
+        "bust": 114,
+        "waist": 98,
+        "length": 110,
+        "sleeve": 63
+      }
+    }
+  },
+  {
+    "id": "pullbear_jk_11",
+    "brand": "Pull&Bear",
+    "product_name": "Áo Khoác Nỉ Fleece Họa Tiết Hình Học Aztec Thổ Cẩm",
+    "category": "Áo nỉ fleece",
+    "gender": "Unisex",
+    "sizes": "S, M, L, XL",
+    "local_image_path": "assets/products/pullandbear/pullbear_fleece_print.jpg",
+    "image_url": "https://static.pullandbear.net/products/pullbear_fleece_print.jpg",
+    "price_vnd": 1199000,
+    "description": "Họa tiết dệt hoa văn thổ cẩm vintage Bohemian bắt mắt, cổ trụ ấm áp có khóa kéo 1/4 tiện lợi điều chỉnh độ thoáng.",
+    "fit_cut": "oversized",
+    "stretch": "low",
+    "size_chart": {
+      "XS": {
+        "shoulder": 37,
+        "bust": 92,
+        "waist": 76,
+        "length": 64,
+        "sleeve": 57
+      },
+      "S": {
+        "shoulder": 39,
+        "bust": 96,
+        "waist": 80,
+        "length": 66,
+        "sleeve": 59
+      },
+      "M": {
+        "shoulder": 41,
+        "bust": 100,
+        "waist": 84,
+        "length": 68,
+        "sleeve": 60
+      },
+      "L": {
+        "shoulder": 43,
+        "bust": 106,
+        "waist": 90,
+        "length": 70,
+        "sleeve": 61
+      },
+      "XL": {
+        "shoulder": 45,
+        "bust": 112,
+        "waist": 96,
+        "length": 72,
+        "sleeve": 62
+      },
+      "XXL": {
+        "shoulder": 47,
+        "bust": 118,
+        "waist": 102,
+        "length": 74,
+        "sleeve": 63
+      }
+    }
+  },
+  {
+    "id": "pullbear_jk_12",
+    "brand": "Pull&Bear",
+    "product_name": "Áo Khoác Dù Dáng Rộng Phong Cách Streetwear Skater",
+    "category": "Áo khoác gió",
+    "gender": "Unisex",
+    "sizes": "S, M, L, XL",
+    "local_image_path": "assets/products/pullandbear/pullbear_black_denim.jpg",
+    "image_url": "https://static.pullandbear.net/products/pullbear_windbreaker.jpg",
+    "price_vnd": 1099000,
+    "description": "Form boxy rộng rãi đậm chất trượt ván đường phố, bo chun co giãn ở lai áo và cổ tay chống gió thốc.",
+    "fit_cut": "oversized",
+    "stretch": "none",
+    "size_chart": {
+      "XS": {
+        "shoulder": 37,
+        "bust": 92,
+        "waist": 76,
+        "length": 64,
+        "sleeve": 57
+      },
+      "S": {
+        "shoulder": 39,
+        "bust": 96,
+        "waist": 80,
+        "length": 66,
+        "sleeve": 59
+      },
+      "M": {
+        "shoulder": 41,
+        "bust": 100,
+        "waist": 84,
+        "length": 68,
+        "sleeve": 60
+      },
+      "L": {
+        "shoulder": 43,
+        "bust": 106,
+        "waist": 90,
+        "length": 70,
+        "sleeve": 61
+      },
+      "XL": {
+        "shoulder": 45,
+        "bust": 112,
+        "waist": 96,
+        "length": 72,
+        "sleeve": 62
+      },
+      "XXL": {
+        "shoulder": 47,
+        "bust": 118,
+        "waist": 102,
+        "length": 74,
+        "sleeve": 63
+      }
+    }
+  },
+  {
+    "id": "pullbear_jk_13",
+    "brand": "Pull&Bear",
+    "product_name": "Áo Khoác Bomber Phi Công MA-1 Phối Lớp Lót Cam Nổi Bật",
+    "category": "Áo khoác bomber",
+    "gender": "Nam",
+    "sizes": "S, M, L, XL, XXL",
+    "local_image_path": "assets/products/pullandbear/pullbear_ma1_bomber.jpg",
+    "image_url": "https://static.pullandbear.net/products/pullbear_ma1_bomber.jpg",
+    "price_vnd": 1599000,
+    "description": "Nguyên bản thiết kế áo phi công MA-1 với lớp lót dù màu cam dạ quang cứu hộ, chất vải satin bóng chống thấm dày dặn.",
+    "fit_cut": "oversized",
+    "stretch": "none",
+    "size_chart": {
+      "XS": {
+        "shoulder": 39,
+        "bust": 94,
+        "waist": 76,
+        "length": 64,
+        "sleeve": 57
+      },
+      "S": {
+        "shoulder": 41,
+        "bust": 98,
+        "waist": 80,
+        "length": 66,
+        "sleeve": 59
+      },
+      "M": {
+        "shoulder": 43,
+        "bust": 102,
+        "waist": 84,
+        "length": 68,
+        "sleeve": 60
+      },
+      "L": {
+        "shoulder": 45,
+        "bust": 108,
+        "waist": 90,
+        "length": 70,
+        "sleeve": 61
+      },
+      "XL": {
+        "shoulder": 47,
+        "bust": 114,
+        "waist": 96,
+        "length": 72,
+        "sleeve": 62
+      },
+      "XXL": {
+        "shoulder": 49,
+        "bust": 120,
+        "waist": 102,
+        "length": 74,
+        "sleeve": 63
+      }
+    }
+  },
+  {
+    "id": "pullbear_jk_14",
+    "brand": "Pull&Bear",
+    "product_name": "Áo Khoác Denim Đen Tuyền Wash Axit Rách Bụi Bặm",
+    "category": "Áo denim",
+    "gender": "Unisex",
+    "sizes": "S, M, L, XL",
+    "local_image_path": "assets/products/pullandbear/pullbear_black_denim.jpg",
+    "image_url": "https://static.pullandbear.net/products/pullbear_black_denim.jpg",
+    "price_vnd": 1399000,
+    "description": "Hiệu ứng wash axit loang màu grunge rock, form dropped-shoulder vai trễ phóng khoáng cho giới trẻ.",
+    "fit_cut": "oversized",
+    "stretch": "none",
+    "size_chart": {
+      "XS": {
+        "shoulder": 37,
+        "bust": 92,
+        "waist": 76,
+        "length": 64,
+        "sleeve": 57
+      },
+      "S": {
+        "shoulder": 39,
+        "bust": 96,
+        "waist": 80,
+        "length": 66,
+        "sleeve": 59
+      },
+      "M": {
+        "shoulder": 41,
+        "bust": 100,
+        "waist": 84,
+        "length": 68,
+        "sleeve": 60
+      },
+      "L": {
+        "shoulder": 43,
+        "bust": 106,
+        "waist": 90,
+        "length": 70,
+        "sleeve": 61
+      },
+      "XL": {
+        "shoulder": 45,
+        "bust": 112,
+        "waist": 96,
+        "length": 72,
+        "sleeve": 62
+      },
+      "XXL": {
+        "shoulder": 47,
+        "bust": 118,
+        "waist": 102,
+        "length": 74,
+        "sleeve": 63
+      }
+    }
+  },
+  {
+    "id": "pullbear_jk_15",
+    "brand": "Pull&Bear",
+    "product_name": "Áo Gile Phao Puffer Vest Chần Bông Phối Layer",
+    "category": "Áo gile phao",
+    "gender": "Unisex",
+    "sizes": "S, M, L, XL",
+    "local_image_path": "assets/products/pullandbear/pullbear_puffer_vest.jpg",
+    "image_url": "https://static.pullandbear.net/products/pullbear_puffer_vest.jpg",
+    "price_vnd": 1199000,
+    "description": "Áo phao sát nách phom phồng trendy, cổ cao giữ ấm cổ tuyệt đối, dễ phối cùng hoodie nỉ năng động dạo phố.",
+    "fit_cut": "regular",
+    "stretch": "none",
+    "size_chart": {
+      "XS": {
+        "shoulder": 37,
+        "bust": 88,
+        "waist": 72,
+        "length": 64,
+        "sleeve": 57
+      },
+      "S": {
+        "shoulder": 39,
+        "bust": 92,
+        "waist": 76,
+        "length": 66,
+        "sleeve": 59
+      },
+      "M": {
+        "shoulder": 41,
+        "bust": 96,
+        "waist": 80,
+        "length": 68,
+        "sleeve": 60
+      },
+      "L": {
+        "shoulder": 43,
+        "bust": 102,
+        "waist": 86,
+        "length": 70,
+        "sleeve": 61
+      },
+      "XL": {
+        "shoulder": 45,
+        "bust": 108,
+        "waist": 92,
+        "length": 72,
+        "sleeve": 62
+      },
+      "XXL": {
+        "shoulder": 47,
+        "bust": 114,
+        "waist": 98,
+        "length": 74,
+        "sleeve": 63
+      }
+    }
+  },
+  {
+    "id": "pullbear_jk_16",
+    "brand": "Pull&Bear",
+    "product_name": "Áo Khoác Phong Cách Leo Núi Gorpcore Dây Khóa Chống Nước",
+    "category": "Áo khoác dã ngoại",
+    "gender": "Unisex",
+    "sizes": "S, M, L, XL",
+    "local_image_path": "assets/products/pullandbear/pullbear_black_denim.jpg",
+    "image_url": "https://static.pullandbear.net/products/pullbear_gorpcore.jpg",
+    "price_vnd": 1799000,
+    "description": "Chất liệu kỹ thuật 3 lớp chống nước cao cấp, các đường may dán băng keo ép nhiệt seam-sealed ngăn nước mưa ngấm vào cơ thể.",
+    "fit_cut": "regular",
+    "stretch": "none",
+    "size_chart": {
+      "XS": {
+        "shoulder": 37,
+        "bust": 88,
+        "waist": 72,
+        "length": 64,
+        "sleeve": 57
+      },
+      "S": {
+        "shoulder": 39,
+        "bust": 92,
+        "waist": 76,
+        "length": 66,
+        "sleeve": 59
+      },
+      "M": {
+        "shoulder": 41,
+        "bust": 96,
+        "waist": 80,
+        "length": 68,
+        "sleeve": 60
+      },
+      "L": {
+        "shoulder": 43,
+        "bust": 102,
+        "waist": 86,
+        "length": 70,
+        "sleeve": 61
+      },
+      "XL": {
+        "shoulder": 45,
+        "bust": 108,
+        "waist": 92,
+        "length": 72,
+        "sleeve": 62
+      },
+      "XXL": {
+        "shoulder": 47,
+        "bust": 114,
+        "waist": 98,
+        "length": 74,
+        "sleeve": 63
+      }
+    }
+  }
+]
