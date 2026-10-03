@@ -39,7 +39,7 @@ services:
       - QDRANT_COLLECTION_NAME=${QDRANT_COLLECTION_NAME}
       - CORS_ORIGINS=http://localhost:2000,http://frontend:2000,http://127.0.0.1:2000,http://localhost:3000,http://frontend:3000,http://127.0.0.1:3000
       - VISION_SERVICE_URL=http://vision-service:8002
-    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload --reload-dir app
     networks:
       - app-network
 

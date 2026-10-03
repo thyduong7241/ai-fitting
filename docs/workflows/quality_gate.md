@@ -35,9 +35,9 @@ flowchart TD
     Layer2Check -- "✅ Đạt chuẩn" --> Layer3
 
     subgraph Geometry_Checks["Kiểm tra hình học & tư thế (Landmark Geometry)"]
-        Layer3["3. Edge Cut-Off Check<br/>- Đỉnh đầu (Crown): crown_y &le; 0.005 hoặc nose.y &le; 0.05<br/>- Bàn chân (Heel/Ankle/Toe): y &ge; 0.97 hoặc vis &lt; 0.40"]
+        Layer3["3. Edge Cut-Off Check<br/>- Đỉnh đầu (Crown): crown_y &le; 0.005 hoặc nose.y &le; 0.03<br/>- Bàn chân (Heel/Ankle/Toe): y &ge; 0.990 hoặc vis &lt; 0.20"]
         Layer3 --> Layer4["4. Body Occlusion Check<br/>Kiểm tra visibility các điểm cốt lõi (Vai, Hông, Gối)<br/>&ge; 2 điểm có vis &lt; 0.60 &rarr; Bị che khuất"]
-        Layer4 --> Layer5["5. Pose Orientation Check<br/>- Front view: chênh lệch trục Z hai vai &gt; 0.20 &rarr; Xoay chéo<br/>- Side view: khoảng cách X hai vai &gt; 0.28*W &rarr; Nghiêng lệch"]
+        Layer4 --> Layer5["5. Pose Orientation Check<br/>- Front view: chênh lệch trục Z hai vai &gt; 0.20 &rarr; Xoay chéo<br/>- Side view: khoảng cách X hai vai &gt; 0.32*W &rarr; Nghiêng lệch"]
     end
 
     Layer3 --> Layer4
@@ -47,7 +47,8 @@ flowchart TD
     subgraph Visual_Checks["Kiểm tra thị giác ảnh (OpenCV ROI Processing)"]
         Layer6["6. Fast ROI Blur & Lighting Analysis<br/>Crop vùng thân người (Torso ROI: Vai &rarr; Gối)"]
         Layer6 --> CalcBlur["Tính Blur Score = cv2.Laplacian(gray_roi).var()<br/>Tính Ánh sáng = gray_roi.mean()"]
-        CalcBlur --> BlurCheck{"Độ nét & Ánh sáng đạt?<br/>- Blur &ge; 75.0<br/>- 40.0 &le; Light &le; 225.0"}
+        BlurCheck{"Độ nét & Ánh sáng đạt?<br/>- Front Blur &ge; 25.0 / Side &ge; 15.0<br/>- 20.0 &le; Light &le; 240.0"}
+        CalcBlur --> BlurCheck
         BlurCheck -- "❌ Mờ / Rung tay" --> FlagBlur["Ghi nhận lỗi: blurry"]
         BlurCheck -- "❌ Quá tối / Quá chói" --> FlagLight["Ghi nhận lỗi: bad_lighting"]
         BlurCheck -- "✅ Đạt chuẩn" --> Aggregate
@@ -69,13 +70,13 @@ flowchart TD
 | **0** | **Image Decode** | `cv2.imdecode(buf, cv2.IMREAD_COLOR)` $\to$ RGB | `blurry` | `error` |
 | **1** | **Resolution Gate** | Chiều cao $H \ge 800\text{ px}$, Chiều rộng $W \ge 600\text{ px}$ | `low_resolution` | `error` |
 | **2** | **Person Detection** | MediaPipe Pose Single-Pass phát hiện đủ $33$ keypoints toàn thân | `no_person` | `error` |
-| **3.1** | **Head Cut-Off** | Khoảng cách đỉnh đầu dựa trên nhịp Mũi - Trọng tâm vai:<br/>$\text{crown\_y} = \text{nose.y} - (0.55 \times \text{head\_span})$<br/>Kích hoạt khi: $\text{crown\_y} \le 0.005$ hoặc $\text{nose.y} \le 0.05$ | `head_cut_off` | `error` |
-| **3.2** | **Feet Cut-Off** | Vị trí bàn chân (Cổ chân 27,28; Gót chân 29,30; Đầu ngón chân 31,32):<br/>$\max(y_{\text{feet}}) \ge 0.985$ hoặc $(\min(\text{vis}_{27,28,31,32}) < 0.25 \text{ và } \text{avg}(\text{vis}_{\text{feet}}) < 0.35)$<br/>*(Chỉ áp dụng cho `front`, `side` bỏ qua do dùng P2M từ ảnh Front)* | `feet_cut_off` | `error` |
+| **3.1** | **Head Cut-Off** | Khoảng cách đỉnh đầu dựa trên nhịp Mũi - Trọng tâm vai:<br/>$\text{crown\_y} = \text{nose.y} - (0.55 \times \text{head\_span})$<br/>Kích hoạt khi: $\text{crown\_y} \le 0.005$ hoặc $\text{nose.y} \le 0.03$ | `head_cut_off` | `error` |
+| **3.2** | **Feet Cut-Off** | Vị trí bàn chân (Cổ chân 27,28; Gót chân 29,30; Đầu ngón chân 31,32):<br/>$\max(y_{\text{feet}}) \ge 0.990$ hoặc $(\min(\text{vis}_{27,28,31,32}) < 0.20 \text{ và } \text{avg}(\text{vis}_{\text{feet}}) < 0.30)$<br/>*(Chỉ áp dụng cho `front`, `side` bỏ qua do dùng P2M từ ảnh Front)* | `feet_cut_off` | `error` |
 | **4** | **Occlusion Check** | Các điểm nhân trắc cốt lõi (Vai 11-12, Hông 23-24, Đầu gối 25-26):<br/>Số điểm có $\text{visibility} < 0.60 \ge 2$<br/>*(Chỉ áp dụng cho `front`, `side` chấp nhận che khuất 1 bên thân)* | `body_occluded` | `error` |
 | **5.1** | **Front Angle** | Ảnh thẳng (Front view): Chênh lệch trục $Z$ giữa 2 vai:<br/>$|Z_{11} - Z_{12}| > 0.20$ (đang đứng xoay góc chéo $> 25^\circ$) | `bad_pose` | `error` |
 | **5.2** | **Side Angle** | Ảnh nghiêng (Side view): Hình chiếu bề ngang vai trên ảnh:<br/>$|X_{11} - X_{12}| \times W > 0.32 \times W$ (chưa xoay ngang đúng $90^\circ$) | `bad_pose` | `warning` |
-| **6.1** | **Motion Blur** | Crop Torso ROI (từ vai đến gối), chuyển Grayscale:<br/>- Front view: $\text{Blur Score} < 35.0$<br/>- Side view: $\text{Blur Score} < 20.0$ (nới lỏng vì chỉ cần dò viền biên) | `blurry` | `error` |
-| **6.2** | **Lighting** | Cường độ sáng trung bình vùng thân người: $\mu = \text{mean}(\text{gray\_roi})$<br/>- Quá tối: $\mu < 25.0$<br/>- Cháy sáng: $\mu > 235.0$ | `bad_lighting` | `error` |
+| **6.1** | **Motion Blur** | Crop Torso ROI (từ vai đến gối), chuyển Grayscale:<br/>- Front view: $\text{Blur Score} < 25.0$<br/>- Side view: $\text{Blur Score} < 15.0$ (nới lỏng vì chỉ cần dò viền biên) | `blurry` | `error` |
+| **6.2** | **Lighting** | Cường độ sáng trung bình vùng thân người: $\mu = \text{mean}(\text{gray\_roi})$<br/>- Quá tối: $\mu < 20.0$<br/>- Cháy sáng: $\mu > 240.0$ | `bad_lighting` | `error` |
 
 ---
 

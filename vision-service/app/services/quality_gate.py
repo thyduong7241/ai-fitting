@@ -92,7 +92,7 @@ def evaluate_quality(
     head_span = max(0.05, mid_shoulder_y - nose.y)
     crown_y = nose.y - (head_span * 0.55)
 
-    if crown_y <= 0.005 or nose.y <= 0.05:
+    if crown_y <= 0.005 or nose.y <= 0.03:
         issues.append(
             QualityIssue(
                 code="head_cut_off",
@@ -112,8 +112,8 @@ def evaluate_quality(
         min_primary_vis = min(landmarks[idx].visibility for idx in primary_feet_indices)
         avg_feet_vis = sum(landmarks[idx].visibility for idx in feet_indices) / len(feet_indices)
 
-        # Trigger cut-off only if feet touch border (y >= 0.985) or feet are genuinely occluded/invisible
-        if max_feet_y >= 0.985 or (min_primary_vis < 0.25 and avg_feet_vis < 0.35):
+        # Trigger cut-off only if feet touch border (y >= 0.990) or feet are genuinely occluded/invisible
+        if max_feet_y >= 0.990 or (min_primary_vis < 0.20 and avg_feet_vis < 0.30):
             issues.append(
                 QualityIssue(
                     code="feet_cut_off",
@@ -193,7 +193,7 @@ def evaluate_quality(
         mean_intensity = 128.0
 
     # User-Friendly Thresholds: phone photos in normal room lighting pass smoothly
-    min_blur = 20.0 if image_type == "side" else 35.0
+    min_blur = 15.0 if image_type == "side" else 25.0
     if blur_score < min_blur:
         issues.append(
             QualityIssue(
@@ -203,7 +203,7 @@ def evaluate_quality(
             )
         )
 
-    if mean_intensity < 25.0:
+    if mean_intensity < 20.0:
         issues.append(
             QualityIssue(
                 code="bad_lighting",
@@ -211,7 +211,7 @@ def evaluate_quality(
                 message="Ảnh quá tối hoặc thiếu sáng. Vui lòng bật đèn hoặc đứng nơi sáng hơn.",
             )
         )
-    elif mean_intensity > 235.0:
+    elif mean_intensity > 240.0:
         issues.append(
             QualityIssue(
                 code="bad_lighting",
