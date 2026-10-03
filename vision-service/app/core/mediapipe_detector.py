@@ -10,9 +10,11 @@ import numpy as np
 try:
     import mediapipe as mp
     mp_pose = mp.solutions.pose
-except (ImportError, AttributeError):
+    print("[INFO] Successfully imported mediapipe.solutions.pose")
+except Exception as e:
     mp = None
     mp_pose = None
+    print(f"[WARN] Could not import mediapipe: {e}")
 
 
 class LandmarkPoint:
